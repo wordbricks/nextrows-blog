@@ -70,7 +70,7 @@ npm install
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+4. Open [http://localhost:4321](http://localhost:4321) in your browser
 
 ## 📝 Adding Blog Posts
 

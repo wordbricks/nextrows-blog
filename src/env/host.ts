@@ -5,5 +5,5 @@ const localHost = isServer() ? "localhost" : location.hostname;
 
 export const HOST = {
   [ENV.PROD]: `https://blog.nextrows.com`,
-  [ENV.LOCAL]: `http://${localHost}:3000`,
+  [ENV.LOCAL]: `http://${localHost}:4321`,
 } as const;
