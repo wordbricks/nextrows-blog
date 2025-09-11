@@ -16,7 +16,6 @@
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
-    "remark-slug": "^7.0.1",
     "rss": "^1.2.2"
   },
   "devDependencies": {
