@@ -1,132 +1,158 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Use class-based dark mode so the toggle controls it */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --text-5xl: 2.5rem;
+    --text-5xl--line-height: 1;
+    --text-6xl: 2.75rem;
+    --text-6xl--line-height: 1;
+    --text-7xl: 4.5rem;
+    --text-7xl--line-height: 1;
+    --text-8xl: 6.25rem;
+    --text-8xl--line-height: 1;
+
+    --shadow-sm: 0 5px 10px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+    --color-accent-1: #fafafa;
+    --color-accent-2: #eaeaea;
+    --color-accent-7: #333333;
+    --color-success: #0070f3;
+    --color-cyan: #79ffe1;
+}
 
 /* Smooth scrolling for anchor links */
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 /* Offset for anchor links to account for fixed headers */
 .prose h2[id],
 .prose h3[id] {
-  scroll-margin-top: 80px;
+    scroll-margin-top: 80px;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Enhanced typography for blog posts */
 .prose {
-  @apply text-lg;
+    @apply text-lg;
 }
 
 .prose p {
-  @apply mb-6 leading-relaxed;
-  line-height: 1.8;
+    @apply mb-6 leading-relaxed;
+    line-height: 1.8;
 }
 
 .prose h1 {
-  @apply text-4xl font-bold mb-6 mt-10;
+    @apply text-4xl font-bold mb-6 mt-10;
 }
 
 .prose h2 {
-  @apply text-3xl font-bold mb-5 mt-8;
+    @apply text-3xl font-bold mb-5 mt-8;
 }
 
 .prose h3 {
-  @apply text-2xl font-semibold mb-4 mt-6;
+    @apply text-2xl font-semibold mb-4 mt-6;
 }
 
 .prose h4 {
-  @apply text-xl font-semibold mb-3 mt-5;
+    @apply text-xl font-semibold mb-3 mt-5;
 }
 
-.prose ul, .prose ol {
-  @apply mb-6 space-y-2;
+.prose ul,
+.prose ol {
+    @apply mb-6 space-y-2;
 }
 
 .prose li {
-  @apply leading-relaxed;
-  line-height: 1.8;
+    @apply leading-relaxed;
+    line-height: 1.8;
 }
 
 .prose blockquote {
-  @apply border-l-4 border-orange-500 pl-6 py-2 my-6 italic;
+    @apply border-l-4 border-orange-500 pl-6 py-2 my-6 italic;
 }
 
 .prose hr {
-  @apply my-8 border-stone-300 dark:border-stone-700;
+    @apply my-8 border-stone-300 dark:border-stone-700;
 }
 
 /* Code block styling */
 pre {
-  @apply bg-stone-100 dark:bg-stone-900 border-2 border-stone-300 dark:border-stone-700 rounded-lg p-5 my-8 overflow-x-auto;
-  @apply shadow-md text-base;
-  line-height: 1.6;
+    @apply bg-stone-100 dark:bg-stone-900 border-2 border-stone-300 dark:border-stone-700 rounded-lg p-5 my-8 overflow-x-auto;
+    @apply shadow-md text-base;
+    line-height: 1.6;
 }
 
 pre code {
-  @apply bg-transparent p-0 rounded-none;
-  @apply text-stone-800 dark:text-stone-200;
-  font-size: 0.95rem;
+    @apply bg-transparent p-0 rounded-none;
+    @apply text-stone-800 dark:text-stone-200;
+    font-size: 0.95rem;
 }
 
 /* Inline code styling */
 code:not(pre code) {
-  @apply bg-orange-100 dark:bg-orange-950 text-orange-800 dark:text-orange-200;
-  @apply px-2 py-1 rounded font-mono;
-  @apply border border-orange-200 dark:border-orange-900;
-  font-size: 0.9rem;
+    @apply bg-orange-100 dark:bg-orange-950 text-orange-800 dark:text-orange-200;
+    @apply px-2 py-1 rounded font-mono;
+    @apply border border-orange-200 dark:border-orange-900;
+    font-size: 0.9rem;
 }
-
 
 /* Table styling for markdown */
 table {
-  @apply w-full border-collapse my-8 text-base;
+    @apply w-full border-collapse my-8 text-base;
 }
 
 table th,
 table td {
-  @apply border border-stone-300 dark:border-stone-700 px-5 py-3;
+    @apply border border-stone-300 dark:border-stone-700 px-5 py-3;
 }
 
 table th {
-  @apply bg-stone-100 dark:bg-stone-800 font-semibold text-left;
-  @apply text-stone-900 dark:text-stone-100 text-lg;
+    @apply bg-stone-100 dark:bg-stone-800 font-semibold text-left;
+    @apply text-stone-900 dark:text-stone-100 text-lg;
 }
 
 table td {
-  @apply bg-white dark:bg-stone-900;
-  @apply text-stone-700 dark:text-stone-300;
-  line-height: 1.6;
+    @apply bg-white dark:bg-stone-900;
+    @apply text-stone-700 dark:text-stone-300;
+    line-height: 1.6;
 }
 
 table tr:hover td {
-  @apply bg-stone-50 dark:bg-stone-800;
+    @apply bg-stone-50 dark:bg-stone-800;
 }
 
 /* Button Styles following NextRows guideline */
-@layer components {
-  /* Primary Button Style */
-  .btn-primary {
+@utility btn-primary {
     @apply relative px-6 py-3 bg-orange-600 text-white font-medium rounded-lg transition-all duration-200 hover:bg-orange-700 hover:shadow-lg active:scale-95 box-border;
-  }
-  
-  /* Secondary Button Style */
-  .btn-secondary {
+}
+
+@utility btn-secondary {
     @apply relative px-6 py-3 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 font-medium rounded-lg border border-stone-300 dark:border-stone-600 transition-all duration-200 hover:bg-stone-50 dark:hover:bg-stone-700 hover:shadow-md active:scale-95 box-border;
-  }
-  
-  /* Outlined Button Style - Following guideline with dashed border */
-  .btn-outline {
+}
+
+/* Outlined Button Style - Following guideline with dashed border */
+@utility btn-outline {
     @apply relative px-6 py-3 bg-white dark:bg-transparent text-orange-600 dark:text-orange-400 font-medium rounded-md border-2 border-dashed border-orange-600 dark:border-orange-400 transition-all duration-200 hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:shadow-md active:scale-95 box-border;
-  }
-  
-  /* Ghost Button Style */
-  .btn-ghost {
+}
+
+/* Ghost Button Style */
+@utility btn-ghost {
     @apply relative px-4 py-2 text-stone-600 dark:text-stone-400 font-medium rounded-lg transition-all duration-200 hover:bg-stone-100 dark:hover:bg-stone-800 active:scale-95 box-border;
-  }
+}
+
+@utility container {
+    margin-inline: auto;
+    padding-inline: 1.25rem; /* px-5 equivalent */
 }

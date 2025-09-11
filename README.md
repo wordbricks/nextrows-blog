@@ -34,7 +34,7 @@ nextrows-blog/
 │   ├── interfaces/         # TypeScript interfaces
 │   └── lib/                # Utility functions
 ├── package.json
-└── tailwind.config.ts      # Tailwind configuration
+└── src/app/globals.css     # Tailwind v4 theme + styles
 ```
 
 ## 🎨 Categories
@@ -118,7 +118,7 @@ Your content here...
 
 - **Next.js 15.0.2** - React framework
 - **TypeScript** - Type safety
-- **Tailwind CSS 3.4** - Styling
+- **Tailwind CSS 4** - Styling
 - **Remark** - Markdown processing
 - **Gray Matter** - Frontmatter parsing
 - **Date-fns** - Date formatting
