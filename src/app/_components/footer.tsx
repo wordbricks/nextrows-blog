@@ -1,4 +1,4 @@
-import { IconBrandX, IconBrandYoutube, IconBrandGithub } from '@tabler/icons-react'
+import { IconBrandX, IconBrandYoutube, IconBrandGithub, IconRss } from '@tabler/icons-react'
 export function Footer() {
   return (
     <footer className="bg-white dark:bg-stone-900 mt-12 border-t border-stone-200 dark:border-stone-800 transition-colors duration-200">
@@ -32,6 +32,13 @@ export function Footer() {
               className="text-stone-500 dark:text-stone-400 hover:text-orange-600 dark:hover:text-orange-500"
             >
               <IconBrandGithub className="h-6 w-6" />
+            </a>
+            <a
+              href="/atom.xml"
+              aria-label="RSS feed"
+              className="text-stone-500 dark:text-stone-400 hover:text-orange-600 dark:hover:text-orange-500"
+            >
+              <IconRss className="h-6 w-6" />
             </a>
           </div>
         </div>
