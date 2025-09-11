@@ -30,7 +30,8 @@
     "remark-html": "^16.0.1",
     "remark-rehype": "^11.1.2",
     "rss": "^1.2.2",
-    "std-env": "^3.9.0"
+    "std-env": "^3.9.0",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.13",

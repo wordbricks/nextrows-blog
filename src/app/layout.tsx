@@ -128,10 +128,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200`}>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 border border-stone-300 dark:border-stone-700 rounded px-3 py-2 shadow">Skip to content</a>
         <Navigation />
         <CommandPalette />
         <FirstVisitPopup />
-        <div className="min-h-screen">{children}</div>
+        <div id="main-content" className="min-h-screen">{children}</div>
         <Footer />
       </body>
     </html>
