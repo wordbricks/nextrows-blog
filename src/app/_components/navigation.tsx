@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { cn } from "@/utils/cn";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -127,7 +128,11 @@ export default function Navigation() {
         </button>
       </div>
       {/* Mobile Menu */}
-      <div className={`md:hidden bg-white dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 ${isMobileMenuOpen ? "block" : "hidden"}`}>
+      <div className={cn(
+        "md:hidden bg-white dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800",
+        isMobileMenuOpen && "block",
+        !isMobileMenuOpen && "hidden"
+      )}>
         <div className="px-2 py-3 space-y-1">
           <Link 
             href="/" 

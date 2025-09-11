@@ -8,6 +8,7 @@ import BlogImage from "@/app/_components/blog-image";
 import AnimatedSpreadsheet from "@/app/_components/animated-spreadsheet";
 
 import { CATEGORIES, type Category, getCategoryColor, getCategoryLabel } from "@/constants/category";
+import { cn } from "@/utils/cn";
 type Filter = "all" | Category;
 
 interface BlogClientProps {
@@ -49,7 +50,7 @@ const FeaturedPost = memo(({ post }: { post: Post }) => (
     </div>
     <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
       <span
-        className={`text-xs font-semibold uppercase mb-2 ${getCategoryColor(post.category)}`}
+        className={cn("text-xs font-semibold uppercase mb-2", getCategoryColor(post.category))}
       >
         {getCategoryLabel(post.category)}
       </span>
@@ -146,11 +147,11 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
                   key={category}
                   href={href}
                   scroll={false}
-                  className={`px-3 py-1.5 text-xs md:text-sm font-medium border rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 ${
-                    isActive
-                      ? "bg-orange-600 text-white border-orange-600 shadow-md"
-                      : "border-stone-300 dark:border-stone-600 hover:bg-stone-100 dark:hover:bg-stone-800 hover:text-stone-900 dark:hover:text-stone-100 hover:border-stone-400 dark:hover:border-stone-500 hover:shadow-sm"
-                  }`}
+                  className={cn(
+                    "px-3 py-1.5 text-xs md:text-sm font-medium border rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95",
+                    isActive && "bg-orange-600 text-white border-orange-600 shadow-md",
+                    !isActive && "border-stone-300 dark:border-stone-600 hover:bg-stone-100 dark:hover:bg-stone-800 hover:text-stone-900 dark:hover:text-stone-100 hover:border-stone-400 dark:hover:border-stone-500 hover:shadow-sm"
+                  )}
                 >
                   {category === 'all' ? 'All' : getCategoryLabel(category)}
                 </Link>
@@ -180,7 +181,7 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
                 </div>
                 <div className="p-5">
                   <span
-                    className={`text-xs font-semibold uppercase ${getCategoryColor(post.category)}`}
+                    className={cn("text-xs font-semibold uppercase", getCategoryColor(post.category))}
                   >
                     {getCategoryLabel(post.category)}
                   </span>
@@ -206,11 +207,11 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
               <button 
                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
-                className={`px-4 py-2 rounded-md transition-all duration-200 ${
-                  currentPage === 1 
-                    ? "bg-stone-200 text-stone-400 cursor-not-allowed" 
-                    : "bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-300 dark:border-stone-600 hover:bg-stone-50 dark:hover:bg-stone-700 hover:text-orange-600 dark:hover:text-orange-400"
-                }`}
+                className={cn(
+                  "px-4 py-2 rounded-md transition-all duration-200",
+                  currentPage === 1 && "bg-stone-200 text-stone-400 cursor-not-allowed",
+                  currentPage !== 1 && "bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-300 dark:border-stone-600 hover:bg-stone-50 dark:hover:bg-stone-700 hover:text-orange-600 dark:hover:text-orange-400"
+                )}
               >
                 Previous
               </button>
@@ -227,11 +228,11 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
                     <button
                       key={pageNumber}
                       onClick={() => setCurrentPage(pageNumber)}
-                      className={`px-4 py-2 rounded-md transition-all duration-200 ${
-                        currentPage === pageNumber
-                          ? "bg-orange-600 text-white shadow-md"
-                          : "bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-300 dark:border-stone-600 hover:bg-stone-50 dark:hover:bg-stone-700 hover:text-orange-600 dark:hover:text-orange-400"
-                      }`}
+                      className={cn(
+                        "px-4 py-2 rounded-md transition-all duration-200",
+                        currentPage === pageNumber && "bg-orange-600 text-white shadow-md",
+                        currentPage !== pageNumber && "bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-300 dark:border-stone-600 hover:bg-stone-50 dark:hover:bg-stone-700 hover:text-orange-600 dark:hover:text-orange-400"
+                      )}
                     >
                       {pageNumber}
                     </button>
@@ -248,11 +249,11 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
               <button 
                 onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                 disabled={currentPage === totalPages}
-                className={`px-4 py-2 rounded-md transition-all duration-200 ${
-                  currentPage === totalPages 
-                    ? "bg-stone-200 text-stone-400 cursor-not-allowed" 
-                    : "bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-300 dark:border-stone-600 hover:bg-stone-50 dark:hover:bg-stone-700 hover:text-orange-600 dark:hover:text-orange-400"
-                }`}
+                className={cn(
+                  "px-4 py-2 rounded-md transition-all duration-200",
+                  currentPage === totalPages && "bg-stone-200 text-stone-400 cursor-not-allowed",
+                  currentPage !== totalPages && "bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-300 dark:border-stone-600 hover:bg-stone-50 dark:hover:bg-stone-700 hover:text-orange-600 dark:hover:text-orange-400"
+                )}
               >
                 Next
               </button>

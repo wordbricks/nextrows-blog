@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { cn } from "@/utils/cn";
 
 export default function FirstVisitPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -198,11 +199,11 @@ export default function FirstVisitPopup() {
               <button
                 type="submit"
                 disabled={!selectedOption || (selectedOption === "other" && !otherText)}
-                className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors ${
-                  !selectedOption || (selectedOption === "other" && !otherText)
-                    ? "bg-stone-300 text-stone-500 cursor-not-allowed"
-                    : "bg-orange-600 text-white hover:bg-orange-700"
-                }`}
+                className={cn(
+                  "flex-1 px-4 py-2 rounded-lg font-medium transition-colors",
+                  (!selectedOption || (selectedOption === "other" && !otherText)) && "bg-stone-300 text-stone-500 cursor-not-allowed",
+                  selectedOption && (selectedOption !== "other" || !!otherText) && "bg-orange-600 text-white hover:bg-orange-700"
+                )}
               >
                 Submit
               </button>

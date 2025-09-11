@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { cn } from "@/utils/cn";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -191,11 +192,11 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className={`px-8 py-3 rounded-lg font-medium transition-colors ${
-                    status === "sending"
-                      ? "bg-stone-400 text-stone-200 cursor-not-allowed"
-                      : "bg-orange-600 text-white hover:bg-orange-700"
-                  }`}
+                  className={cn(
+                    "px-8 py-3 rounded-lg font-medium transition-colors",
+                    status === "sending" && "bg-stone-400 text-stone-200 cursor-not-allowed",
+                    status !== "sending" && "bg-orange-600 text-white hover:bg-orange-700"
+                  )}
                 >
                   {status === "sending" ? "Sending..." : "Send Message"}
                 </button>

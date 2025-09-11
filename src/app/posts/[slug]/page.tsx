@@ -15,6 +15,7 @@ import {
 import { HOST } from "@/env/host";
 import { getEnv } from "@/env/getEnv";
 import { getCategoryColor, getCategoryLabel } from "@/constants/category";
+import { cn } from "@/utils/cn";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -73,7 +74,7 @@ export default async function Post(props: Params) {
                 ← Back to all articles
               </Link>
               {post.category && (
-                <span className={`block text-sm font-semibold uppercase mb-2 ${getCategoryColor(post.category)}`}>
+                <span className={cn("block text-sm font-semibold uppercase mb-2", getCategoryColor(post.category))}>
                   {getCategoryLabel(post.category)}
                 </span>
               )}
