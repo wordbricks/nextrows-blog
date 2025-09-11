@@ -76,7 +76,7 @@ export const SEO_CONFIG = {
     },
   },
   openGraph: {
-    defaultImage: '/assets/blog/nextrows-og.jpg',
+    defaultImage: '/opengraph-image',
     imageWidth: 1200,
     imageHeight: 630,
   },

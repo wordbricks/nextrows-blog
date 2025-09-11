@@ -25,7 +25,7 @@ export async function GET() {
   </author>
   ${sortedPosts.slice(0, 50).map(post => {
     const postUrl = `${baseUrl}/posts/${post.slug}`
-    const imageUrl = post.coverImage ? `${baseUrl}${post.coverImage}` : `${baseUrl}/assets/blog/nextrows-og.jpg`
+    const imageUrl = post.coverImage ? `${baseUrl}${post.coverImage}` : `${baseUrl}/opengraph-image`
     const category = post.category ? post.category.replace('-', ' ').charAt(0).toUpperCase() + post.category.replace('-', ' ').slice(1) : 'General'
 
     return `

@@ -178,7 +178,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
     title: post.title,
     description: post.excerpt,
     url: `https://blog.nextrows.com/posts/${post.slug}`,
-    image: post.ogImage?.url || post.coverImage,
+    image: `/posts/${post.slug}/opengraph-image`,
     author: post.author?.name,
     publishedTime: post.date,
     keywords: keywords,

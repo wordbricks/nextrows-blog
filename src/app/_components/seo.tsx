@@ -17,7 +17,7 @@ export function generateSEOMetadata({
   title,
   description,
   url = 'https://blog.nextrows.com',
-  image = '/assets/blog/nextrows-og.jpg',
+  image = '/opengraph-image',
   author = 'NextRows Team',
   publishedTime,
   modifiedTime,
