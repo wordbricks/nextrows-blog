@@ -1,6 +1,7 @@
 import Footer from "@/app/_components/footer";
 import Navigation from "@/app/_components/navigation";
 import FirstVisitPopup from "@/app/_components/first-visit-popup";
+import { generateOrganizationStructuredData, generateWebSiteStructuredData } from "@/app/_components/seo";
 import { HOME_OG_IMAGE_URL } from "@/lib/constants";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -110,6 +111,18 @@ export default function RootLayout({
         />
         <meta name="theme-color" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateOrganizationStructuredData()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateWebSiteStructuredData()),
+          }}
+        />
       </head>
       <body className={`${inter.className} bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200`}>
         <Navigation />

@@ -2,17 +2,39 @@ import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/api'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://blog.nextrows.com' // Update this to your actual domain
+  const baseUrl = 'https://blog.nextrows.com'
   
   // Get all blog posts
   const posts = getAllPosts()
   
-  // Generate sitemap entries for blog posts
-  const blogPosts = posts.map((post) => ({
-    url: `${baseUrl}/posts/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
+  // Sort posts by date to prioritize newer content
+  const sortedPosts = posts.sort((a, b) => 
+    new Date(b.date).getTime() - new Date(a.date).getTime()
+  )
+  
+  // Generate sitemap entries for blog posts with dynamic priority
+  const blogPosts = sortedPosts.map((post, index) => {
+    // Give higher priority to newer posts
+    const priority = index < 5 ? 0.9 : index < 10 ? 0.8 : 0.7
+    
+    // More frequent updates for recent posts
+    const changeFrequency: 'weekly' | 'monthly' = index < 5 ? 'weekly' : 'monthly'
+    
+    return {
+      url: `${baseUrl}/posts/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency,
+      priority,
+    }
+  })
+  
+  // Category pages
+  const categories = ['technology', 'tutorials', 'use-cases', 'why-nextrows', 'others']
+  const categoryPages = categories.map(category => ({
+    url: `${baseUrl}?category=${category}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
   }))
   
   return [
@@ -28,6 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    ...categoryPages,
     ...blogPosts,
   ]
 }

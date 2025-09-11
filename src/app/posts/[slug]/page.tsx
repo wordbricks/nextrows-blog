@@ -7,6 +7,11 @@ import markdownToHtml from "@/lib/markdownToHtml";
 import DateFormatter from "@/app/_components/date-formatter";
 import BlogImage from "@/app/_components/blog-image";
 import { ArticleJsonLd } from "@/app/_components/json-ld";
+import { 
+  generateSEOMetadata, 
+  generateArticleStructuredData, 
+  generateBreadcrumbStructuredData 
+} from "@/app/_components/seo";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -27,8 +32,32 @@ export default async function Post(props: Params) {
     others: "text-purple-600 dark:text-purple-400",
   };
 
+  const breadcrumbData = generateBreadcrumbStructuredData([
+    { name: 'Home', url: 'https://blog.nextrows.com' },
+    { name: post.category ? post.category.replace('-', ' ').charAt(0).toUpperCase() + post.category.replace('-', ' ').slice(1) : 'Articles', url: `https://blog.nextrows.com/${post.category || 'posts'}` },
+    { name: post.title, url: `https://blog.nextrows.com/posts/${post.slug}` },
+  ]);
+
+  const articleData = generateArticleStructuredData({
+    title: post.title,
+    description: post.excerpt,
+    url: `https://blog.nextrows.com/posts/${post.slug}`,
+    image: post.coverImage,
+    author: post.author?.name || 'NextRows Team',
+    publishedTime: post.date,
+    keywords: post.category ? [post.category.replace('-', ' '), 'NextRows', 'data extraction', 'web scraping'] : [],
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleData) }}
+      />
       <ArticleJsonLd
         title={post.title}
         description={post.excerpt}
@@ -135,40 +164,26 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
     return notFound();
   }
 
-  const title = post.title;
-  const url = `https://blog.nextrows.com/posts/${post.slug}`;
-
-  return {
-    title,
-    description: post.excerpt,
-    keywords: post.category ? [post.category, "NextRows", "data processing", "web scraping", "tutorial"] : undefined,
-    authors: post.author ? [{ name: post.author.name }] : undefined,
-    openGraph: {
-      title,
-      description: post.excerpt,
-      type: 'article',
-      publishedTime: post.date,
-      authors: post.author?.name ? [post.author.name] : undefined,
-      url,
-      images: [
-        {
-          url: post.ogImage?.url || post.coverImage || 'https://blog.nextrows.com/nextrows-logo-nav.png',
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        }
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description: post.excerpt,
-      images: [post.ogImage?.url || post.coverImage || 'https://blog.nextrows.com/nextrows-logo-nav.png'],
-    },
-    alternates: {
-      canonical: url,
-    },
+  const categoryKeywords: Record<string, string[]> = {
+    'technology': ['technology', 'infrastructure', 'engineering', 'architecture'],
+    'tutorials': ['tutorial', 'guide', 'how-to', 'walkthrough', 'step-by-step'],
+    'use-cases': ['use case', 'case study', 'real-world', 'application', 'example'],
+    'why-nextrows': ['comparison', 'vs', 'alternative', 'benefits', 'features'],
+    'others': ['startup', 'culture', 'team', 'remote work'],
   };
+
+  const keywords = post.category ? categoryKeywords[post.category] || [] : [];
+
+  return generateSEOMetadata({
+    title: post.title,
+    description: post.excerpt,
+    url: `https://blog.nextrows.com/posts/${post.slug}`,
+    image: post.ogImage?.url || post.coverImage,
+    author: post.author?.name,
+    publishedTime: post.date,
+    keywords: keywords,
+    type: 'article',
+  });
 }
 
 export async function generateStaticParams() {
