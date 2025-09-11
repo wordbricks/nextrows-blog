@@ -14,8 +14,6 @@ This is Wordbricks blog repository.
 - We have `"strict": true` in TSConfig.
 
 ### Commands
-- lint: `npm run lint`
-- format: `npm run format`
 - typecheck: `npm run check-types`
 - Don't run `build` manually
 

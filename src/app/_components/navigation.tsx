@@ -54,6 +54,9 @@ export default function Navigation() {
           <Link href="/" className="text-sm text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-500 transition duration-300">
             Blog
           </Link>
+          <button onClick={() => window.dispatchEvent(new Event('open-command-palette'))} className="text-sm text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-500 transition duration-300">
+            Search <span className="ml-1 rounded border px-1 py-0.5 text-[10px] text-stone-500 dark:text-stone-400 border-stone-300 dark:border-stone-600">⌘K</span>
+          </button>
           <Link href="/contact" className="text-sm text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-500 transition duration-300">
             Contact
           </Link>
@@ -133,6 +136,15 @@ export default function Navigation() {
           >
             Blog
           </Link>
+          <button 
+            className="block w-full text-left px-3 py-2 text-base font-medium rounded-md hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300"
+            onClick={() => {
+              window.dispatchEvent(new Event('open-command-palette'))
+              setIsMobileMenuOpen(false)
+            }}
+          >
+            Search
+          </button>
           <Link 
             href="/contact" 
             className="block px-3 py-2 text-base font-medium rounded-md hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300"

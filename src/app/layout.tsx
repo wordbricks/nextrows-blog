@@ -1,6 +1,7 @@
 import Footer from "@/app/_components/footer";
 import Navigation from "@/app/_components/navigation";
 import FirstVisitPopup from "@/app/_components/first-visit-popup";
+import CommandPalette from "@/app/_components/command-palette";
 import { generateOrganizationStructuredData, generateWebSiteStructuredData } from "@/app/_components/seo";
 import { HOME_OG_IMAGE_URL } from "@/lib/constants";
 import type { Metadata } from "next";
@@ -126,6 +127,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200`}>
         <Navigation />
+        <CommandPalette />
         <FirstVisitPopup />
         <div className="min-h-screen">{children}</div>
         <Footer />

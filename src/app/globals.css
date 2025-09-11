@@ -170,3 +170,30 @@ table tr:hover td {
     margin-inline: auto;
     padding-inline: 1.25rem; /* px-5 equivalent */
 }
+
+/* Command palette (cmdk) refinements */
+[cmdk-group-heading] {
+    padding: 0.25rem 1rem; /* match item horizontal padding */
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    color: rgb(120 113 108); /* stone-500 */
+    font-size: 0.75rem; /* text-xs */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.dark [cmdk-group-heading] {
+    color: rgb(168 162 158); /* stone-400 */
+}
+
+/* Subtle scrollbars inside the palette list */
+[cmdk-list]::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+[cmdk-list]::-webkit-scrollbar-thumb {
+    background-color: rgb(214 211 209); /* stone-300 */
+    border-radius: 9999px;
+}
+.dark [cmdk-list]::-webkit-scrollbar-thumb {
+    background-color: rgb(87 83 78); /* stone-600 */
+}
