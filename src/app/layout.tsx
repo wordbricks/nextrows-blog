@@ -6,13 +6,15 @@ import { generateOrganizationStructuredData, generateWebSiteStructuredData } fro
 import { HOME_OG_IMAGE_URL } from "@/lib/constants";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { HOST } from "@/env/host";
+import { getEnv } from "@/env/getEnv";
 
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://blog.nextrows.com'),
+  metadataBase: new URL(HOST[getEnv()]),
   title: {
     default: "NextRows Blog - Data Processing & Web Scraping Insights",
     template: "%s | NextRows Blog"
@@ -30,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "NextRows Blog - Data Processing & Web Scraping Insights",
     description: "Learn web scraping, data cleaning, and automation techniques with NextRows.",
-    url: 'https://blog.nextrows.com',
+    url: HOST[getEnv()],
     siteName: 'NextRows Blog',
     images: [
       {
@@ -50,7 +52,7 @@ export const metadata: Metadata = {
     images: [HOME_OG_IMAGE_URL],
   },
   alternates: {
-    canonical: 'https://blog.nextrows.com',
+    canonical: HOST[getEnv()],
     types: {
       'application/atom+xml': [{ url: '/atom.xml', title: 'NextRows Blog Atom Feed' }],
     },

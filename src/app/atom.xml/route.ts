@@ -1,9 +1,11 @@
 import { getAllPosts } from '@/lib/api'
 import { NextResponse } from 'next/server'
+import { HOST } from '@/env/host'
+import { getEnv } from '@/env/getEnv'
 
 export async function GET() {
   const posts = getAllPosts()
-  const baseUrl = 'https://blog.nextrows.com'
+  const baseUrl = HOST[getEnv()]
 
   const sortedPosts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 

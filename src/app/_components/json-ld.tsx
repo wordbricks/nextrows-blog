@@ -1,16 +1,19 @@
+import { HOST } from '@/env/host';
+import { getEnv } from '@/env/getEnv';
+
 export function BlogJsonLd() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
     name: 'NextRows Blog',
     description: 'Learn web scraping, data cleaning, and automation techniques with NextRows.',
-    url: 'https://blog.nextrows.com',
+    url: HOST[getEnv()],
     publisher: {
       '@type': 'Organization',
       name: 'NextRows',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://blog.nextrows.com/nextrows-logo-nav.png',
+        url: `${HOST[getEnv()]}/nextrows-logo-nav.png`,
       },
     },
     blogPost: [],
@@ -41,6 +44,7 @@ export function ArticleJsonLd({
   authorName?: string;
   image?: string;
 }) {
+  const defaultImage = `${HOST[getEnv()]}/nextrows-logo-nav.png`
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -58,10 +62,10 @@ export function ArticleJsonLd({
       name: 'NextRows',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://blog.nextrows.com/nextrows-logo-nav.png',
+        url: defaultImage,
       },
     },
-    image: image || 'https://blog.nextrows.com/nextrows-logo-nav.png',
+    image: image || defaultImage,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': url,

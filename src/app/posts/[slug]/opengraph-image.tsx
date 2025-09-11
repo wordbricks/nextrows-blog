@@ -1,5 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { getAllPosts } from '@/lib/api'
+import { HOST } from '@/env/host'
+import { getEnv } from '@/env/getEnv'
 
 export const runtime = 'nodejs'
 export const size = { width: 1200, height: 630 }
@@ -17,6 +19,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
   const title = post?.title || 'NextRows Article'
   const subtitle = post?.category ? post.category.replace('-', ' ') : 'NextRows Blog'
   const author = post?.author?.name || 'NextRows Team'
+  const displayHost = HOST[getEnv()].replace(/^https?:\/\//, '')
 
   return new ImageResponse(
     (
@@ -197,7 +200,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
             <div style={{ padding: '8px 14px', borderRadius: 999, background: 'rgba(255,99,8,0.10)', border: '1px solid rgba(255,99,8,0.4)', color: ORANGE, fontSize: 20, textTransform: 'capitalize' }}>
               {subtitle}
             </div>
-            <span style={{ fontSize: 22, color: '#c8c8c8' }}>blog.nextrows.com</span>
+            <span style={{ fontSize: 22, color: '#c8c8c8' }}>{displayHost}</span>
           </div>
         </div>
       </div>

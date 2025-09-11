@@ -1,6 +1,9 @@
+import { HOST } from "@/env/host";
+import { getEnv } from "@/env/getEnv";
+
 export const SEO_CONFIG = {
   siteName: 'NextRows Blog',
-  siteUrl: 'https://blog.nextrows.com',
+  siteUrl: HOST[getEnv()],
   siteDescription: 'Learn web scraping, data cleaning, and automation techniques with NextRows. Tutorials, guides, and insights to transform your data processing workflow.',
   siteKeywords: [
     'web scraping',
@@ -20,7 +23,7 @@ export const SEO_CONFIG = {
   organization: {
     name: 'NextRows',
     url: 'https://nextrows.com',
-    logo: 'https://blog.nextrows.com/assets/nextrows-logo.svg',
+    logo: `${HOST[getEnv()]}/assets/nextrows-logo.svg`,
     sameAs: [
       'https://twitter.com/nextrows',
       'https://github.com/wordbricks',
@@ -84,7 +87,7 @@ export const SEO_CONFIG = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
     name: 'NextRows Blog',
-    url: 'https://blog.nextrows.com',
+    url: HOST[getEnv()],
     description: 'Learn web scraping, data cleaning, and automation techniques with NextRows.',
     publisher: {
       '@type': 'Organization',
@@ -92,7 +95,7 @@ export const SEO_CONFIG = {
       url: 'https://nextrows.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://blog.nextrows.com/assets/nextrows-logo.svg',
+        url: `${HOST[getEnv()]}/assets/nextrows-logo.svg`,
       },
     },
   },

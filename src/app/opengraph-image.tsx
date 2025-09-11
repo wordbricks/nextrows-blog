@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/og'
+import { HOST } from '@/env/host'
+import { getEnv } from '@/env/getEnv'
 
 export const runtime = 'edge'
 export const size = { width: 1200, height: 630 }
@@ -7,6 +9,7 @@ export const contentType = 'image/png'
 export default function Image() {
   const ORANGE = '#FF6308'
   const bg = 'linear-gradient(180deg, #0b0b0b 0%, #141414 100%)'
+  const displayHost = HOST[getEnv()].replace(/^https?:\/\//, '')
 
   return new ImageResponse(
     (
@@ -160,7 +163,7 @@ export default function Image() {
 
           <div style={{ marginTop: 26, display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{ width: 14, height: 14, borderRadius: 14, background: ORANGE }} />
-            <span style={{ fontSize: 24, color: '#d6d6d6' }}>blog.nextrows.com</span>
+            <span style={{ fontSize: 24, color: '#d6d6d6' }}>{displayHost}</span>
           </div>
         </div>
       </div>

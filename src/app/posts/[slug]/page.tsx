@@ -12,6 +12,8 @@ import {
   generateArticleStructuredData, 
   generateBreadcrumbStructuredData 
 } from "@/app/_components/seo";
+import { HOST } from "@/env/host";
+import { getEnv } from "@/env/getEnv";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -33,15 +35,15 @@ export default async function Post(props: Params) {
   };
 
   const breadcrumbData = generateBreadcrumbStructuredData([
-    { name: 'Home', url: 'https://blog.nextrows.com' },
-    { name: post.category ? post.category.replace('-', ' ').charAt(0).toUpperCase() + post.category.replace('-', ' ').slice(1) : 'Articles', url: `https://blog.nextrows.com/${post.category || 'posts'}` },
-    { name: post.title, url: `https://blog.nextrows.com/posts/${post.slug}` },
+    { name: 'Home', url: HOST[getEnv()] },
+    { name: post.category ? post.category.replace('-', ' ').charAt(0).toUpperCase() + post.category.replace('-', ' ').slice(1) : 'Articles', url: `${HOST[getEnv()]}/${post.category || 'posts'}` },
+    { name: post.title, url: `${HOST[getEnv()]}/posts/${post.slug}` },
   ]);
 
   const articleData = generateArticleStructuredData({
     title: post.title,
     description: post.excerpt,
-    url: `https://blog.nextrows.com/posts/${post.slug}`,
+    url: `${HOST[getEnv()]}/posts/${post.slug}`,
     image: post.coverImage,
     author: post.author?.name || 'NextRows Team',
     publishedTime: post.date,
@@ -61,7 +63,7 @@ export default async function Post(props: Params) {
       <ArticleJsonLd
         title={post.title}
         description={post.excerpt}
-        url={`https://blog.nextrows.com/posts/${post.slug}`}
+        url={`${HOST[getEnv()]}/posts/${post.slug}`}
         datePublished={post.date}
         authorName={post.author?.name}
         image={post.coverImage}
@@ -177,7 +179,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
   return generateSEOMetadata({
     title: post.title,
     description: post.excerpt,
-    url: `https://blog.nextrows.com/posts/${post.slug}`,
+    url: `${HOST[getEnv()]}/posts/${post.slug}`,
     image: `/posts/${post.slug}/opengraph-image`,
     author: post.author?.name,
     publishedTime: post.date,

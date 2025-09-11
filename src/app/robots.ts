@@ -1,7 +1,9 @@
 import { MetadataRoute } from 'next'
+import { HOST } from '@/env/host'
+import { getEnv } from '@/env/getEnv'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://blog.nextrows.com' // Update this to your actual domain
+  const baseUrl = HOST[getEnv()]
   
   return {
     rules: [

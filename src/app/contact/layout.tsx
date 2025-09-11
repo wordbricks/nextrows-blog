@@ -1,10 +1,12 @@
 import { Metadata } from 'next';
 import { generateSEOMetadata } from '@/app/_components/seo';
+import { HOST } from '@/env/host';
+import { getEnv } from '@/env/getEnv';
 
 export const metadata: Metadata = generateSEOMetadata({
   title: 'Contact Us',
   description: 'Get in touch with the NextRows team. We provide support for web scraping, data extraction, and automation questions. Response within 24 hours.',
-  url: 'https://blog.nextrows.com/contact',
+  url: `${HOST[getEnv()]}/contact`,
   keywords: ['contact', 'support', 'help', 'customer service', 'inquiries', 'feedback'],
   type: 'website',
 });
@@ -58,7 +60,7 @@ export default function ContactLayout({
     '@type': 'ContactPage',
     name: 'Contact NextRows',
     description: 'Contact the NextRows team for support, sales inquiries, or partnership opportunities.',
-    url: 'https://blog.nextrows.com/contact',
+    url: `${HOST[getEnv()]}/contact`,
     mainEntity: {
       '@type': 'Organization',
       name: 'NextRows',
