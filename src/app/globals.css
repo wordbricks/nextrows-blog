@@ -103,7 +103,7 @@ html {
 
 /* Code block styling */
 pre {
-    @apply bg-stone-100 dark:bg-stone-900 border-2 border-stone-300 dark:border-stone-700 rounded-lg p-5 my-8 overflow-x-auto;
+    @apply relative bg-stone-100 dark:bg-stone-900 border-2 border-stone-300 dark:border-stone-700 rounded-lg p-5 my-8 overflow-x-auto;
     @apply shadow-md text-base;
     line-height: 1.6;
 }
@@ -120,6 +120,31 @@ code:not(pre code) {
     @apply px-2 py-1 rounded font-mono;
     @apply border border-orange-200 dark:border-orange-900;
     font-size: 0.9rem;
+}
+
+/* rehype-pretty-code light/dark token colors using our class-based dark mode */
+[data-rehype-pretty-code-figure] code[data-theme*=" "],
+[data-rehype-pretty-code-figure] code[data-theme*=" "] span {
+    color: var(--shiki-light) !important;
+    background-color: transparent !important;
+}
+.dark [data-rehype-pretty-code-figure] code[data-theme*=" "],
+.dark [data-rehype-pretty-code-figure] code[data-theme*=" "] span {
+    color: var(--shiki-dark) !important;
+    background-color: transparent !important;
+}
+
+/* remove inner figure background; we control via pre */
+[data-rehype-pretty-code-figure] pre {
+    background: transparent !important;
+}
+
+/* Position copy button with balanced insets */
+[data-rehype-pretty-code-figure] pre > code button.rehype-pretty-copy {
+    top: 12px !important;
+    right: 12px !important;
+    margin: 0 !important;
+    z-index: 1;
 }
 
 /* Table styling for markdown */
