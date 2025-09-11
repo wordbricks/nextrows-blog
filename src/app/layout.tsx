@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://blog.nextrows.com',
     types: {
-      'application/rss+xml': [{ url: '/feed.xml', title: 'NextRows Blog RSS Feed' }],
+      'application/atom+xml': [{ url: '/atom.xml', title: 'NextRows Blog Atom Feed' }],
     },
   },
   robots: {
@@ -110,7 +110,7 @@ export default function RootLayout({
           content="/favicon/browserconfig.xml"
         />
         <meta name="theme-color" content="#000" />
-        <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
