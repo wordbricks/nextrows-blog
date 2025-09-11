@@ -82,7 +82,7 @@ const FeaturedPost = memo(({ post }: { post: Post }) => (
       <div className="flex items-center">
         <div>
           <p className="text-xs md:text-sm text-stone-500 dark:text-stone-400">
-            <DateFormatter dateString={post.date} /> · 8 min read
+            <DateFormatter dateString={post.date} /> · {post.readingTimeMinutes} min read
           </p>
         </div>
       </div>
@@ -206,7 +206,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                   </p>
                   <div className="flex items-center text-xs text-stone-500 dark:text-stone-400">
                     <p>
-                      <DateFormatter dateString={post.date} />
+                      <DateFormatter dateString={post.date} /> · {post.readingTimeMinutes} min read
                     </p>
                   </div>
                 </div>

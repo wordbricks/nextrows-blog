@@ -25,6 +25,10 @@ export default async function Post(props: Params) {
 
   const content = await markdownToHtml(post.content || "");
 
+  const related = getAllPosts()
+    .filter(p => p.slug !== post.slug && p.category === post.category)
+    .slice(0, 3);
+
   // Category colors
   const categoryColors: Record<string, string> = {
     tutorials: "text-orange-600 dark:text-orange-400",
@@ -88,7 +92,7 @@ export default async function Post(props: Params) {
               </h1>
               <p className="text-sm text-stone-500 dark:text-stone-400">
                 {post.author?.name && `By ${post.author.name} · `}
-                <DateFormatter dateString={post.date} />
+                <DateFormatter dateString={post.date} /> · {post.readingTimeMinutes} min read
               </p>
             </header>
             
@@ -144,6 +148,39 @@ export default async function Post(props: Params) {
                 </p>
               </div>
             </div>
+
+            {related.length > 0 && (
+              <div className="mt-16 pt-12 border-t border-stone-200 dark:border-stone-700">
+                <h3 className="text-2xl font-bold mb-6">Related articles</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {related.map(r => (
+                    <Link
+                      key={r.slug}
+                      href={`/posts/${r.slug}`}
+                      className="group block bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-700 overflow-hidden hover:shadow-md transition"
+                    >
+                      <div className="relative h-32 w-full overflow-hidden">
+                        <BlogImage
+                          src={r.coverImage}
+                          alt={`${r.title} related article`}
+                          fallbackText={r.title.substring(0, 20)}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <div className="text-xs uppercase text-stone-500 mb-1">{r.category?.replace('-', ' ')}</div>
+                        <div className="font-semibold line-clamp-2">{r.title}</div>
+                        <div className="mt-1 text-xs text-stone-500">
+                          <DateFormatter dateString={r.date} /> · {r.readingTimeMinutes} min read
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
             </article>
           </main>
         </div>

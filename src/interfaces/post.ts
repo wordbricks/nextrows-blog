@@ -13,4 +13,5 @@ export type Post = {
   content: string;
   category: string;
   preview?: boolean;
+  readingTimeMinutes: number;
 };
