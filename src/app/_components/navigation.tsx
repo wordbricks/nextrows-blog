@@ -9,23 +9,30 @@ export default function Navigation() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
-    // Check for saved theme preference or default to light
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    const initialTheme = savedTheme || "light";
-    
-    setTheme(initialTheme);
-    applyTheme(initialTheme);
+    const saved = localStorage.getItem("theme");
+    const mql = window.matchMedia("(prefers-color-scheme: dark)");
+    const initial: "light" | "dark" = saved === "light" ? "light" : saved === "dark" ? "dark" : mql.matches ? "dark" : "light";
+    setTheme(initial);
+    applyTheme(initial);
+    if (saved === "light" || saved === "dark") return;
+    const handler = () => {
+      const sysTheme: "light" | "dark" = mql.matches ? "dark" : "light";
+      setTheme(sysTheme);
+      applyTheme(sysTheme);
+    };
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
   }, []);
 
-  const applyTheme = (selectedTheme: "light" | "dark") => {
-    document.documentElement.classList.toggle("dark", selectedTheme === "dark");
+  const applyTheme = (selected: "light" | "dark") => {
+    document.documentElement.classList.toggle("dark", selected === "dark");
   };
 
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    applyTheme(newTheme);
+    const next: "light" | "dark" = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    localStorage.setItem("theme", next);
+    applyTheme(next);
   };
 
   return (
