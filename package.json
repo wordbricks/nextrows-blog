@@ -8,6 +8,7 @@
     "clean": "rm -rf node_modules .next"
   },
   "dependencies": {
+    "@tabler/icons-react": "^3.34.1",
     "audit": "^0.0.6",
     "classnames": "^2.5.1",
     "cmdk": "^1.0.0",
