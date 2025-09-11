@@ -1,0 +1,82 @@
+.markdown {
+  @apply text-lg leading-relaxed;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply my-6;
+}
+
+.markdown h2 {
+  @apply text-3xl mt-12 mb-4 leading-snug font-bold text-stone-900 dark:text-stone-100;
+}
+
+.markdown h3 {
+  @apply text-2xl mt-8 mb-4 leading-snug font-semibold text-stone-800 dark:text-stone-200;
+}
+
+.markdown h4 {
+  @apply text-xl mt-6 mb-3 leading-snug font-semibold text-stone-800 dark:text-stone-200;
+}
+
+/* Code blocks with better visibility */
+.markdown pre {
+  @apply bg-stone-100 dark:bg-stone-950 border-2 border-stone-300 dark:border-stone-700;
+  @apply rounded-lg p-6 my-8 overflow-x-auto shadow-lg;
+  @apply relative;
+}
+
+.markdown pre code {
+  @apply bg-transparent p-0 rounded-none text-sm font-mono;
+  @apply text-stone-800 dark:text-stone-200;
+  @apply block;
+}
+
+/* Inline code */
+.markdown code:not(pre code) {
+  @apply bg-orange-100 dark:bg-orange-950 text-orange-700 dark:text-orange-300;
+  @apply px-2 py-1 rounded-md text-sm font-mono;
+  @apply border border-orange-200 dark:border-orange-900;
+}
+
+/* Lists styling */
+.markdown ul {
+  @apply list-disc list-inside space-y-2 text-stone-700 dark:text-stone-300;
+}
+
+.markdown ol {
+  @apply list-decimal list-inside space-y-2 text-stone-700 dark:text-stone-300;
+}
+
+.markdown li {
+  @apply pl-2;
+}
+
+/* Blockquotes */
+.markdown blockquote {
+  @apply border-l-4 border-orange-500 pl-6 py-2 my-6;
+  @apply bg-stone-50 dark:bg-stone-900 rounded-r-lg;
+  @apply text-stone-700 dark:text-stone-300 italic;
+}
+
+/* Links */
+.markdown a {
+  @apply text-orange-600 dark:text-orange-400 underline hover:text-orange-700 dark:hover:text-orange-300;
+  @apply transition-colors duration-200;
+}
+
+/* Strong and emphasis */
+.markdown strong {
+  @apply font-bold text-stone-900 dark:text-stone-100;
+}
+
+.markdown em {
+  @apply italic;
+}
+
+/* Horizontal rules */
+.markdown hr {
+  @apply my-8 border-t-2 border-stone-300 dark:border-stone-700;
+}
