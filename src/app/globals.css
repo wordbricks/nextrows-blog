@@ -43,6 +43,20 @@ html {
     }
 }
 
+/* Syntax highlighting palette aligned with site theme */
+.hljs { background: transparent !important; color: inherit; }
+.hljs-comment, .hljs-quote { color: #78716c; font-style: italic; }
+.dark .hljs-comment, .dark .hljs-quote { color: #a8a29e; }
+.hljs-keyword, .hljs-selector-tag, .hljs-type, .hljs-built_in, .hljs-builtin-name, .hljs-meta-keyword { color: #ea580c; font-weight: 600; }
+.hljs-literal, .hljs-number, .hljs-attr, .hljs-symbol, .hljs-bullet { color: #0284c7; }
+.hljs-string, .hljs-doctag, .hljs-regexp, .hljs-addition { color: #059669; }
+.hljs-attribute, .hljs-code, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-template-tag, .hljs-template-variable { color: #d97706; }
+.hljs-variable, .hljs-title, .hljs-section, .hljs-name, .hljs-selector-id, .hljs-class { color: #8b5cf6; }
+.hljs-function .hljs-title, .hljs-title.function_ { color: #2563eb; font-weight: 600; }
+.hljs-deletion { color: #ef4444; }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 700; }
+
 /* Enhanced typography for blog posts */
 .prose {
     @apply text-lg;
