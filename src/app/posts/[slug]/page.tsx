@@ -14,6 +14,7 @@ import {
 } from "@/app/_components/seo";
 import { HOST } from "@/env/host";
 import { getEnv } from "@/env/getEnv";
+import { getCategoryColor, getCategoryLabel } from "@/constants/category";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -29,18 +30,9 @@ export default async function Post(props: Params) {
     .filter(p => p.slug !== post.slug && p.category === post.category)
     .slice(0, 3);
 
-  // Category colors
-  const categoryColors: Record<string, string> = {
-    tutorials: "text-orange-600 dark:text-orange-400",
-    "use-cases": "text-emerald-600 dark:text-emerald-400",
-    technology: "text-sky-600 dark:text-sky-400",
-    "why-nextrows": "text-amber-600 dark:text-amber-400",
-    others: "text-purple-600 dark:text-purple-400",
-  };
-
   const breadcrumbData = generateBreadcrumbStructuredData([
     { name: 'Home', url: HOST[getEnv()] },
-    { name: post.category ? post.category.replace('-', ' ').charAt(0).toUpperCase() + post.category.replace('-', ' ').slice(1) : 'Articles', url: `${HOST[getEnv()]}/${post.category || 'posts'}` },
+    { name: post.category ? getCategoryLabel(post.category) : 'Articles', url: post.category ? `${HOST[getEnv()]}/category/${post.category}` : HOST[getEnv()] },
     { name: post.title, url: `${HOST[getEnv()]}/posts/${post.slug}` },
   ]);
 
@@ -81,10 +73,8 @@ export default async function Post(props: Params) {
                 ← Back to all articles
               </Link>
               {post.category && (
-                <span className={`block text-sm font-semibold uppercase mb-2 ${
-                  categoryColors[post.category] || "text-stone-600"
-                }`}>
-                  {post.category.replace("-", " ")}
+                <span className={`block text-sm font-semibold uppercase mb-2 ${getCategoryColor(post.category)}`}>
+                  {getCategoryLabel(post.category)}
                 </span>
               )}
               <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4 text-stone-900 dark:text-stone-100">
@@ -101,7 +91,7 @@ export default async function Post(props: Params) {
                 <div className="w-full max-w-4xl">
                   <BlogImage
                     src={post.coverImage}
-                    alt={`${post.title} - Featured image for NextRows ${post.category?.replace("-", " ")} article`}
+                    alt={`${post.title} - Featured image for NextRows ${getCategoryLabel(post.category || '')} article`}
                     fallbackText={post.title.substring(0, 20)}
                     width={1200}
                     height={800}
@@ -112,7 +102,7 @@ export default async function Post(props: Params) {
                         ? "Python BeautifulSoup vs. NextRows – Because life's too short for endless error messages."
                         : post.slug === "nextrows-api-alpha-announcement"
                         ? "NextRows API Alpha Released - Could crash, could conk out, but for now… magic happens."
-                        : `${post.title} - Learn more about ${post.category?.replace("-", " ")} with NextRows`
+                        : `${post.title} - Learn more about ${getCategoryLabel(post.category || '')} with NextRows`
                     }
                   />
                 </div>

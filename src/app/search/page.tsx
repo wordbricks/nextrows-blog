@@ -1,5 +1,21 @@
 "use client"
 
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    }
+  }
+}
+
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 

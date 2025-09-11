@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/api'
 import { HOST } from '@/env/host'
 import { getEnv } from '@/env/getEnv'
+import { CATEGORIES } from '@/constants/category'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = HOST[getEnv()]
@@ -31,9 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   })
   
   // Category pages
-  const categories = ['technology', 'tutorials', 'use-cases', 'why-nextrows', 'others']
-  const categoryPages = categories.map(category => ({
-    url: `${baseUrl}?category=${category}`,
+  const categoryPages = CATEGORIES.map(category => ({
+    url: `${baseUrl}/category/${category}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,

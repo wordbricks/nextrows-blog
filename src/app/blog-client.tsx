@@ -7,30 +7,12 @@ import { useState, useEffect, useMemo, memo } from "react";
 import BlogImage from "@/app/_components/blog-image";
 import AnimatedSpreadsheet from "@/app/_components/animated-spreadsheet";
 
-// Define category type
-type Category = "all" | "tutorials" | "use-cases" | "technology" | "why-nextrows" | "others";
-
-// Category display names
-const categoryNames: Record<Category, string> = {
-  all: "All",
-  tutorials: "Tutorials",
-  "use-cases": "Use Cases",
-  technology: "Technology",
-  "why-nextrows": "Why NextRows",
-  others: "Others",
-};
-
-// Category colors for badges
-const categoryColors: Record<string, string> = {
-  tutorials: "text-orange-600 dark:text-orange-400",
-  "use-cases": "text-emerald-600 dark:text-emerald-400",
-  technology: "text-sky-600 dark:text-sky-400",
-  "why-nextrows": "text-amber-600 dark:text-amber-400",
-  others: "text-purple-600 dark:text-purple-400",
-};
+import { CATEGORIES, type Category, getCategoryColor, getCategoryLabel } from "@/constants/category";
+type Filter = "all" | Category;
 
 interface BlogClientProps {
   posts: Post[];
+  initialCategory?: string;
 }
 
 // Memoized Header Component
@@ -57,7 +39,7 @@ const FeaturedPost = memo(({ post }: { post: Post }) => (
       <div className="absolute inset-0">
         <BlogImage
           src={post.coverImage}
-          alt={`${post.title} - NextRows blog post about ${post.category?.replace("-", " ")}`}
+          alt={`${post.title} - NextRows blog post about ${getCategoryLabel(post.category)}`}
           fallbackText={post.title.substring(0, 20)}
           fill
           className="object-cover object-center !w-full !h-full"
@@ -67,11 +49,9 @@ const FeaturedPost = memo(({ post }: { post: Post }) => (
     </div>
     <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
       <span
-        className={`text-xs font-semibold uppercase mb-2 ${
-          categoryColors[post.category] || "text-gray-600"
-        }`}
+        className={`text-xs font-semibold uppercase mb-2 ${getCategoryColor(post.category)}`}
       >
-        {post.category?.replace("-", " ")}
+        {getCategoryLabel(post.category)}
       </span>
       <h2 className="text-2xl md:text-3xl font-bold leading-tight mb-3">
         {post.title}
@@ -92,8 +72,11 @@ const FeaturedPost = memo(({ post }: { post: Post }) => (
 ));
 FeaturedPost.displayName = 'FeaturedPost';
 
-export default function BlogClient({ posts }: BlogClientProps) {
-  const [activeFilter, setActiveFilter] = useState<Category>("all");
+export default function BlogClient({ posts, initialCategory }: BlogClientProps) {
+  const initialCat: Filter = initialCategory && (CATEGORIES as readonly string[]).includes(initialCategory)
+    ? (initialCategory as Category)
+    : "all";
+  const [activeFilter, setActiveFilter] = useState<Filter>(initialCat);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 9;
 
@@ -155,19 +138,24 @@ export default function BlogClient({ posts }: BlogClientProps) {
         {/* Filter Section */}
         <div className="mb-10">
           <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-            {(Object.keys(categoryNames) as Category[]).map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveFilter(category)}
-                className={`px-3 py-1.5 text-xs md:text-sm font-medium border rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 ${
-                  activeFilter === category
-                    ? "bg-orange-600 text-white border-orange-600 shadow-md"
-                    : "border-stone-300 dark:border-stone-600 hover:bg-stone-100 dark:hover:bg-stone-800 hover:text-stone-900 dark:hover:text-stone-100 hover:border-stone-400 dark:hover:border-stone-500 hover:shadow-sm"
-                }`}
-              >
-                {categoryNames[category]}
-              </button>
-            ))}
+            {(["all", ...CATEGORIES] as Filter[]).map((category) => {
+              const href = category === 'all' ? '/' : `/category/${category}`;
+              const isActive = activeFilter === category;
+              return (
+                <Link
+                  key={category}
+                  href={href}
+                  scroll={false}
+                  className={`px-3 py-1.5 text-xs md:text-sm font-medium border rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 ${
+                    isActive
+                      ? "bg-orange-600 text-white border-orange-600 shadow-md"
+                      : "border-stone-300 dark:border-stone-600 hover:bg-stone-100 dark:hover:bg-stone-800 hover:text-stone-900 dark:hover:text-stone-100 hover:border-stone-400 dark:hover:border-stone-500 hover:shadow-sm"
+                  }`}
+                >
+                  {category === 'all' ? 'All' : getCategoryLabel(category)}
+                </Link>
+              );
+            })}
           </div>
         </div>
 
@@ -183,7 +171,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                 <div className="relative h-40 w-full overflow-hidden">
                   <BlogImage
                     src={post.coverImage}
-                    alt={`${post.title} - ${post.category?.replace("-", " ")} article on NextRows blog`}
+                    alt={`${post.title} - ${getCategoryLabel(post.category)} article on NextRows blog`}
                     fallbackText={post.title.substring(0, 20)}
                     fill
                     className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
@@ -192,11 +180,9 @@ export default function BlogClient({ posts }: BlogClientProps) {
                 </div>
                 <div className="p-5">
                   <span
-                    className={`text-xs font-semibold uppercase ${
-                      categoryColors[post.category] || "text-stone-600"
-                    }`}
+                    className={`text-xs font-semibold uppercase ${getCategoryColor(post.category)}`}
                   >
-                    {post.category?.replace("-", " ")}
+                    {getCategoryLabel(post.category)}
                   </span>
                   <h3 className="text-lg font-bold mt-2 mb-2 line-clamp-2">
                     {post.title}
