@@ -1,10 +1,17 @@
-import { IconBrandX, IconBrandYoutube, IconBrandGithub, IconRss } from '@tabler/icons-react'
+import {
+  IconBrandX,
+  IconBrandYoutube,
+  IconBrandGithub,
+  IconRss,
+} from "@tabler/icons-react";
 export function Footer() {
   return (
     <footer className="bg-white dark:bg-stone-900 mt-12 border-t border-stone-200 dark:border-stone-800 transition-colors duration-200">
       <div className="container mx-auto px-6 py-8">
         <div className="flex flex-col items-center sm:flex-row sm:justify-between">
-          <p className="text-sm text-stone-500 dark:text-stone-400">&copy; 2025 NextRows Blog. All Rights Reserved.</p>
+          <p className="text-sm text-stone-500 dark:text-stone-400">
+            &copy; 2025 NextRows Blog. All Rights Reserved.
+          </p>
           <div className="flex mt-4 sm:mt-0 space-x-4">
             <a
               href="https://x.com/nextrows_com"
@@ -25,7 +32,7 @@ export function Footer() {
               <IconBrandYoutube className="h-6 w-6" />
             </a>
             <a
-              href="https://github.com/wordbricks/"
+              href="https://github.com/wordbricks/next-eval"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Wordbricks on GitHub"
