@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/api";
-import BlogClient from "@/app/blog-client";
-import { generateSEOMetadata } from "@/app/_components/seo";
+import BlogClient from "@/app/(client)/blog-client";
+import { generateSEOMetadata } from "@/app/(client)/_components/seo";
 import { HOST } from "@/env/host";
 import { getEnv } from "@/env/getEnv";
 import { CATEGORIES, isCategory, getCategoryLabel } from "@/constants/category";

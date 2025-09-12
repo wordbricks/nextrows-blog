@@ -1,6 +1,6 @@
 import { getAllPosts } from "@/lib/api";
 import BlogClient from "./blog-client";
-import { BlogJsonLd } from "@/app/_components/json-ld";
+import { BlogJsonLd } from "@/app/(client)/_components/json-ld";
 
 export default function Index() {
   const allPosts = getAllPosts();

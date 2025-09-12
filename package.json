@@ -8,14 +8,17 @@
     "clean": "rm -rf node_modules .next"
   },
   "dependencies": {
+    "@hono/zod-validator": "^0.7.2",
     "@rehype-pretty/transformers": "^0.13.2",
     "@tabler/icons-react": "^3.34.1",
+    "@vercel/og": "^0.8.5",
     "audit": "^0.0.6",
     "classnames": "^2.5.1",
     "cmdk": "^1.0.0",
     "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
+    "hono": "^4.8.3",
     "lucide-react": "^0.474.0",
     "next": "15.5.3",
     "nextra": "^4.0.0",

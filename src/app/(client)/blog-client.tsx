@@ -2,10 +2,10 @@
 
 import { Post } from "@/interfaces/post";
 import Link from "next/link";
-import DateFormatter from "@/app/_components/date-formatter";
+import DateFormatter from "@/app/(client)/_components/date-formatter";
 import { useState, useEffect, useMemo, memo } from "react";
-import BlogImage from "@/app/_components/blog-image";
-import AnimatedSpreadsheet from "@/app/_components/animated-spreadsheet";
+import BlogImage from "@/app/(client)/_components/blog-image";
+import AnimatedSpreadsheet from "@/app/(client)/_components/animated-spreadsheet";
 
 import { CATEGORIES, type Category, getCategoryColor, getCategoryLabel } from "@/constants/category";
 import { cn } from "@/utils/cn";
@@ -130,8 +130,8 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
         {/* Animated Spreadsheet */}
         <AnimatedSpreadsheet />
         
-        {/* Memoized Header - won't re-render on category changes */}
-        <BlogHeader />
+        {/* Show header only on homepage (no initial category) */}
+        {!initialCategory && <BlogHeader />}
 
         {/* Memoized Featured Post - won't re-render on category changes */}
         {featuredPost && <FeaturedPost post={featuredPost} />}

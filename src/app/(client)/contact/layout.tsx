@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { generateSEOMetadata } from '@/app/_components/seo';
+import { generateSEOMetadata } from '@/app/(client)/_components/seo';
 import { HOST } from '@/env/host';
 import { getEnv } from '@/env/getEnv';
 

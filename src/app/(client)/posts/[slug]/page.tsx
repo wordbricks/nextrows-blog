@@ -4,14 +4,14 @@ import Link from "next/link";
 import { getAllPosts, getPostBySlug } from "@/lib/api";
 import { CMS_NAME } from "@/lib/constants";
 import markdownToHtml from "@/lib/markdownToHtml";
-import DateFormatter from "@/app/_components/date-formatter";
-import BlogImage from "@/app/_components/blog-image";
-import { ArticleJsonLd } from "@/app/_components/json-ld";
+import DateFormatter from "@/app/(client)/_components/date-formatter";
+import BlogImage from "@/app/(client)/_components/blog-image";
+import { ArticleJsonLd } from "@/app/(client)/_components/json-ld";
 import { 
   generateSEOMetadata, 
   generateArticleStructuredData, 
   generateBreadcrumbStructuredData 
-} from "@/app/_components/seo";
+} from "@/app/(client)/_components/seo";
 import { HOST } from "@/env/host";
 import { getEnv } from "@/env/getEnv";
 import { getCategoryColor, getCategoryLabel } from "@/constants/category";
