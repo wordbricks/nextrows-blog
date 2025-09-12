@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   IconBrandX,
   IconBrandYoutube,
@@ -40,13 +41,13 @@ export function Footer() {
             >
               <IconBrandGithub className="h-6 w-6" />
             </a>
-            <a
+            <Link
               href="/atom.xml"
               aria-label="RSS feed"
               className="text-stone-500 dark:text-stone-400 hover:text-orange-600 dark:hover:text-orange-500"
             >
               <IconRss className="h-6 w-6" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

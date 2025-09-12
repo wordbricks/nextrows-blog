@@ -3,7 +3,7 @@ import { getEnv } from "@/env/getEnv";
 
 export const SEO_CONFIG = {
   siteName: 'NextRows Blog',
-  siteUrl: HOST[getEnv()],
+  siteUrl: '/',
   siteDescription: 'Learn web scraping, data cleaning, and automation techniques with NextRows. Tutorials, guides, and insights to transform your data processing workflow.',
   siteKeywords: [
     'web scraping',
@@ -23,7 +23,7 @@ export const SEO_CONFIG = {
   organization: {
     name: 'NextRows',
     url: 'https://nextrows.com',
-    logo: `${HOST[getEnv()]}/assets/nextrows-logo.svg`,
+    logo: '/assets/nextrows-logo.svg',
     sameAs: [
       'https://twitter.com/nextrows',
       'https://github.com/wordbricks',
@@ -87,7 +87,7 @@ export const SEO_CONFIG = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
     name: 'NextRows Blog',
-    url: HOST[getEnv()],
+    url: '/',
     description: 'Learn web scraping, data cleaning, and automation techniques with NextRows.',
     publisher: {
       '@type': 'Organization',
@@ -95,7 +95,7 @@ export const SEO_CONFIG = {
       url: 'https://nextrows.com',
       logo: {
         '@type': 'ImageObject',
-        url: `${HOST[getEnv()]}/assets/nextrows-logo.svg`,
+        url: '/assets/nextrows-logo.svg',
       },
     },
   },

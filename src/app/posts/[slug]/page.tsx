@@ -32,15 +32,15 @@ export default async function Post(props: Params) {
     .slice(0, 3);
 
   const breadcrumbData = generateBreadcrumbStructuredData([
-    { name: 'Home', url: HOST[getEnv()] },
-    { name: post.category ? getCategoryLabel(post.category) : 'Articles', url: post.category ? `${HOST[getEnv()]}/category/${post.category}` : HOST[getEnv()] },
-    { name: post.title, url: `${HOST[getEnv()]}/posts/${post.slug}` },
+    { name: 'Home', url: '/' },
+    { name: post.category ? getCategoryLabel(post.category) : 'Articles', url: post.category ? `/category/${post.category}` : '/' },
+    { name: post.title, url: `/posts/${post.slug}` },
   ]);
 
   const articleData = generateArticleStructuredData({
     title: post.title,
     description: post.excerpt,
-    url: `${HOST[getEnv()]}/posts/${post.slug}`,
+    url: `/posts/${post.slug}`,
     image: post.coverImage,
     author: post.author?.name || 'NextRows Team',
     publishedTime: post.date,
@@ -60,7 +60,7 @@ export default async function Post(props: Params) {
       <ArticleJsonLd
         title={post.title}
         description={post.excerpt}
-        url={`${HOST[getEnv()]}/posts/${post.slug}`}
+        url={`/posts/${post.slug}`}
         datePublished={post.date}
         authorName={post.author?.name}
         image={post.coverImage}
@@ -207,7 +207,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
   return generateSEOMetadata({
     title: post.title,
     description: post.excerpt,
-    url: `${HOST[getEnv()]}/posts/${post.slug}`,
+    url: `/posts/${post.slug}`,
     image: `/posts/${post.slug}/opengraph-image`,
     author: post.author?.name,
     publishedTime: post.date,

@@ -47,7 +47,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
   const params = await props.params;
   const cat = params.category;
   const title = `${getCategoryLabel(cat)}`;
-  const url = `${HOST[getEnv()]}/category/${cat}`;
+  const url = `/category/${cat}`;
   return generateSEOMetadata({
     title: `Category: ${title}`,
     description: `Read posts from the ${title} category on NextRows Blog.`,

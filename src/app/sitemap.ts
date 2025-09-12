@@ -2,10 +2,11 @@ import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/api'
 import { HOST } from '@/env/host'
 import { getEnv } from '@/env/getEnv'
+import { BASE_PATH } from '@/env/basePath'
 import { CATEGORIES } from '@/constants/category'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = HOST[getEnv()]
+  const baseUrl = `${HOST[getEnv()]}${BASE_PATH}`
   
   // Get all blog posts
   const posts = getAllPosts()

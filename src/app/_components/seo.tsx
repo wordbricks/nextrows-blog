@@ -1,6 +1,4 @@
 import { Metadata } from 'next';
-import { HOST } from '@/env/host';
-import { getEnv } from '@/env/getEnv';
 
 export interface SEOProps {
   title: string;
@@ -18,7 +16,7 @@ export interface SEOProps {
 export function generateSEOMetadata({
   title,
   description,
-  url = HOST[getEnv()],
+  url = '/',
   image = '/opengraph-image',
   author = 'NextRows Team',
   publishedTime,
@@ -28,7 +26,7 @@ export function generateSEOMetadata({
   noindex = false,
 }: SEOProps): Metadata {
   const fullTitle = `${title} | NextRows Blog`;
-  const fullImageUrl = image.startsWith('http') ? image : `${HOST[getEnv()]}${image}`;
+  const fullImageUrl = image;
   
   const defaultKeywords = [
     'web scraping',
@@ -128,7 +126,7 @@ export function generateArticleStructuredData({
   modifiedTime?: string;
   keywords?: string[];
 }) {
-  const fullImageUrl = image.startsWith('http') ? image : `${HOST[getEnv()]}${image}`;
+  const fullImageUrl = image;
   
   return {
     '@context': 'https://schema.org',
@@ -146,7 +144,7 @@ export function generateArticleStructuredData({
       name: 'NextRows',
       logo: {
         '@type': 'ImageObject',
-        url: `${HOST[getEnv()]}/assets/nextrows-logo.svg`,
+        url: '/assets/nextrows-logo.svg',
       },
     },
     datePublished: publishedTime,
@@ -178,7 +176,7 @@ export function generateOrganizationStructuredData() {
     '@type': 'Organization',
     name: 'NextRows',
     url: 'https://nextrows.com',
-    logo: `${HOST[getEnv()]}/assets/nextrows-logo.svg`,
+    logo: '/assets/nextrows-logo.svg',
     description: 'NextRows is a powerful data extraction and automation platform that simplifies web scraping and data processing.',
     sameAs: [
       'https://twitter.com/nextrows',
@@ -199,7 +197,7 @@ export function generateWebSiteStructuredData() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'NextRows Blog',
-    url: HOST[getEnv()],
+    url: '/',
     description: 'Learn web scraping, data cleaning, and automation techniques with NextRows.',
     publisher: {
       '@type': 'Organization',
@@ -209,7 +207,7 @@ export function generateWebSiteStructuredData() {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${HOST[getEnv()]}/search?q={search_term_string}`,
+        urlTemplate: `/search?q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
