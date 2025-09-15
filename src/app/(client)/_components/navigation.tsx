@@ -46,7 +46,7 @@ export default function Navigation() {
             alt="NextRows Logo" 
             width={20} 
             height={24} 
-            className="object-contain"
+            className="w-5 h-6 object-contain"
           />
           <span className="text-lg font-bold text-stone-900 dark:text-stone-50">
             NextRows Blog

@@ -15,6 +15,7 @@ interface BlogImageProps {
   priority?: boolean;
   caption?: string;
   loading?: "lazy" | "eager";
+  sizes?: string;
 }
 
 export default function BlogImage({ 
@@ -27,7 +28,8 @@ export default function BlogImage({
   height,
   priority = false,
   caption,
-  loading = "lazy"
+  loading = "lazy",
+  sizes,
 }: BlogImageProps) {
   const placeholder = `https://placehold.co/800x600/ff6308/ffffff?text=${encodeURIComponent(fallbackText)}`;
   const normalizedSrc = src.startsWith("/") ? `${BASE_PATH}${src}` : src;
@@ -38,6 +40,7 @@ export default function BlogImage({
       src={imgSrc}
       alt={alt}
       fill
+      sizes={sizes || "(max-width: 768px) 100vw, 50vw"}
       className={className}
       priority={priority}
       loading={priority ? "eager" : loading}
