@@ -19,6 +19,16 @@ const config: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/blog",
+        permanent: true,
+        basePath: false,
+      },
+    ];
+  },
 };
 
 export default withNextra(config);
