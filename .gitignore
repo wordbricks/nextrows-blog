@@ -47,3 +47,6 @@ next-env.d.ts
 !public/**/*.png
 !public/**/*.jpg
 !public/**/*.jpeg
+ 
+# pagefind search index (generated)
+public/_pagefind/

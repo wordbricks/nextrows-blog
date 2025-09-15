@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { api } from "@/app/(client)/lib/hono/api";
+import { BASE_PATH } from "@/env/basePath";
 
 type Item = {
   slug: string;
@@ -24,8 +25,18 @@ export default function SearchClient() {
       "script[data-pagefind]",
     );
     if (existing) return;
+    const existingCss = document.querySelector<HTMLLinkElement>(
+      "link[data-pagefind-css]",
+    );
+    if (!existingCss) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = `${BASE_PATH}/_pagefind/pagefind-ui.css`;
+      link.dataset.pagefindCss = "true";
+      document.head.appendChild(link);
+    }
     const script = document.createElement("script");
-    script.src = "/_pagefind/pagefind.js";
+    script.src = `${BASE_PATH}/_pagefind/pagefind-ui.js`;
     script.async = true;
     script.defer = true;
     script.dataset.pagefind = "true";
@@ -37,6 +48,21 @@ export default function SearchClient() {
           element: "#pagefind-search",
           showSubResults: true,
           showImages: true,
+          bundlePath: `${BASE_PATH}/_pagefind/`,
+          baseUrl: `${BASE_PATH}/`,
+          processResult: (res: { meta?: { image?: string } }) => {
+            const img = res?.meta?.image;
+            if (typeof img !== "string") return res;
+            if (!img.includes("/_next/image?url=")) return res;
+            const qIndex = img.indexOf("?");
+            if (qIndex === -1) return res;
+            const params = new URLSearchParams(img.slice(qIndex + 1));
+            const inner = params.get("url");
+            if (!inner) return res;
+            const decoded = decodeURIComponent(inner);
+            if (res.meta) res.meta.image = decoded;
+            return res;
+          },
           translations: { placeholder: "Search the blog..." },
         });
         return;
