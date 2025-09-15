@@ -49,6 +49,10 @@ export default async function Post(props: Params) {
 
   return (
     <>
+      {/* Pagefind metadata for search results */}
+      <span data-pagefind-meta="category" style={{ display: 'none' }}>{post.category}</span>
+      <span data-pagefind-meta="date" style={{ display: 'none' }}>{post.date}</span>
+      <span data-pagefind-meta="minutes" style={{ display: 'none' }}>{post.readingTimeMinutes}</span>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}

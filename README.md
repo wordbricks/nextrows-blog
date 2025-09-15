@@ -27,9 +27,9 @@ nextrows-blog/
 │   └── favicon/            # Favicon files
 ├── src/
 │   ├── app/
-│   │   ├── _components/    # React components
-│   │   ├── posts/[slug]/   # Dynamic blog post pages
-│   │   ├── contact/        # Contact page
+│   │   ├── (client)/_components/    # React components
+│   │   ├── (client)/posts/[slug]/   # Dynamic blog post pages
+│   │   ├── (client)/contact/        # Contact page
 │   │   └── ...
 │   ├── interfaces/         # TypeScript interfaces
 │   └── lib/                # Utility functions
@@ -70,12 +70,12 @@ npm install
 npm run dev
 ```
 
-4. Open [http://localhost:4321](http://localhost:4321) in your browser
+4. Open `http://localhost:4321/blog` in your browser
 
 ## 📝 Adding Blog Posts
 
 1. Create a new `.md` file in the `_posts` directory
-2. Add frontmatter with required fields:
+2. Add frontmatter with recommended fields:
 
 ```markdown
 ---
@@ -106,7 +106,7 @@ Your content here...
 - `npm run dev` - Start development server with Turbopack
 - `npm run build` - Build for production
 - `npm start` - Start production server
-- `npm run lint` - Run ESLint
+- `npm run check-types` - Type check with TypeScript
 
 ## 🎯 NextRows Brand Colors
 
@@ -116,7 +116,7 @@ Your content here...
 
 ## 📚 Key Technologies
 
-- **Next.js 15.0.2** - React framework
+- **Next.js 15.5.3** - React framework
 - **TypeScript** - Type safety
 - **Tailwind CSS 4** - Styling
 - **Remark** - Markdown processing
