@@ -6,10 +6,18 @@ import { useState } from "react";
 import { cn } from "@/utils/cn";
 import { BASE_PATH } from "@/env/basePath";
 import { useEffectOnce } from "@/hooks/useEffectOnce";
+import { useCommandPalette } from "@/app/(client)/_components/command-palette-context";
+import { usePathname } from "next/navigation";
 
 export default function Navigation() {
+  const { openPalette } = useCommandPalette();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const pathname = usePathname();
+  const pathNoBase = pathname && pathname.startsWith(BASE_PATH) ? pathname.slice(BASE_PATH.length) || "/" : pathname || "/";
+  const isContact = pathNoBase === "/contact";
+  const isSearch = pathNoBase === "/search" || pathNoBase.startsWith("/search/");
+  const isBlog = pathNoBase === "/" || pathNoBase.startsWith("/posts") || pathNoBase.startsWith("/category");
 
   useEffectOnce(() => {
     const saved = localStorage.getItem("theme");
@@ -54,13 +62,37 @@ export default function Navigation() {
           </span>
         </Link>
         <div className="hidden md:flex space-x-4 items-center">
-          <Link href="/" className="text-sm text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-500 transition duration-300">
+          <Link 
+            href="/" 
+            aria-current={isBlog ? "page" : undefined}
+            className={cn(
+              "text-sm transition duration-300",
+              "text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-500",
+              isBlog && "text-orange-600 dark:text-orange-500 font-semibold"
+            )}
+          >
             Blog
           </Link>
-          <button onClick={() => window.dispatchEvent(new Event('open-command-palette'))} className="text-sm text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-500 transition duration-300">
+          <button 
+            aria-current={isSearch ? "page" : undefined}
+            onClick={openPalette} 
+            className={cn(
+              "text-sm transition duration-300",
+              "text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-500",
+              isSearch && "text-orange-600 dark:text-orange-500 font-semibold"
+            )}
+          >
             Search <span className="ml-1 rounded border px-1 py-0.5 text-[10px] text-stone-500 dark:text-stone-400 border-stone-300 dark:border-stone-600">⌘K</span>
           </button>
-          <Link href="/contact" className="text-sm text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-500 transition duration-300">
+          <Link 
+            href="/contact" 
+            aria-current={isContact ? "page" : undefined}
+            className={cn(
+              "text-sm transition duration-300",
+              "text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-500",
+              isContact && "text-orange-600 dark:text-orange-500 font-semibold"
+            )}
+          >
             Contact
           </Link>
           <button
@@ -138,23 +170,38 @@ export default function Navigation() {
         <div className="px-2 py-3 space-y-1">
           <Link 
             href="/" 
-            className="block px-3 py-2 text-base font-medium rounded-md hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300"
+            aria-current={isBlog ? "page" : undefined}
+            className={cn(
+              "block px-3 py-2 text-base font-medium rounded-md",
+              "text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800",
+              isBlog && "bg-stone-100 dark:bg-stone-800"
+            )}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Blog
           </Link>
           <button 
-            className="block w-full text-left px-3 py-2 text-base font-medium rounded-md hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300"
+            aria-current={isSearch ? "page" : undefined}
+            className={cn(
+              "block w-full text-left px-3 py-2 text-base font-medium rounded-md",
+              "text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800",
+              isSearch && "bg-stone-100 dark:bg-stone-800"
+            )}
             onClick={() => {
-              window.dispatchEvent(new Event('open-command-palette'))
-              setIsMobileMenuOpen(false)
+              openPalette();
+              setIsMobileMenuOpen(false);
             }}
           >
             Search
           </button>
           <Link 
             href="/contact" 
-            className="block px-3 py-2 text-base font-medium rounded-md hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300"
+            aria-current={isContact ? "page" : undefined}
+            className={cn(
+              "block px-3 py-2 text-base font-medium rounded-md",
+              "text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800",
+              isContact && "bg-stone-100 dark:bg-stone-800"
+            )}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Contact

@@ -2,6 +2,7 @@ import Footer from "@/app/(client)/_components/footer";
 import Navigation from "@/app/(client)/_components/navigation";
 import FirstVisitPopup from "@/app/(client)/_components/first-visit-popup";
 import CommandPalette from "@/app/(client)/_components/command-palette";
+import { CommandPaletteProvider } from "@/app/(client)/_components/command-palette-context";
 import {
   generateOrganizationStructuredData,
   generateWebSiteStructuredData,
@@ -12,6 +13,7 @@ import { Inter } from "next/font/google";
 import { HOST } from "@/env/host";
 import { getEnv } from "@/env/getEnv";
 import { BASE_PATH } from "@/env/basePath";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 import "@/app/globals.css";
 import { cn } from "@/utils/cn";
@@ -134,19 +136,23 @@ export default function RootLayout({
           "bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200",
         )}
       >
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 border border-stone-300 dark:border-stone-700 rounded px-3 py-2 shadow"
-        >
-          Skip to content
-        </a>
-        <Navigation />
-        <CommandPalette />
-        <FirstVisitPopup />
-        <div id="main-content" className="min-h-screen">
-          {children}
-        </div>
-        <Footer />
+        <NuqsAdapter>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 border border-stone-300 dark:border-stone-700 rounded px-3 py-2 shadow"
+          >
+            Skip to content
+          </a>
+          <CommandPaletteProvider>
+            <Navigation />
+            <CommandPalette />
+          </CommandPaletteProvider>
+          <FirstVisitPopup />
+          <div id="main-content" className="min-h-screen">
+            {children}
+          </div>
+          <Footer />
+        </NuqsAdapter>
       </body>
     </html>
   );

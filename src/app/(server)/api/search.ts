@@ -12,6 +12,7 @@ export const search = new Hono<Env>().get("/", (c) => {
     category: p.category || "",
     date: p.date,
     coverImage: p.coverImage || "",
+    readingTimeMinutes: p.readingTimeMinutes,
   }));
   return c.json({ items });
 });
