@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { cn } from "@/utils/cn";
+import { BASE_PATH } from "@/env/basePath";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,7 +42,7 @@ export default function Navigation() {
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-1.5">
           <Image 
-            src="/nextrows-logo-nav.png" 
+            src={`${BASE_PATH}/nextrows-logo-nav.png`} 
             alt="NextRows Logo" 
             width={20} 
             height={24} 

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { BASE_PATH } from "@/env/basePath";
 
 interface BlogImageProps {
   src: string;
@@ -28,7 +29,9 @@ export default function BlogImage({
   caption,
   loading = "lazy"
 }: BlogImageProps) {
-  const [imgSrc, setImgSrc] = useState(src || `https://placehold.co/800x600/ff6308/ffffff?text=${encodeURIComponent(fallbackText)}`);
+  const placeholder = `https://placehold.co/800x600/ff6308/ffffff?text=${encodeURIComponent(fallbackText)}`;
+  const normalizedSrc = src.startsWith("/") ? `${BASE_PATH}${src}` : src;
+  const [imgSrc, setImgSrc] = useState(normalizedSrc || placeholder);
 
   const imageElement = fill ? (
     <Image
@@ -39,7 +42,7 @@ export default function BlogImage({
       priority={priority}
       loading={priority ? "eager" : loading}
       onError={() => {
-        setImgSrc(`https://placehold.co/800x600/ff6308/ffffff?text=${encodeURIComponent(fallbackText)}`);
+        setImgSrc(placeholder);
       }}
     />
   ) : (
@@ -52,7 +55,7 @@ export default function BlogImage({
       priority={priority}
       loading={priority ? "eager" : loading}
       onError={() => {
-        setImgSrc(`https://placehold.co/800x600/ff6308/ffffff?text=${encodeURIComponent(fallbackText)}`);
+        setImgSrc(placeholder);
       }}
     />
   );
