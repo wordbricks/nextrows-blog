@@ -2,15 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { cn } from "@/utils/cn";
 import { BASE_PATH } from "@/env/basePath";
+import { useEffectOnce } from "@/hooks/useEffectOnce";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
-  useEffect(() => {
+  useEffectOnce(() => {
     const saved = localStorage.getItem("theme");
     const mql = window.matchMedia("(prefers-color-scheme: dark)");
     const initial: "light" | "dark" = saved === "light" ? "light" : saved === "dark" ? "dark" : mql.matches ? "dark" : "light";
@@ -24,7 +25,7 @@ export default function Navigation() {
     };
     mql.addEventListener("change", handler);
     return () => mql.removeEventListener("change", handler);
-  }, []);
+  });
 
   const applyTheme = (selected: "light" | "dark") => {
     document.documentElement.classList.toggle("dark", selected === "dark");

@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { api } from "@/app/(client)/lib/hono/api";
 import { BASE_PATH } from "@/env/basePath";
+import { useEffectOnce } from "@/hooks/useEffectOnce";
 
 type Item = {
   slug: string;
@@ -20,7 +21,7 @@ export default function SearchClient() {
   const [items, setItems] = useState<Item[]>([]);
   const [q, setQ] = useState("");
 
-  useEffect(() => {
+  useEffectOnce(() => {
     const existing = document.querySelector<HTMLScriptElement>(
       "script[data-pagefind]",
     );
@@ -71,7 +72,7 @@ export default function SearchClient() {
     };
     script.onerror = () => setFallback(true);
     document.body.appendChild(script);
-  }, []);
+  });
 
   useEffect(() => {
     if (!fallback) return;

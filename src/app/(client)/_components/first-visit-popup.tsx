@@ -1,14 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { cn } from "@/utils/cn";
+import { useEffectOnce } from "@/hooks/useEffectOnce";
 
 export default function FirstVisitPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [otherText, setOtherText] = useState("");
 
-  useEffect(() => {
+  useEffectOnce(() => {
     const checkAndShowPopup = async () => {
       // Check if user has already seen the popup in localStorage
       const hasSeenPopup = localStorage.getItem("hasSeenPopup");
@@ -55,7 +56,7 @@ export default function FirstVisitPopup() {
     };
 
     checkAndShowPopup();
-  }, []);
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -6,6 +6,7 @@ import { Command as Cmdk } from "cmdk";
 import { useRouter } from "next/navigation";
 import { api } from "@/app/(client)/lib/hono/api";
 import { Home, Mail, Rss, Search as SearchIcon, FileText } from "lucide-react";
+import { useEffectOnce } from "@/hooks/useEffectOnce";
 
 type Item = {
   slug: string;
@@ -23,11 +24,11 @@ export default function CommandPalette() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  useEffect(() => {
+  useEffectOnce(() => {
     const handler = () => setOpen(true);
     window.addEventListener("open-command-palette", handler);
     return () => window.removeEventListener("open-command-palette", handler);
-  }, []);
+  });
 
   useHotkeys(
     "mod+k",

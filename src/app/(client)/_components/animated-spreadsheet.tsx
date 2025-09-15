@@ -1,18 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useEffectOnce } from "@/hooks/useEffectOnce";
 
 export default function AnimatedSpreadsheet() {
   const [currentFrame, setCurrentFrame] = useState(0);
   const totalFrames = 12;
 
-  useEffect(() => {
+  useEffectOnce(() => {
     const interval = setInterval(() => {
       setCurrentFrame(prev => (prev + 1) % totalFrames);
     }, 200);
 
     return () => clearInterval(interval);
-  }, []);
+  });
 
   const SpreadsheetWindow = ({ cellData }: { cellData: any[][] }) => {
     return (
