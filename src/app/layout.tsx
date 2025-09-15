@@ -11,6 +11,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { HOST } from "@/env/host";
 import { getEnv } from "@/env/getEnv";
+import { BASE_PATH } from "@/env/basePath";
 
 import "@/app/globals.css";
 import { cn } from "@/utils/cn";
@@ -77,17 +78,16 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon/apple-touch-icon.png",
+    icon: `${BASE_PATH}/favicon.svg`,
+    shortcut: `${BASE_PATH}/favicon.svg`,
+    apple: `${BASE_PATH}/favicon/apple-touch-icon.png`,
     other: [
       {
         rel: "mask-icon",
-        url: "/favicon/safari-pinned-tab.svg",
+        url: `${BASE_PATH}/favicon/safari-pinned-tab.svg`,
       },
     ],
   },
-  manifest: "/favicon/site.webmanifest",
   robots: {
     index: true,
     follow: true,
@@ -112,7 +112,7 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#000000" />
         <meta
           name="msapplication-config"
-          content={`favicon/browserconfig.xml`}
+          content={`${BASE_PATH}/favicon/browserconfig.xml`}
         />
         <meta name="theme-color" content="#000" />
         <script
