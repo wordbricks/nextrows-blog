@@ -1,13 +1,13 @@
 import type { NextConfig } from "next";
 import nextra from "nextra";
 
-const withNextra: NextConfig = nextra({
+const withNextra = nextra({
   // App Router: themes are used via components; plugin handles MD/MDX.
   // Keep built-in search integration enabled.
   search: true,
 });
 
-const config = {
+const config: NextConfig = {
   basePath: "/blog",
   images: {
     remotePatterns: [
