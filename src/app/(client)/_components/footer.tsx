@@ -11,7 +11,7 @@ export function Footer() {
       <div className="container mx-auto px-6 py-8">
         <div className="flex flex-col items-center sm:flex-row sm:justify-between">
           <p className="text-sm text-stone-500 dark:text-stone-400">
-            &copy; 2025 NextRows Blog. All Rights Reserved.
+            &copy; 2025 NextRows. All Rights Reserved.
           </p>
           <div className="flex mt-4 sm:mt-0 space-x-4">
             <a

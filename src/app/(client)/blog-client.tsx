@@ -5,7 +5,7 @@ import Link from "next/link";
 import DateFormatter from "@/app/(client)/_components/date-formatter";
 import { useState, useEffect, useMemo, memo } from "react";
 import BlogImage from "@/app/(client)/_components/blog-image";
-import AnimatedSpreadsheet from "@/app/(client)/_components/animated-spreadsheet";
+import FeaturedCarousel from "@/app/(client)/_components/featured-carousel";
 
 import { CATEGORIES, type Category, getCategoryColor, getCategoryLabel } from "@/constants/category";
 import { cn } from "@/utils/cn";
@@ -19,59 +19,18 @@ interface BlogClientProps {
 // Memoized Header Component
 const BlogHeader = memo(() => (
   <header className="mb-8">
-    <h1 className="text-3xl md:text-4xl font-bold text-center mb-3">Row by Row, Toward Clarity</h1>
+    <h1 className="text-3xl md:text-4xl font-bold text-center mb-3">NextRows Blog</h1>
     <p className="text-base md:text-lg text-stone-600 dark:text-stone-400 text-center max-w-3xl mx-auto">
       Some chase gold, others chase glory. We chase clean tables.
       <br />
-      This blog is where we share what we've learned—row by row, mistake by mistake, and sometimes with a laugh.
+      This blog is where we share what we've learned—row by row, mistake by mistake,
+      <br />
+      and sometimes with a laugh.
     </p>
   </header>
 ));
 BlogHeader.displayName = 'BlogHeader';
 
-// Memoized Featured Post Component
-const FeaturedPost = memo(({ post }: { post: Post }) => (
-  <div className="flex justify-center mb-10">
-    <Link
-      href={`/posts/${post.slug}`}
-      className="block bg-white dark:bg-stone-800 rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row hover:shadow-xl transition-shadow duration-300 border border-stone-200 dark:border-stone-700 w-full max-w-[800px]"
-    >
-    <div className="w-full md:w-1/2 relative min-h-[256px] md:min-h-[320px] bg-stone-100 dark:bg-stone-900">
-      <div className="absolute inset-0">
-        <BlogImage
-          src={post.coverImage}
-          alt={`${post.title} - NextRows blog post about ${getCategoryLabel(post.category)}`}
-          fallbackText={post.title.substring(0, 20)}
-          fill
-          className="object-cover object-center !w-full !h-full"
-          priority
-        />
-      </div>
-    </div>
-    <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
-      <span
-        className={cn("text-xs font-semibold uppercase mb-2", getCategoryColor(post.category))}
-      >
-        {getCategoryLabel(post.category)}
-      </span>
-      <h2 className="text-2xl md:text-3xl font-bold leading-tight mb-3">
-        {post.title}
-      </h2>
-      <p className="text-stone-600 dark:text-stone-400 mb-4 text-sm md:text-base">
-        {post.excerpt}
-      </p>
-      <div className="flex items-center">
-        <div>
-          <p className="text-xs md:text-sm text-stone-500 dark:text-stone-400">
-            <DateFormatter dateString={post.date} /> · {post.readingTimeMinutes} min read
-          </p>
-        </div>
-      </div>
-    </div>
-    </Link>
-  </div>
-));
-FeaturedPost.displayName = 'FeaturedPost';
 
 export default function BlogClient({ posts, initialCategory }: BlogClientProps) {
   const initialCat: Filter = initialCategory && (CATEGORIES as readonly string[]).includes(initialCategory)
@@ -81,42 +40,29 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 9;
 
-  // Memoize featured post - it never changes
-  const featuredPost = useMemo(() => posts.length > 0 ? posts[0] : null, [posts]);
+  // Skip first 3 posts as they're featured
+  const remainingPosts = useMemo(() => posts.slice(3), [posts]);
+
 
   // Memoize filtered posts calculation - maintains date order
   const filteredPosts = useMemo(() => {
     if (activeFilter === "all") {
-      return posts;
+      return remainingPosts;
     }
     // Filter by category while maintaining the original date-sorted order
-    return posts.filter((post) => post.category === activeFilter);
-  }, [activeFilter, posts]);
+    return remainingPosts.filter((post) => post.category === activeFilter);
+  }, [activeFilter, remainingPosts]);
 
-  // Memoize filtered posts without featured
-  const filteredPostsWithoutFeatured = useMemo(() => {
-    return featuredPost 
-      ? filteredPosts.filter(post => post.slug !== featuredPost.slug)
-      : filteredPosts;
-  }, [featuredPost, filteredPosts]);
   
   // Memoize pagination calculations
   const { totalPages, gridPosts } = useMemo(() => {
-    const total = Math.ceil(filteredPostsWithoutFeatured.length / postsPerPage);
-    
-    let posts: Post[];
-    if (featuredPost) {
-      const startIndex = (currentPage - 1) * postsPerPage;
-      const endIndex = startIndex + postsPerPage;
-      posts = filteredPostsWithoutFeatured.slice(startIndex, endIndex);
-    } else {
-      const startIndex = (currentPage - 1) * postsPerPage;
-      const endIndex = startIndex + postsPerPage;
-      posts = filteredPosts.slice(startIndex, endIndex);
-    }
-    
+    const total = Math.ceil(filteredPosts.length / postsPerPage);
+    const startIndex = (currentPage - 1) * postsPerPage;
+    const endIndex = startIndex + postsPerPage;
+    const posts = filteredPosts.slice(startIndex, endIndex);
+
     return { totalPages: total, gridPosts: posts };
-  }, [currentPage, featuredPost, filteredPosts, filteredPostsWithoutFeatured, postsPerPage]);
+  }, [currentPage, filteredPosts, postsPerPage]);
 
   // Reset to first page when filter changes
   useEffect(() => {
@@ -126,15 +72,12 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
 
   return (
     <main>
-      <div className="container mx-auto px-4 md:px-6 py-8 md:py-10">
-        {/* Animated Spreadsheet */}
-        <AnimatedSpreadsheet />
-        
+      <div className="max-w-[1200px] mx-auto px-4 md:px-6 py-8 md:py-10">
         {/* Show header only on homepage (no initial category) */}
         {!initialCategory && <BlogHeader />}
 
-        {/* Memoized Featured Post - won't re-render on category changes */}
-        {featuredPost && <FeaturedPost post={featuredPost} />}
+        {/* Featured Articles Carousel - shows top 3 posts */}
+        {!initialCategory && posts.length >= 3 && <FeaturedCarousel posts={posts} />}
 
         {/* Filter Section */}
         <div className="mb-10">
@@ -167,7 +110,7 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
               <Link
                 key={post.slug}
                 href={`/posts/${post.slug}`}
-                className="group block bg-white dark:bg-stone-800 rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 ease-in-out border border-stone-200 dark:border-stone-700 hover:-translate-y-1"
+                className="group block bg-white dark:bg-stone-800 rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-all duration-300 ease-in-out border border-stone-200 dark:border-stone-700 hover:-translate-y-2 hover:border-orange-300 dark:hover:border-orange-700 animate-fade-in"
               >
                 <div className="relative h-40 w-full overflow-hidden">
                   <BlogImage

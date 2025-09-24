@@ -13,7 +13,7 @@ category: "technology"
 
 At NextRows, our AI agents are complex systems. They interact with language models, run code in secure sandboxes, and browse the web to accomplish tasks. With so many moving parts, a simple question can become incredibly difficult to answer: "What just happened?"
 
-When an AI agent doesn't behave as expected, digging through logs is often a nightmare. Was the issue with the LLM prompt? Did a tool fail in its sandbox? Was there a network error? Answering these questions quickly is essential for building a reliable product. This is where Laminar, our observability platform, comes in.
+When an AI agent doesn't behave as expected, digging through logs is often a nightmare. Was the issue with the LLM prompt? Did a tool fail in its sandbox? Was there a network error? Answering these questions quickly is essential for building a reliable product. This is where [Laminar](https://www.lamin.ar), our observability platform, comes in.
 
 ## The Challenge: Understanding the Black Box
 
@@ -29,7 +29,7 @@ A single user request can trigger a complex chain of events across all these ser
 
 ## What is Observability?
 
-Observability is more than just logging. It's about being able to ask arbitrary questions about your system without having to ship new code. A good observability platform gives you a complete, holistic view of your system's behavior. For us, that platform is Laminar.
+Observability is more than just logging. It's about being able to ask arbitrary questions about your system without having to ship new code. A good observability platform gives you a complete, holistic view of your system's behavior. For us, that platform is [Laminar](https://www.lamin.ar).
 
 Laminar is designed specifically for modern AI applications. It understands that an AI agent's workflow isn't a simple, linear path. It's a series of nested calls, tool executions, and model interactions.
 

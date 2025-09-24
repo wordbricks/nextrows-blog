@@ -8,12 +8,15 @@ import rehypeStringify from "rehype-stringify";
 import { BASE_PATH } from "@/env/basePath";
 import rehypeRewrite from "rehype-rewrite";
 import { isElement } from "hast-util-is-element";
+// @ts-ignore
+import rehypeSlug from "rehype-slug";
 
 export default async function markdownToHtml(markdown: string) {
   const file = await remark()
     .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
+    .use(rehypeSlug) // Add IDs to headings
     .use(rehypePrettyCode, {
       theme: {
         light: "everforest-light",

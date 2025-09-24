@@ -1,224 +1,96 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Use class-based dark mode so the toggle controls it */
-@custom-variant dark (&:where(.dark, .dark *));
-
-@theme {
-    --text-5xl: 2.5rem;
-    --text-5xl--line-height: 1;
-    --text-6xl: 2.75rem;
-    --text-6xl--line-height: 1;
-    --text-7xl: 4.5rem;
-    --text-7xl--line-height: 1;
-    --text-8xl: 6.25rem;
-    --text-8xl--line-height: 1;
-
-    --shadow-sm: 0 5px 10px rgba(0, 0, 0, 0.12);
-    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.12);
-
-    --color-accent-1: #fafafa;
-    --color-accent-2: #eaeaea;
-    --color-accent-7: #333333;
-    --color-success: #0070f3;
-    --color-cyan: #79ffe1;
+/* Custom styles */
+.dark {
+  color-scheme: dark;
 }
 
-/* Smooth scrolling for anchor links */
-html {
-    scroll-behavior: smooth;
+/* Smooth transitions for dark mode */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Offset for anchor links to account for fixed headers */
-.prose h2[id],
-.prose h3[id] {
-    scroll-margin-top: 80px;
+/* Animated gradient background */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+.animate-gradient {
+  background: linear-gradient(-45deg, #ff6308, #f77225, #ff8533, #ffab00);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Fade in animation */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Syntax highlighting palette aligned with site theme */
-.hljs { background: transparent !important; color: inherit; }
-.hljs-comment, .hljs-quote { color: #78716c; font-style: italic; }
-.dark .hljs-comment, .dark .hljs-quote { color: #a8a29e; }
-.hljs-keyword, .hljs-selector-tag, .hljs-type, .hljs-built_in, .hljs-builtin-name, .hljs-meta-keyword { color: #ea580c; font-weight: 600; }
-.hljs-literal, .hljs-number, .hljs-attr, .hljs-symbol, .hljs-bullet { color: #0284c7; }
-.hljs-string, .hljs-doctag, .hljs-regexp, .hljs-addition { color: #059669; }
-.hljs-attribute, .hljs-code, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-template-tag, .hljs-template-variable { color: #d97706; }
-.hljs-variable, .hljs-title, .hljs-section, .hljs-name, .hljs-selector-id, .hljs-class { color: #8b5cf6; }
-.hljs-function .hljs-title, .hljs-title.function_ { color: #2563eb; font-weight: 600; }
-.hljs-deletion { color: #ef4444; }
-.hljs-emphasis { font-style: italic; }
-.hljs-strong { font-weight: 700; }
-
-/* Enhanced typography for blog posts */
-.prose {
-    @apply text-lg;
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
 }
 
-.prose p {
-    @apply mb-6 leading-relaxed;
-    line-height: 1.8;
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.prose h1 {
-    @apply text-4xl font-bold mb-6 mt-10;
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-.prose h2 {
-    @apply text-3xl font-bold mb-5 mt-8;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+  }
+
+  body {
+    @apply bg-white text-stone-900 dark:bg-stone-900 dark:text-stone-100;
+  }
 }
 
-.prose h3 {
-    @apply text-2xl font-semibold mb-4 mt-6;
-}
+@layer components {
+  .prose {
+    @apply max-w-none;
+  }
 
-.prose h4 {
-    @apply text-xl font-semibold mb-3 mt-5;
-}
+  .prose h1 {
+    @apply text-3xl font-bold mb-4;
+  }
 
-.prose ul,
-.prose ol {
-    @apply mb-6 space-y-2;
-}
+  .prose h2 {
+    @apply text-2xl font-semibold mb-3;
+  }
 
-.prose li {
-    @apply leading-relaxed;
-    line-height: 1.8;
-}
+  .prose h3 {
+    @apply text-xl font-semibold mb-2;
+  }
 
-.prose blockquote {
-    @apply border-l-4 border-orange-500 pl-6 py-2 my-6 italic;
-}
+  .prose p {
+    @apply mb-4;
+  }
 
-.prose hr {
-    @apply my-8 border-stone-300 dark:border-stone-700;
-}
+  .prose a {
+    @apply text-orange-500 hover:text-orange-600;
+  }
 
-/* Code block styling */
-pre {
-    @apply relative bg-stone-100 dark:bg-stone-900 border-2 border-stone-300 dark:border-stone-700 rounded-lg p-5 my-8 overflow-x-auto;
-    @apply shadow-md text-base;
-    line-height: 1.6;
-}
+  .prose code {
+    @apply bg-stone-100 dark:bg-stone-800 px-1 py-0.5 rounded;
+  }
 
-pre code {
-    @apply bg-transparent p-0 rounded-none;
-    @apply text-stone-800 dark:text-stone-200;
-    font-size: 0.95rem;
-}
-
-/* Inline code styling */
-code:not(pre code) {
-    @apply bg-orange-100 dark:bg-orange-950 text-orange-800 dark:text-orange-200;
-    @apply px-2 py-1 rounded font-mono;
-    @apply border border-orange-200 dark:border-orange-900;
-    font-size: 0.9rem;
-}
-
-/* rehype-pretty-code light/dark token colors using our class-based dark mode */
-[data-rehype-pretty-code-figure] code[data-theme],
-[data-rehype-pretty-code-figure] code[data-theme] span {
-    color: var(--shiki-light) !important;
-    background-color: transparent !important;
-}
-.dark [data-rehype-pretty-code-figure] code[data-theme],
-.dark [data-rehype-pretty-code-figure] code[data-theme] span {
-    color: var(--shiki-dark) !important;
-    background-color: transparent !important;
-}
-
-/* remove inner figure background; we control via pre */
-[data-rehype-pretty-code-figure] pre {
-    background: transparent !important;
-}
-
-/* Position copy button with balanced insets */
-[data-rehype-pretty-code-figure] pre > code button.rehype-pretty-copy {
-    top: 12px !important;
-    right: 12px !important;
-    margin: 0 !important;
-    z-index: 1;
-}
-
-/* Table styling for markdown */
-table {
-    @apply w-full border-collapse my-8 text-base;
-}
-
-table th,
-table td {
-    @apply border border-stone-300 dark:border-stone-700 px-5 py-3;
-}
-
-table th {
-    @apply bg-stone-100 dark:bg-stone-800 font-semibold text-left;
-    @apply text-stone-900 dark:text-stone-100 text-lg;
-}
-
-table td {
-    @apply bg-white dark:bg-stone-900;
-    @apply text-stone-700 dark:text-stone-300;
-    line-height: 1.6;
-}
-
-table tr:hover td {
-    @apply bg-stone-50 dark:bg-stone-800;
-}
-
-/* Button Styles following NextRows guideline */
-@utility btn-primary {
-    @apply relative px-6 py-3 bg-orange-600 text-white font-medium rounded-lg transition-all duration-200 hover:bg-orange-700 hover:shadow-lg active:scale-95 box-border;
-}
-
-@utility btn-secondary {
-    @apply relative px-6 py-3 bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 font-medium rounded-lg border border-stone-300 dark:border-stone-600 transition-all duration-200 hover:bg-stone-50 dark:hover:bg-stone-700 hover:shadow-md active:scale-95 box-border;
-}
-
-/* Outlined Button Style - Following guideline with dashed border */
-@utility btn-outline {
-    @apply relative px-6 py-3 bg-white dark:bg-transparent text-orange-600 dark:text-orange-400 font-medium rounded-md border-2 border-dashed border-orange-600 dark:border-orange-400 transition-all duration-200 hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:shadow-md active:scale-95 box-border;
-}
-
-/* Ghost Button Style */
-@utility btn-ghost {
-    @apply relative px-4 py-2 text-stone-600 dark:text-stone-400 font-medium rounded-lg transition-all duration-200 hover:bg-stone-100 dark:hover:bg-stone-800 active:scale-95 box-border;
-}
-
-@utility container {
-    margin-inline: auto;
-    padding-inline: 1.25rem; /* px-5 equivalent */
-}
-
-/* Command palette (cmdk) refinements */
-[cmdk-group-heading] {
-    padding: 0.25rem 1rem; /* match item horizontal padding */
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-    color: rgb(120 113 108); /* stone-500 */
-    font-size: 0.75rem; /* text-xs */
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-.dark [cmdk-group-heading] {
-    color: rgb(168 162 158); /* stone-400 */
-}
-
-/* Subtle scrollbars inside the palette list */
-[cmdk-list]::-webkit-scrollbar {
-    height: 8px;
-    width: 8px;
-}
-[cmdk-list]::-webkit-scrollbar-thumb {
-    background-color: rgb(214 211 209); /* stone-300 */
-    border-radius: 9999px;
-}
-.dark [cmdk-list]::-webkit-scrollbar-thumb {
-    background-color: rgb(87 83 78); /* stone-600 */
+  .prose pre {
+    @apply bg-stone-100 dark:bg-stone-800 p-4 rounded-lg overflow-x-auto;
+  }
 }
