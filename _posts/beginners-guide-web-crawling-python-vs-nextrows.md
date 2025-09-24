@@ -17,17 +17,17 @@ In today's data-driven world, the ability to collect web data efficiently is a m
 
 In this guide, we'll walk through **two ways to crawl web data**:
 
-### **Option 1: Writing Python Code**
+### **Option 1: Writing [Python](https://www.python.org) Code**
 Using libraries like `requests` and `BeautifulSoup` for full control
 
-### **Option 2: Using NextRows**
+### **Option 2: Using [NextRows](https://nextrows.com)**
 A no-code tool that makes data crawling as easy as copy-paste
 
 ---
 
 ## Method 1: Crawling with Python
 
-If you're comfortable writing code, Python gives you full control over how you collect and structure your data. Below is a step-by-step example you can follow as a beginner.
+If you're comfortable writing code, [Python](https://www.python.org) gives you full control over how you collect and structure your data. Below is a step-by-step example you can follow as a beginner.
 
 ### Step 1: Install Required Libraries
 
@@ -53,7 +53,7 @@ print(response.status_code)  # 200 means success
 print(response.text[:500])   # show a snippet of the HTML
 ```
 
-### Step 3: Parse HTML with BeautifulSoup
+### Step 3: Parse HTML with [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
 
 ```python
 from bs4 import BeautifulSoup
@@ -106,7 +106,7 @@ print("Data saved to products.csv")
 
 ## Method 2: Crawling with NextRows
 
-If you want to skip the technical details and get straight to usable data, **NextRows** makes the process much easier.
+If you want to skip the technical details and get straight to usable data, **[NextRows](https://nextrows.com)** makes the process much easier.
 
 ### How It Works
 

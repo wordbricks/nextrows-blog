@@ -13,7 +13,7 @@ category: "technology"
 
 At NextRows, we are building AI agents that can perform complex software tasks on your behalf—from interacting with web applications to writing and executing code. But giving an AI that level of autonomy raises a critical question: how do you let it run code, install packages, and interact with live systems without risking security or stability?
 
-This is a challenge we've taken very seriously. The answer for us lies in a technology called E2B Sandboxes. This post explains what sandboxes are, why they are essential for a service like NextRows, and what it all means for your experience as a user.
+This is a challenge we've taken very seriously. The answer for us lies in a technology called [E2B](https://e2b.dev) Sandboxes. This post explains what sandboxes are, why they are essential for a service like NextRows, and what it all means for your experience as a user.
 
 ## What is a Sandbox?
 
@@ -25,9 +25,9 @@ In the world of software, a sandbox is the exact same concept. It's a secure, is
 
 At the heart of our application is an intelligent AI agent that acts as an orchestrator, figuring out how to complete complex tasks for you. To do its job, this agent is equipped with a set of powerful tools, much like a developer has a command line.
 
-When the agent needs to perform a hands-on task—like running a shell command, applying a code patch, or interacting with a file system—it uses its specialized tools. This is where E2B becomes critical. Instead of executing these operations on our core infrastructure (which would be a major security risk), the agent delegates the task to a secure E2B sandbox.
+When the agent needs to perform a hands-on task—like running a shell command, applying a code patch, or interacting with a file system—it uses its specialized tools. This is where [E2B](https://e2b.dev) becomes critical. Instead of executing these operations on our core infrastructure (which would be a major security risk), the agent delegates the task to a secure E2B sandbox.
 
-Our Next.js backend sends the command to a fresh, ephemeral E2B runtime. The sandbox executes the command in its isolated environment, captures the output, and reports the results back to our agent. Once the job is done, the sandbox and everything in it vanishes. This architecture gives our AI the power of a full-stack developer environment without compromising security.
+Our Next.js backend sends the command to a fresh, ephemeral [E2B](https://e2b.dev) runtime. The sandbox executes the command in its isolated environment, captures the output, and reports the results back to our agent. Once the job is done, the sandbox and everything in it vanishes. This architecture gives our AI the power of a full-stack developer environment without compromising security.
 
 ## What This Means for Your User Experience
 

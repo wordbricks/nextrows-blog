@@ -7,6 +7,7 @@ import markdownToHtml from "@/lib/markdownToHtml";
 import DateFormatter from "@/app/(client)/_components/date-formatter";
 import BlogImage from "@/app/(client)/_components/blog-image";
 import { ArticleJsonLd } from "@/app/(client)/_components/json-ld";
+import ArticleContent from "@/app/(client)/_components/article-content";
 import { 
   generateSEOMetadata, 
   generateArticleStructuredData, 
@@ -71,7 +72,7 @@ export default async function Post(props: Params) {
       />
       <div className="bg-stone-50 dark:bg-stone-950 min-h-screen">
         <div className="container mx-auto px-6 py-12">
-          <main className="max-w-3xl mx-auto">
+          <main className="max-w-[1200px] mx-auto">
             <article className="bg-white dark:bg-stone-900 p-8 md:p-12 rounded-lg shadow-lg">
             <header className="mb-8 text-center">
               <Link href="/" className="text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-300 hover:underline text-sm mb-4 inline-block">
@@ -113,11 +114,8 @@ export default async function Post(props: Params) {
                 </div>
               </div>
             )}
-            
-            <div 
-              className="prose prose-xl prose-stone dark:prose-invert max-w-none markdown leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
+
+            <ArticleContent content={content} />
             
             {/* Call to Action Section */}
             <div className="mt-16 pt-12 border-t border-stone-200 dark:border-stone-700">

@@ -11,7 +11,7 @@ ogImage:
 category: "technology"
 ---
 
-Our team is thrilled to announce a significant finding in the field of web data extraction. We've been working hard to tackle some of the biggest challenges in comparing traditional and modern AI-based methods for this task. We believe our work establishes a new standard for evaluation, and we are excited to share that we have submitted our paper, "A Concrete Evaluation Framework for Web Data Record Extraction," to NeurIPS 2025.
+Our team is thrilled to announce a significant finding in the field of web data extraction. We've been working hard to tackle some of the biggest challenges in comparing traditional and modern AI-based methods for this task. We believe our work establishes a new standard for evaluation, and we are excited to share that we have submitted our paper, "A Concrete Evaluation Framework for Web Data Record Extraction," to [NeurIPS](https://neurips.cc) 2025.
 
 This blog post serves as an introduction to our paper, summarizing the core problem, our proposed solution, and the key results that we hope will pave the way for principled advancements in this domain.
 

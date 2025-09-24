@@ -11,13 +11,13 @@ ogImage:
 category: "technology"
 ---
 
-Every great application needs a solid foundation, a reliable core that everything else can be built upon. For us at NextRows, that foundation is our database. We needed something powerful, developer-friendly, and ready to scale with our ambitions. After careful consideration, we chose Supabase.
+Every great application needs a solid foundation, a reliable core that everything else can be built upon. For us at NextRows, that foundation is our database. We needed something powerful, developer-friendly, and ready to scale with our ambitions. After careful consideration, we chose [Supabase](https://supabase.com).
 
 This post explains why Supabase is the perfect database and backend solution for our system and how it works together with the other tools in our stack to create the fast, real-time experience our users love.
 
 ## What is Supabase?
 
-You might have heard Supabase described as an "open-source alternative to Firebase," and that's a good starting point. But it's much more than that. At its heart, Supabase is a platform that supercharges PostgreSQL, one of the world's most trusted and powerful databases.
+You might have heard Supabase described as an "open-source alternative to [Firebase](https://firebase.google.com)," and that's a good starting point. But it's much more than that. At its heart, Supabase is a platform that supercharges [PostgreSQL](https://www.postgresql.org), one of the world's most trusted and powerful databases.
 
 It bundles a dedicated Postgres database with a suite of essential tools like authentication, storage, and auto-generated APIs, giving developers a complete backend in a fraction of the time.
 
@@ -27,13 +27,13 @@ Supabase isn't just a component in our system; it's the central source of truth 
 
 ### 1. The Primary Database & Write Path
 
-When you perform an action in our app—like creating a new project or updating a setting—your browser sends a request to our Next.js backend, which is hosted on Vercel. Our backend code then takes over, using the Supabase client library (or Prisma) to securely write that information into our Supabase Postgres database.
+When you perform an action in our app—like creating a new project or updating a setting—your browser sends a request to our [Next.js](https://nextjs.org) backend, which is hosted on [Vercel](https://vercel.com). Our backend code then takes over, using the Supabase client library (or [Prisma](https://www.prisma.io)) to securely write that information into our Supabase Postgres database.
 
 This process is simple, secure, and incredibly robust. It ensures that all data mutations are handled safely through our trusted backend logic.
 
 ### 2. The Engine for Real-Time Updates
 
-Here's where things get really interesting. We use a tool called Zero to power the "live" features of our service. For Zero to work, it needs to know instantly when any data changes. This is where the synergy between Supabase and Zero shines.
+Here's where things get really interesting. We use a tool called [Zero](https://zerosync.dev) to power the "live" features of our service. For Zero to work, it needs to know instantly when any data changes. This is where the synergy between Supabase and Zero shines.
 
 Supabase exposes the native logical replication stream from Postgres. Think of this as a live feed of every single change happening in the database. Our real-time system connects directly to this stream.
 

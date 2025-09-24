@@ -15,15 +15,15 @@ For a remote-first engineering team like ours at NextRows, tools like Slack and 
 
 We found ourselves asking: How can we feel more like a team and less like a list of names on a video call?
 
-The answer wasn't another chat app. It was creating a place. We built our virtual headquarters on ZEP, a platform that has fundamentally changed how we connect, collaborate, and maximize our efficiency.
+The answer wasn't another chat app. It was creating a place. We built our virtual headquarters on [Zep](https://zep.us), a platform that has fundamentally changed how we connect, collaborate, and maximize our efficiency.
 
 ## What is ZEP?
 
-Think of ZEP as a customizable, 2D virtual world—like a classic 8-bit RPG, but for work. Instead of just a chat window, you get a persistent, shared space where every team member has an avatar. You can walk around, design your office layout, and interact with teammates and the environment in real-time. It's a digital office that provides the sense of place and presence that traditional remote tools lack.
+Think of [Zep](https://zep.us) as a customizable, 2D virtual world—like a classic 8-bit RPG, but for work. Instead of just a chat window, you get a persistent, shared space where every team member has an avatar. You can walk around, design your office layout, and interact with teammates and the environment in real-time. It's a digital office that provides the sense of place and presence that traditional remote tools lack.
 
 ## How ZEP Became Our Engineering Hub
 
-Instead of just using a default template, we used ZEP's powerful Map Editor to build a space that truly feels like ours. Here's how we use its features to solve the biggest challenges of remote work:
+Instead of just using a default template, we used Zep's powerful Map Editor to build a space that truly feels like ours. Here's how we use its features to solve the biggest challenges of remote work:
 
 ### 1. Fostering Spontaneous Collaboration with "Private Spaces"
 

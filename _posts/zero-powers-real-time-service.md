@@ -13,11 +13,11 @@ category: "technology"
 
 We've all felt it: that little spark of delight when an app just works. When your data appears instantly, a chart updates right before your eyes, or a notification arrives the second it's sent. That seamless, "live" experience is no longer a luxury—it's what users expect. But behind the scenes, building it is a huge challenge for developers.
 
-At NextRows, we're obsessed with creating that magical user experience. We knew we needed a fast and reliable real-time foundation, and our search led us to a tool called Zero. This post is the story of our journey—how we're using it to build a better, faster service for you.
+At NextRows, we're obsessed with creating that magical user experience. We knew we needed a fast and reliable real-time foundation, and our search led us to a tool called [Zero](https://zerosync.dev). This post is the story of our journey—how we're using it to build a better, faster service for you.
 
 ## What is Zero?
 
-Zero is a tool for real-time data synchronization.
+[Zero](https://zerosync.dev) is a tool for real-time data synchronization.
 
 It creates a direct pipeline from our database to your screen. When data changes, Zero instantly sends only that specific change to the user's interface.
 
