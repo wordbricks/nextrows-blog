@@ -154,7 +154,7 @@ NextRows API: Simple, Reliable Integration
 The setup is developer-friendly. To get structured data you can rely on, you make a POST request with your prompt and a schema, and receive perfectly formatted JSON back every time.
 
 Python Example:
-
+```python
 import requests
 import json
 
@@ -186,11 +186,12 @@ data = {
 
 response = requests.post(url, headers=headers, json=data)
 print(json.dumps(response.json(), indent=2))
+```
 
 
 The Response:
 NextRows returns clean, structured JSON that precisely matches the requested schema, ready for immediate use.
-
+```json
 {
   "success": true,
   "data": [
@@ -221,7 +222,7 @@ NextRows returns clean, structured JSON that precisely matches the requested sch
     ]
   ]
 }
-
+```
 
 Octoparse: Manual GUI Setup
 
