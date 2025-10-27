@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+ul {
+  list-style: disc !important;
+  margin-left: 20px !important;
+}
+
 /* Custom styles */
 .dark {
   color-scheme: dark;
