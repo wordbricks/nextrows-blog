@@ -131,10 +131,9 @@ export default function AIChatWidget() {
   }, [messages]);
 
   const exampleQueries = [
-    "I want to return my device",
-    "Cancel subscription",
-    "What's your refund policy?",
-    "Help with billing"
+    "How does it work?",
+    "I have an error",
+    "Payment Questions"
   ];
 
   return (
