@@ -13,27 +13,6 @@ category: "why-nextrows"
 
 In today's data-driven world, the ability to collect web data efficiently is a must-have skill for engineers, marketers, and analysts alike. Whether you're tracking competitor prices, gathering market insights, or building your own dataset, web crawling is the first step.
 
-## Table of Contents
-
-- [Two Approaches to Web Data Extraction](#two-approaches-to-web-data-extraction)
-  - [Option 1: Writing Python Code](#option-1-writing-python-code)
-  - [Option 2: Using NextRows](#option-2-using-nextrows)
-- [Method 1: Crawling with Python](#method-1-crawling-with-python)
-  - [Step 1: Install Required Libraries](#step-1-install-required-libraries)
-  - [Step 2: Fetch the Webpage](#step-2-fetch-the-webpage)
-  - [Step 3: Parse HTML with BeautifulSoup](#step-3-parse-html-with-beautifulsoup)
-  - [Step 4: Extract Specific Data](#step-4-extract-specific-data)
-  - [Step 5: Save Data to CSV](#step-5-save-data-to-csv)
-  - [Common Challenges with DIY Crawlers](#common-challenges-with-diy-crawlers)
-- [Method 2: Crawling with NextRows](#method-2-crawling-with-nextrows)
-  - [How It Works](#how-it-works)
-  - [What NextRows Handles Automatically](#what-nextrows-handles-automatically)
-- [Python vs. NextRows: Which Should You Choose?](#python-vs-nextrows-which-should-you-choose)
-  - [Quick Comparison](#quick-comparison)
-- [Final Verdict](#final-verdict)
-  - [Choose Python When:](#choose-python-when)
-  - [Choose NextRows When:](#choose-nextrows-when)
-
 ## Two Approaches to Web Data Extraction
 
 In this guide, we'll walk through **two ways to crawl web data**:
