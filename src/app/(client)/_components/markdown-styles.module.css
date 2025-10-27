@@ -54,6 +54,15 @@
   @apply pl-2;
 }
 
+.markdown ul li {
+  @apply relative pl-6;
+}
+
+.markdown ul li::before {
+  content: '•';
+  @apply absolute left-0 text-orange-500;
+}
+
 /* Blockquotes */
 .markdown blockquote {
   @apply border-l-4 border-orange-500 pl-6 py-2 my-6;
