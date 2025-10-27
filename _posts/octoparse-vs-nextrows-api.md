@@ -158,7 +158,7 @@ Python Example:
 import requests
 import json
 
-url = "[https://api.nextrows.com/v1/extract](https://api.nextrows.com/v1/extract)"
+url = "https://api.nextrows.com/v1/extract"
 
 headers = {
     "Authorization": "Bearer sk-nr-your-api-key",
@@ -179,7 +179,7 @@ output_schema = {
 
 data = {
     "type": "url",
-    "data": ["[https://fortune.com/ranking/global500](https://fortune.com/ranking/global500)"],
+    "data": ["https://fortune.com/ranking/global500"],
     "prompt": "Extract the top 5 companies from the list in a table format, including Rank, Name, and Revenues ($M).",
     "schema": output_schema
 }
