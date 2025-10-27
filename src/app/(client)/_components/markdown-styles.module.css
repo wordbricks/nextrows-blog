@@ -80,3 +80,17 @@
 .markdown hr {
   @apply my-8 border-t-2 border-stone-300 dark:border-stone-700;
 }
+
+/* Tables */
+.markdown table {
+  @apply w-full my-6 border-collapse;
+}
+
+.markdown th,
+.markdown td {
+  @apply border border-stone-300 dark:border-stone-700 p-4 text-left;
+}
+
+.markdown th {
+  @apply bg-stone-100 dark:bg-stone-900 font-bold;
+}
