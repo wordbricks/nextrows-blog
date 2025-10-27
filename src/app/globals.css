@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.toc-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
 ul {
   list-style: disc !important;
   margin-left: 20px !important;

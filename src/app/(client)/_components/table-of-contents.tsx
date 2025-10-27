@@ -95,7 +95,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
       <h3 className="text-sm font-semibold text-stone-900 dark:text-stone-100 mb-4">
         On This Page
       </h3>
-      <ul className="space-y-2 text-sm">
+      <ul className="space-y-2 text-sm toc-list">
         {headings.map((heading) => (
           <li
             key={heading.id}
