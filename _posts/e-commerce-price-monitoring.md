@@ -20,41 +20,33 @@ In the fast-paced world of e-commerce, pricing can make or break your business. 
 ### 1. Set Up Automated Price Tracking
 
 Simply paste your competitor URLs into NextRows and select the price elements. NextRows automatically:
-<ul>
-<li>Monitors price changes daily (or hourly)</li>
-<li>Tracks inventory status</li>
-<li>Captures promotional messages</li>
-<li>Records historical price trends</li>
-</ul>
+* Monitors price changes daily (or hourly)
+* Tracks inventory status
+* Captures promotional messages
+* Records historical price trends
 
 ### 2. Real-Time Alerts
 
 Get instant notifications when:
-<ul>
-<li>Competitors drop prices below your threshold</li>
-<li>Products go out of stock</li>
-<li>New promotions are launched</li>
-<li>Price wars begin in your category</li>
-</ul>
+* Competitors drop prices below your threshold
+* Products go out of stock
+* New promotions are launched
+* Price wars begin in your category
 
 ### 3. Comprehensive Reporting
 
 Export your data to:
-<ul>
-<li>Excel dashboards for management</li>
-<li>Google Sheets for team collaboration</li>
-<li>Your pricing software via API</li>
-<li>Business intelligence tools</li>
-</ul>
+* Excel dashboards for management
+* Google Sheets for team collaboration
+* Your pricing software via API
+* Business intelligence tools
 
 ## Real Customer Results
 
 **TechGear Pro** uses NextRows to monitor 5,000+ products across 12 competitors:
-<ul>
-<li>35% reduction in time spent on price research</li>
-<li>18% improvement in competitive pricing accuracy</li>
-<li>$2.3M additional revenue from optimized pricing</li>
-</ul>
+* 35% reduction in time spent on price research
+* 18% improvement in competitive pricing accuracy
+* $2.3M additional revenue from optimized pricing
 
 ## Implementation in 3 Steps
 
@@ -65,12 +57,10 @@ Export your data to:
 ## Beyond Basic Price Monitoring
 
 NextRows also captures:
-<ul>
-<li>Shipping costs and delivery times</li>
-<li>Customer reviews and ratings</li>
-<li>Product specifications changes</li>
-<li>Stock availability patterns</li>
-<li>Seasonal pricing trends</li>
-</ul>
+* Shipping costs and delivery times
+* Customer reviews and ratings
+* Product specifications changes
+* Stock availability patterns
+* Seasonal pricing trends
 
 Start monitoring your competition today with NextRows - no coding required.
