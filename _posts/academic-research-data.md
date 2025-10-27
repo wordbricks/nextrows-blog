@@ -11,47 +11,6 @@ ogImage:
 category: "use-cases"
 ---
 
-## Table of Contents
-
-- [The Research Data Challenge](#the-research-data-challenge)
-- [NextRows for Academic Research](#nextrows-for-academic-research)
-  - [Comprehensive Literature Monitoring](#comprehensive-literature-monitoring)
-  - [Research Data Collection](#research-data-collection)
-- [Case Study: Environmental Science Lab](#case-study-environmental-science-lab)
-  - [Before NextRows](#before-nextrows)
-  - [After NextRows](#after-nextrows)
-  - [Impact](#impact)
-- [Research Applications](#research-applications)
-  - [Systematic Reviews](#systematic-reviews)
-  - [Citation Tracking](#citation-tracking)
-  - [Meta-Analysis Data](#meta-analysis-data)
-  - [Grant Intelligence](#grant-intelligence)
-- [Discipline-Specific Use Cases](#discipline-specific-use-cases)
-  - [Medical Research](#medical-research)
-  - [Social Sciences](#social-sciences)
-  - [Computer Science](#computer-science)
-  - [Economics](#economics)
-- [Workflow Integration](#workflow-integration)
-  - [Reference Management](#reference-management)
-  - [Analysis Tools](#analysis-tools)
-  - [Collaboration Platforms](#collaboration-platforms)
-- [Advanced Features](#advanced-features)
-  - [Smart Filtering](#smart-filtering)
-  - [Trend Analysis](#trend-analysis)
-  - [Quality Assessment](#quality-assessment)
-- [Implementation Guide](#implementation-guide)
-  - [Week 1: Setup](#week-1-setup)
-  - [Week 2: Refinement](#week-2-refinement)
-  - [Week 3: Integration](#week-3-integration)
-  - [Week 4: Automation](#week-4-automation)
-- [Success Metrics](#success-metrics)
-- [Best Practices](#best-practices)
-  - [Search Strategy](#search-strategy)
-  - [Data Management](#data-management)
-  - [Collaboration](#collaboration)
-
----
-
 ## The Research Data Challenge
 
 Academic researchers spend countless hours:
