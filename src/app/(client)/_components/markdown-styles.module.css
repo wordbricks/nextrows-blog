@@ -55,12 +55,7 @@
 }
 
 .markdown ul li {
-  @apply relative pl-6;
-}
-
-.markdown ul li::before {
-  content: '•';
-  @apply absolute left-0 text-orange-500;
+  background-color: red;
 }
 
 /* Blockquotes */
