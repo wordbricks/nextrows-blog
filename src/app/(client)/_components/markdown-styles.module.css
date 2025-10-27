@@ -43,24 +43,19 @@
 
 /* Lists styling */
 .markdown ul {
-  @apply list-disc list-inside space-y-2 text-stone-700 dark:text-stone-300;
+  list-style-type: disc !important;
+  list-style-position: inside !important;
+  @apply space-y-2 text-stone-700 dark:text-stone-300;
 }
 
 .markdown ol {
-  @apply list-decimal list-inside space-y-2 text-stone-700 dark:text-stone-300;
+  list-style-type: decimal !important;
+  list-style-position: inside !important;
+  @apply space-y-2 text-stone-700 dark:text-stone-300;
 }
 
 .markdown li {
   @apply pl-2;
-}
-
-.markdown ul li {
-  @apply relative pl-6;
-}
-
-.markdown ul li::before {
-  content: '•';
-  @apply absolute left-0 text-orange-500;
 }
 
 /* Blockquotes */
