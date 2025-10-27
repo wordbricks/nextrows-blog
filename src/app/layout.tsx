@@ -14,6 +14,8 @@ import { HOST } from "@/env/host";
 import { getEnv } from "@/env/getEnv";
 import { BASE_PATH } from "@/env/basePath";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { Analytics } from "@vercel/analytics/react";
+import AIChatWidget from "@/app/(client)/_components/ai-chat-widget";
 
 import "@/app/globals.css";
 import { cn } from "@/utils/cn";
@@ -152,6 +154,8 @@ export default function RootLayout({
             {children}
           </div>
           <Footer />
+          <AIChatWidget />
+          <Analytics />
         </NuqsAdapter>
       </body>
     </html>

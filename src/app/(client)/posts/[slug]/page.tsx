@@ -70,41 +70,43 @@ export default async function Post(props: Params) {
         authorName={post.author?.name}
         image={post.coverImage}
       />
-      <div className="bg-stone-50 dark:bg-stone-950 min-h-screen">
+      <div className="min-h-screen">
         <div className="container mx-auto px-6 py-12">
           <main className="max-w-[1200px] mx-auto">
-            <article className="bg-white dark:bg-stone-900 p-8 md:p-12 rounded-lg shadow-lg">
-            <header className="mb-8 text-center">
+            <article className="px-4 md:px-8">
+            <header className="mb-8">
               <Link href="/" className="text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-300 hover:underline text-sm mb-4 inline-block">
                 ← Back to all articles
               </Link>
-              {post.category && (
-                <span className={cn("block text-sm font-semibold uppercase mb-2", getCategoryColor(post.category))}>
-                  {getCategoryLabel(post.category)}
-                </span>
-              )}
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4 text-stone-900 dark:text-stone-100">
-                {post.title}
-              </h1>
-              <p className="text-sm text-stone-500 dark:text-stone-400">
-                {post.author?.name && `By ${post.author.name} · `}
-                <DateFormatter dateString={post.date} /> · {post.readingTimeMinutes} min read
-              </p>
+              <div className="text-center">
+                {post.category && (
+                  <span className={cn("block text-sm font-semibold uppercase mb-2", getCategoryColor(post.category))}>
+                    {getCategoryLabel(post.category)}
+                  </span>
+                )}
+                <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4 text-stone-900 dark:text-stone-100">
+                  {post.title}
+                </h1>
+                <p className="text-sm text-stone-500 dark:text-stone-400">
+                  {post.author?.name && `By ${post.author.name} · `}
+                  <DateFormatter dateString={post.date} /> · {post.readingTimeMinutes} min read
+                </p>
+              </div>
             </header>
             
             {post.coverImage && (
               <div className="mb-8 flex justify-center">
-                <div className="w-full max-w-4xl">
+                <div className="w-full max-w-2xl">
                   <BlogImage
                     src={post.coverImage}
                     alt={`${post.title} - Featured image for NextRows ${getCategoryLabel(post.category || '')} article`}
                     fallbackText={post.title.substring(0, 20)}
-                    width={1200}
-                    height={800}
+                    width={800}
+                    height={533}
                     className="w-full h-auto rounded-lg shadow-lg"
                     priority
                     caption={
-                      post.slug === "beginners-guide-web-crawling-python-vs-nextrows" 
+                      post.slug === "beginners-guide-web-crawling-python-vs-nextrows"
                         ? "Python BeautifulSoup vs. NextRows – Because life's too short for endless error messages."
                         : post.slug === "nextrows-api-alpha-announcement"
                         ? "NextRows API Alpha Released - Could crash, could conk out, but for now… magic happens."
@@ -150,24 +152,31 @@ export default async function Post(props: Params) {
                     <Link
                       key={r.slug}
                       href={`/posts/${r.slug}`}
-                      className="group block bg-white dark:bg-stone-900 rounded-lg border border-stone-200 dark:border-stone-700 overflow-hidden hover:shadow-md transition"
+                      className="group block"
                     >
-                      <div className="relative h-32 w-full overflow-hidden">
+                      <div className="relative h-56 w-full overflow-hidden rounded-2xl bg-stone-100 dark:bg-stone-800 mb-4">
                         <BlogImage
                           src={r.coverImage}
-                          alt={`${r.title} related article`}
+                          alt={`${r.title} - ${getCategoryLabel(r.category || '')} article on NextRows blog`}
                           fallbackText={r.title.substring(0, 20)}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                           loading="lazy"
                         />
                       </div>
-                      <div className="p-4">
-                        <div className="text-xs uppercase text-stone-500 mb-1">{r.category?.replace('-', ' ')}</div>
-                        <div className="font-semibold line-clamp-2">{r.title}</div>
-                        <div className="mt-1 text-xs text-stone-500">
-                          <DateFormatter dateString={r.date} /> · {r.readingTimeMinutes} min read
-                        </div>
+                      <div>
+                        <span className="text-xs font-medium text-orange-600 dark:text-orange-500 uppercase tracking-wide">
+                          {getCategoryLabel(r.category || '')}
+                        </span>
+                        <h3 className="text-xl md:text-2xl font-semibold mt-2 mb-2 line-clamp-2 text-stone-900 dark:text-stone-50 tracking-tight leading-tight">
+                          {r.title}
+                        </h3>
+                        <p className="text-stone-600 dark:text-stone-400 text-sm line-clamp-2 leading-relaxed mb-3">
+                          {r.excerpt}
+                        </p>
+                        <p className="text-xs text-stone-500 dark:text-stone-500">
+                          <DateFormatter dateString={r.date} />
+                        </p>
                       </div>
                     </Link>
                   ))}

@@ -1,13 +1,13 @@
 ---
 title: "Marketing Teams: Automating Competitor Content & Campaign Tracking"
 excerpt: "Learn how marketing departments use NextRows to monitor competitor strategies, content calendars, and campaign performance across digital channels."
-coverImage: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+coverImage: "/assets/blog/marketing.jpg"
 date: "2025-01-05T13:00:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+  url: "/assets/blog/marketing.jpg"
 category: "use-cases"
 ---
 

@@ -18,15 +18,15 @@ interface BlogClientProps {
 
 // Memoized Header Component
 const BlogHeader = memo(() => (
-  <header className="mb-8">
-    <h1 className="text-3xl md:text-4xl font-bold text-center mb-3">NextRows Blog</h1>
-    <p className="text-base md:text-lg text-stone-600 dark:text-stone-400 text-center max-w-3xl mx-auto">
-      Some chase gold, others chase glory. We chase clean tables.
-      <br />
-      This blog is where we share what we've learned—row by row, mistake by mistake,
-      <br />
-      and sometimes with a laugh.
-    </p>
+  <header className="mb-20 mt-12">
+    <div className="text-center space-y-2 max-w-3xl mx-auto">
+      <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-stone-900 dark:text-stone-50 tracking-tight">
+        NextRows Blog
+      </h1>
+      <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 font-normal tracking-tight">
+        Insights on data processing and automation.
+      </p>
+    </div>
   </header>
 ));
 BlogHeader.displayName = 'BlogHeader';
@@ -40,8 +40,8 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 9;
 
-  // Skip first 3 posts as they're featured
-  const remainingPosts = useMemo(() => posts.slice(3), [posts]);
+  // Skip first 5 posts as they're featured
+  const remainingPosts = useMemo(() => posts.slice(5), [posts]);
 
 
   // Memoize filtered posts calculation - maintains date order
@@ -72,73 +72,75 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
 
   return (
     <main>
-      <div className="max-w-[1200px] mx-auto px-4 md:px-6 py-8 md:py-10">
-        {/* Show header only on homepage (no initial category) */}
-        {!initialCategory && <BlogHeader />}
+      {/* Show header only on homepage (no initial category) */}
+      {!initialCategory && (
+        <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-8 md:py-10">
+          <BlogHeader />
+        </div>
+      )}
 
-        {/* Featured Articles Carousel - shows top 3 posts */}
-        {!initialCategory && posts.length >= 3 && <FeaturedCarousel posts={posts} />}
+      {/* Featured Use Cases Carousel - shows top 5 posts - full width */}
+      {!initialCategory && posts.length >= 5 && <FeaturedCarousel posts={posts} />}
+
+      <div className="max-w-[1280px] mx-auto px-4 md:px-6 py-8 md:py-10">
 
         {/* Filter Section */}
-        <div className="mb-10">
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+        <div className="mb-16">
+          <div className="flex flex-wrap justify-center gap-2">
             {(["all", ...CATEGORIES] as Filter[]).map((category) => {
-              const href = category === 'all' ? '/' : `/category/${category}`;
               const isActive = activeFilter === category;
               return (
-                <Link
+                <button
                   key={category}
-                  href={href}
-                  scroll={false}
+                  onClick={() => {
+                    setActiveFilter(category);
+                    setCurrentPage(1); // Reset to first page when changing filter
+                  }}
                   className={cn(
-                    "px-3 py-1.5 text-xs md:text-sm font-medium border rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95",
-                    isActive && "bg-orange-600 text-white border-orange-600 shadow-md",
-                    !isActive && "border-stone-300 dark:border-stone-600 hover:bg-stone-100 dark:hover:bg-stone-800 hover:text-stone-900 dark:hover:text-stone-100 hover:border-stone-400 dark:hover:border-stone-500 hover:shadow-sm"
+                    "px-5 py-2 text-sm font-medium rounded-full transition-all duration-200",
+                    isActive && "bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900",
+                    !isActive && "text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800"
                   )}
                 >
                   {category === 'all' ? 'All' : getCategoryLabel(category)}
-                </Link>
+                </button>
               );
             })}
           </div>
         </div>
 
         {/* Main Blog Posts Section */}
-        <div className="mb-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
             {gridPosts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/posts/${post.slug}`}
-                className="group block bg-white dark:bg-stone-800 rounded-lg shadow-sm overflow-hidden hover:shadow-xl transition-all duration-300 ease-in-out border border-stone-200 dark:border-stone-700 hover:-translate-y-2 hover:border-orange-300 dark:hover:border-orange-700 animate-fade-in"
+                className="group block"
               >
-                <div className="relative h-40 w-full overflow-hidden">
+                <div className="relative h-56 w-full overflow-hidden rounded-2xl bg-stone-100 dark:bg-stone-800 mb-4">
                   <BlogImage
                     src={post.coverImage}
                     alt={`${post.title} - ${getCategoryLabel(post.category)} article on NextRows blog`}
                     fallbackText={post.title.substring(0, 20)}
                     fill
-                    className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                    className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                     loading="lazy"
                   />
                 </div>
-                <div className="p-5">
-                  <span
-                    className={cn("text-xs font-semibold uppercase", getCategoryColor(post.category))}
-                  >
+                <div>
+                  <span className="text-xs font-medium text-orange-600 dark:text-orange-500 uppercase tracking-wide">
                     {getCategoryLabel(post.category)}
                   </span>
-                  <h3 className="text-lg font-bold mt-2 mb-2 line-clamp-2">
+                  <h3 className="text-xl md:text-2xl font-semibold mt-2 mb-2 line-clamp-2 text-stone-900 dark:text-stone-50 tracking-tight leading-tight">
                     {post.title}
                   </h3>
-                  <p className="text-stone-600 dark:text-stone-400 text-sm mb-3 line-clamp-2">
+                  <p className="text-stone-600 dark:text-stone-400 text-sm line-clamp-2 leading-relaxed mb-3">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center text-xs text-stone-500 dark:text-stone-400">
-                    <p>
-                      <DateFormatter dateString={post.date} /> · {post.readingTimeMinutes} min read
-                    </p>
-                  </div>
+                  <p className="text-xs text-stone-500 dark:text-stone-500">
+                    <DateFormatter dateString={post.date} />
+                  </p>
                 </div>
               </Link>
             ))}
@@ -146,22 +148,21 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="mt-8 flex justify-center items-center space-x-2">
-              <button 
+            <div className="mt-16 flex justify-center items-center gap-2">
+              <button
                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
                 className={cn(
-                  "px-4 py-2 rounded-md transition-all duration-200",
-                  currentPage === 1 && "bg-stone-200 text-stone-400 cursor-not-allowed",
-                  currentPage !== 1 && "bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-300 dark:border-stone-600 hover:bg-stone-50 dark:hover:bg-stone-700 hover:text-orange-600 dark:hover:text-orange-400"
+                  "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                  currentPage === 1 && "text-stone-300 dark:text-stone-700 cursor-not-allowed",
+                  currentPage !== 1 && "text-stone-900 dark:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-800"
                 )}
               >
                 Previous
               </button>
-              
+
               {[...Array(totalPages)].map((_, index) => {
                 const pageNumber = index + 1;
-                // Show first page, last page, current page, and adjacent pages
                 if (
                   pageNumber === 1 ||
                   pageNumber === totalPages ||
@@ -172,9 +173,9 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
                       key={pageNumber}
                       onClick={() => setCurrentPage(pageNumber)}
                       className={cn(
-                        "px-4 py-2 rounded-md transition-all duration-200",
-                        currentPage === pageNumber && "bg-orange-600 text-white shadow-md",
-                        currentPage !== pageNumber && "bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-300 dark:border-stone-600 hover:bg-stone-50 dark:hover:bg-stone-700 hover:text-orange-600 dark:hover:text-orange-400"
+                        "w-9 h-9 rounded-lg text-sm font-medium transition-colors",
+                        currentPage === pageNumber && "bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900",
+                        currentPage !== pageNumber && "text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800"
                       )}
                     >
                       {pageNumber}
@@ -184,18 +185,18 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
                   pageNumber === currentPage - 2 ||
                   pageNumber === currentPage + 2
                 ) {
-                  return <span key={pageNumber} className="px-2">...</span>;
+                  return <span key={pageNumber} className="px-1 text-stone-400">...</span>;
                 }
                 return null;
               })}
-              
-              <button 
+
+              <button
                 onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                 disabled={currentPage === totalPages}
                 className={cn(
-                  "px-4 py-2 rounded-md transition-all duration-200",
-                  currentPage === totalPages && "bg-stone-200 text-stone-400 cursor-not-allowed",
-                  currentPage !== totalPages && "bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-300 dark:border-stone-600 hover:bg-stone-50 dark:hover:bg-stone-700 hover:text-orange-600 dark:hover:text-orange-400"
+                  "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                  currentPage === totalPages && "text-stone-300 dark:text-stone-700 cursor-not-allowed",
+                  currentPage !== totalPages && "text-stone-900 dark:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-800"
                 )}
               >
                 Next
@@ -203,7 +204,7 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
             </div>
           )}
         </div>
-      </div>
+      </div> {/* Close max-w-[1280px] container */}
     </main>
   );
 }

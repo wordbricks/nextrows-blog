@@ -97,7 +97,11 @@ export default function CommandPalette() {
   return (
     <div
       className="fixed inset-0 z-50 bg-stone-950/50 backdrop-blur-sm"
-      onClick={() => setOpen(false)}
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setOpen(false);
+      }}
       aria-modal="true"
       role="dialog"
     >

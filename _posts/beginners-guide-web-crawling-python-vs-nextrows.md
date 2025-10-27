@@ -1,13 +1,13 @@
 ---
 title: "Beginner's Guide to Web Data Crawling: Python vs. NextRows"
 excerpt: "Learn two ways to crawl web data: writing your own Python code vs using NextRows for no-code data extraction. Compare setup time, flexibility, and maintenance."
-coverImage: "/assets/blog/no-python-web-crawling.jpg"
+coverImage: "/assets/blog/python.png"
 date: "2025-01-11T05:35:00.000Z"
 author:
   name: Evan
   picture: "/assets/blog/authors/evan.png"
 ogImage:
-  url: "/assets/blog/no-python-web-crawling.jpg"
+  url: "/assets/blog/python.png"
 category: "why-nextrows"
 ---
 

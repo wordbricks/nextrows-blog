@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/utils/cn";
 import { BASE_PATH } from "@/env/basePath";
-import { useEffectOnce } from "@/hooks/useEffectOnce";
 import { useCommandPalette } from "@/app/(client)/_components/command-palette-context";
 import { usePathname } from "next/navigation";
 
@@ -13,33 +12,42 @@ export default function Navigation() {
   const { openPalette } = useCommandPalette();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const pathNoBase = pathname && pathname.startsWith(BASE_PATH) ? pathname.slice(BASE_PATH.length) || "/" : pathname || "/";
   const isContact = pathNoBase === "/contact";
   const isSearch = pathNoBase === "/search" || pathNoBase.startsWith("/search/");
   const isBlog = pathNoBase === "/" || pathNoBase.startsWith("/posts") || pathNoBase.startsWith("/category");
 
-  useEffectOnce(() => {
+  useEffect(() => {
+    setMounted(true);
     const saved = localStorage.getItem("theme");
     const mql = window.matchMedia("(prefers-color-scheme: dark)");
     const initial: "light" | "dark" = saved === "light" ? "light" : saved === "dark" ? "dark" : mql.matches ? "dark" : "light";
     setTheme(initial);
     applyTheme(initial);
+
     if (saved === "light" || saved === "dark") return;
-    const handler = () => {
-      const sysTheme: "light" | "dark" = mql.matches ? "dark" : "light";
+
+    const handler = (e: MediaQueryListEvent) => {
+      const sysTheme: "light" | "dark" = e.matches ? "dark" : "light";
       setTheme(sysTheme);
       applyTheme(sysTheme);
     };
+
     mql.addEventListener("change", handler);
     return () => mql.removeEventListener("change", handler);
-  });
+  }, []); // Empty dependency array to run only once on mount
 
   const applyTheme = (selected: "light" | "dark") => {
     document.documentElement.classList.toggle("dark", selected === "dark");
   };
 
-  const toggleTheme = () => {
+  const toggleTheme = (e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     const next: "light" | "dark" = theme === "light" ? "dark" : "light";
     setTheme(next);
     localStorage.setItem("theme", next);
@@ -47,60 +55,64 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="bg-white dark:bg-stone-900 shadow-md sticky top-0 z-50 transition-colors duration-200 border-b border-stone-200 dark:border-stone-800">
-      <div className="container mx-auto px-4 py-2 flex justify-between items-center">
-        <Link href="/" className="flex items-center space-x-1.5">
-          <Image 
-            src={`${BASE_PATH}/nextrows-logo-nav.png`} 
-            alt="NextRows Logo" 
-            width={20} 
-            height={24} 
+    <nav className="bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl sticky top-0 z-50 transition-colors border-b border-stone-200/50 dark:border-stone-800/50">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <Link href="/" className="flex items-center space-x-2">
+          <Image
+            src={`${BASE_PATH}/nextrows-logo-nav.png`}
+            alt="NextRows Logo"
+            width={20}
+            height={24}
             className="w-5 h-6 object-contain"
           />
-          <span className="text-lg font-bold text-stone-900 dark:text-stone-50">
-            NextRows Blog
+          <span className="text-lg font-semibold text-stone-900 dark:text-stone-50">
+            NextRows
           </span>
         </Link>
-        <div className="hidden md:flex space-x-4 items-center">
-          <Link 
-            href="/" 
+        <div className="hidden md:flex space-x-8 items-center">
+          <Link
+            href="/"
             aria-current={isBlog ? "page" : undefined}
             className={cn(
-              "text-sm transition duration-300",
-              "text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-500",
-              isBlog && "text-orange-600 dark:text-orange-500 font-semibold"
+              "text-sm transition-colors",
+              isBlog ? "text-stone-900 dark:text-stone-100" : "text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100"
             )}
           >
             Blog
           </Link>
-          <button 
+          <button
             aria-current={isSearch ? "page" : undefined}
-            onClick={openPalette} 
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              openPalette();
+            }}
             className={cn(
-              "text-sm transition duration-300",
-              "text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-500",
-              isSearch && "text-orange-600 dark:text-orange-500 font-semibold"
+              "text-sm transition-colors",
+              isSearch ? "text-stone-900 dark:text-stone-100" : "text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100"
             )}
           >
-            Search <span className="ml-1 rounded border px-1 py-0.5 text-[10px] text-stone-500 dark:text-stone-400 border-stone-300 dark:border-stone-600">⌘K</span>
+            Search
           </button>
-          <Link 
-            href="/contact" 
+          <Link
+            href="/contact"
             aria-current={isContact ? "page" : undefined}
             className={cn(
-              "text-sm transition duration-300",
-              "text-stone-700 dark:text-stone-300 hover:text-orange-600 dark:hover:text-orange-500",
-              isContact && "text-orange-600 dark:text-orange-500 font-semibold"
+              "text-sm transition-colors",
+              isContact ? "text-stone-900 dark:text-stone-100" : "text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100"
             )}
           >
             Contact
           </Link>
           <button
-            onClick={toggleTheme}
-            className="p-1.5 rounded-lg bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors duration-200"
+            onClick={(e) => toggleTheme(e)}
+            className="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
             aria-label="Toggle theme"
           >
-            {theme === "light" ? (
+            {!mounted ? (
+              // Show a neutral icon during SSR to prevent hydration mismatch
+              <div className="h-4 w-4 bg-stone-400 rounded"></div>
+            ) : theme === "light" ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 w-4 text-stone-700 dark:text-stone-200"
@@ -132,18 +144,22 @@ export default function Navigation() {
               </svg>
             )}
           </button>
-          <a 
-            href="https://nextrows.com?source=blog" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="px-4 py-1.5 bg-orange-600 text-white text-sm font-medium rounded-lg transition-all duration-200 hover:bg-orange-700 hover:shadow-lg active:scale-95"
+          <a
+            href="https://nextrows.com?source=blog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-1.5 bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 text-sm font-medium rounded-full hover:bg-stone-800 dark:hover:bg-stone-200 transition-colors"
           >
-            Go to NextRows
+            Get Started
           </a>
         </div>
         <button
           className="md:hidden flex items-center"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setIsMobileMenuOpen(!isMobileMenuOpen);
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -163,67 +179,59 @@ export default function Navigation() {
       </div>
       {/* Mobile Menu */}
       <div className={cn(
-        "md:hidden bg-white dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800",
+        "md:hidden bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl border-t border-stone-200/50 dark:border-stone-800/50",
         isMobileMenuOpen && "block",
         !isMobileMenuOpen && "hidden"
       )}>
-        <div className="px-2 py-3 space-y-1">
-          <Link 
-            href="/" 
+        <div className="px-6 py-4 space-y-1">
+          <Link
+            href="/"
             aria-current={isBlog ? "page" : undefined}
             className={cn(
-              "block px-3 py-2 text-base font-medium rounded-md",
-              "text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800",
-              isBlog && "bg-stone-100 dark:bg-stone-800"
+              "block px-3 py-2 text-base rounded-lg transition-colors",
+              isBlog ? "text-stone-900 dark:text-stone-100 bg-stone-100 dark:bg-stone-800" : "text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800"
             )}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Blog
           </Link>
-          <button 
+          <button
             aria-current={isSearch ? "page" : undefined}
             className={cn(
-              "block w-full text-left px-3 py-2 text-base font-medium rounded-md",
-              "text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800",
-              isSearch && "bg-stone-100 dark:bg-stone-800"
+              "block w-full text-left px-3 py-2 text-base rounded-lg transition-colors",
+              isSearch ? "text-stone-900 dark:text-stone-100 bg-stone-100 dark:bg-stone-800" : "text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800"
             )}
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
               openPalette();
               setIsMobileMenuOpen(false);
             }}
           >
             Search
           </button>
-          <Link 
-            href="/contact" 
+          <Link
+            href="/contact"
             aria-current={isContact ? "page" : undefined}
             className={cn(
-              "block px-3 py-2 text-base font-medium rounded-md",
-              "text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800",
-              isContact && "bg-stone-100 dark:bg-stone-800"
+              "block px-3 py-2 text-base rounded-lg transition-colors",
+              isContact ? "text-stone-900 dark:text-stone-100 bg-stone-100 dark:bg-stone-800" : "text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800"
             )}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Contact
           </Link>
-          <button
-            onClick={() => {
-              toggleTheme();
-              setIsMobileMenuOpen(false);
-            }}
-            className="flex items-center px-3 py-2 text-base font-medium rounded-md hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 w-full text-left"
-          >
-            {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
-          </button>
-          <a 
-            href="https://nextrows.com?source=blog" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="block px-3 py-2 text-base font-medium rounded-md bg-orange-600 text-white hover:bg-orange-700"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Go to NextRows
-          </a>
+          <div className="pt-4 mt-4 border-t border-stone-200 dark:border-stone-800">
+            <a
+              href="https://nextrows.com?source=blog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block px-3 py-2 text-base font-medium text-center rounded-lg bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 hover:bg-stone-800 dark:hover:bg-stone-200 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Get Started
+            </a>
+          </div>
         </div>
       </div>
     </nav>

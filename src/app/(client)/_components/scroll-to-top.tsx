@@ -17,7 +17,9 @@ export default function ScrollToTop() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     window.scrollTo({
       top: 0,
       behavior: "smooth",

@@ -1,13 +1,13 @@
 ---
 title: "Academic Research: Automating Literature Reviews and Data Collection"
 excerpt: "Discover how researchers use NextRows to gather academic papers, track citations, and collect research data from multiple databases efficiently."
-coverImage: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+coverImage: "/assets/blog/research.jpg"
 date: "2025-01-03T16:45:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+  url: "/assets/blog/research.jpg"
 category: "use-cases"
 ---
 

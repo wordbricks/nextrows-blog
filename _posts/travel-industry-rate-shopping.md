@@ -1,13 +1,13 @@
 ---
 title: "Travel Agencies: Automated Rate Shopping Across Multiple Booking Platforms"  
 excerpt: "Discover how travel companies use NextRows to compare rates, track availability, and find the best deals across hotels, flights, and car rentals."
-coverImage: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+coverImage: "/assets/blog/travel.jpg"
 date: "2025-01-06T11:20:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+  url: "/assets/blog/travel.jpg"
 category: "use-cases"
 ---
 

@@ -1,13 +1,13 @@
 ---
 title: "[Beginner's Guide] Image-to-Table with NextRows"
 excerpt: "Convert any image containing tabular data into structured, editable tables with just a few clicks. Save hours of manual work and reduce errors with NextRows' Image-to-Table feature."
-coverImage: "/assets/blog/beginners-guide.jpg"
+coverImage: "/assets/blog/itt.jpg"
 date: "2024-10-15T10:00:00.000Z"
 author:
   name: Aerin
   picture: "/assets/blog/authors/aerin.png"
 ogImage:
-  url: "/assets/blog/beginners-guide.jpg"
+  url: "/assets/blog/itt.jpg"
 category: "tutorials"
 ---
 

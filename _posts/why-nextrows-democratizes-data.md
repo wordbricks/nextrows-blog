@@ -1,13 +1,13 @@
 ---
 title: "Why NextRows: Democratizing Data Access for Every Team Member"
 excerpt: "How NextRows breaks down technical barriers and empowers every team member to access web data without coding skills or IT dependencies."
-coverImage: "/assets/blog/nextrows-vs-traditional-web-scraping-comparison.jpg"
+coverImage: "/assets/blog/access.jpg"
 date: "2025-01-09T11:45:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-vs-traditional-web-scraping-comparison.jpg"
+  url: "/assets/blog/access.jpg"
 category: "why-nextrows"
 ---
 

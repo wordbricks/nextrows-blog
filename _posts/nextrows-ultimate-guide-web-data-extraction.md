@@ -1,13 +1,13 @@
 ---
 title: "Getting Started with NextRows: Easy Web Data Scraping"
 excerpt: "Learn how to scrape, clean, and manage web data efficiently using NextRows with this comprehensive step-by-step tutorial."
-coverImage: "/assets/blog/web-scraping-tutorials-learn-data-extraction.jpg"
+coverImage: "/assets/blog/placeholder1.jpg"
 date: "2025-09-10T10:00:00.000Z"
 author:
   name: Aerin
   picture: "/assets/blog/authors/aerin.png"
 ogImage:
-  url: "/assets/blog/web-scraping-tutorials-learn-data-extraction.jpg"
+  url: "/assets/blog/placeholder1.jpg"
 category: "tutorials"
 ---
 

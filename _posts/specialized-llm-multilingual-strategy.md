@@ -1,13 +1,13 @@
 ---
 title: "Why a Specialized LLM Was the Key to Our Multilingual Strategy"
 excerpt: "Discover how NextRows uses Upstage Solar LLM to deliver exceptional Korean language support, improving user satisfaction by 20% while maintaining speed and accuracy."
-coverImage: "/assets/blog/modern-technology-innovation-data-processing.jpg"
+coverImage: "/assets/blog/glass.jpg"
 date: "2025-02-05T10:00:00.000Z"
 author:
   name: Kevin
   picture: "/assets/blog/authors/kevin.png"
 ogImage:
-  url: "/assets/blog/modern-technology-innovation-data-processing.jpg"
+  url: "/assets/blog/glass.jpg"
 category: "technology"
 ---
 

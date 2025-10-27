@@ -1,13 +1,13 @@
 ---
 title: "How E-commerce Teams Use NextRows for Competitive Price Monitoring"
 excerpt: "Discover how online retailers automatically track competitor prices across thousands of products to stay competitive in real-time."
-coverImage: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+coverImage: "/assets/blog/ecommerce.jpg"
 date: "2025-01-10T08:00:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+  url: "/assets/blog/ecommerce.jpg"
 category: "use-cases"
 ---
 

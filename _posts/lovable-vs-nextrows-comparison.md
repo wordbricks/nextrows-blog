@@ -1,13 +1,13 @@
 ---
 title: "Lovable vs NextRows: Simple No-Code Tools, Different Goals"
 excerpt: "Compare two powerful no-code platforms: Lovable for website creation and NextRows for data automation. Learn how they differ and how they can work together."
-coverImage: "/assets/blog/nextrows-vs-traditional-web-scraping-comparison.jpg"
+coverImage: "/assets/blog/lovable.jpg"
 date: "2025-01-20T10:00:00.000Z"
 author:
   name: Ian
   picture: "/assets/blog/authors/ian.png"
 ogImage:
-  url: "/assets/blog/nextrows-vs-traditional-web-scraping-comparison.jpg"
+  url: "/assets/blog/lovable.jpg"
 category: "why-nextrows"
 ---
 

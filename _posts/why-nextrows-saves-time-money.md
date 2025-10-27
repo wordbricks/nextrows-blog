@@ -1,13 +1,13 @@
 ---
 title: "Why NextRows Saves You 90% of Time and 60% of Costs in Data Collection"
 excerpt: "A detailed breakdown of how NextRows dramatically reduces both time investment and operational costs compared to traditional data collection methods."
-coverImage: "/assets/blog/nextrows-vs-traditional-web-scraping-comparison.jpg"
+coverImage: "/assets/blog/time.jpg"
 date: "2025-01-10T14:30:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-vs-traditional-web-scraping-comparison.jpg"
+  url: "/assets/blog/time.jpg"
 category: "why-nextrows"
 ---
 

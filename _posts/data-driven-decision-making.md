@@ -1,13 +1,13 @@
 ---
 title: "The Art of Data-Driven Decision Making in Modern Business"
 excerpt: "Transform your business strategy with data-driven insights. Learn how to collect, analyze, and act on data to make better decisions faster."
-coverImage: "/assets/blog/general-blog-topics-data-insights.jpg"
+coverImage: "/assets/blog/glass.jpg"
 date: "2025-01-12T09:00:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/general-blog-topics-data-insights.jpg"
+  url: "/assets/blog/glass.jpg"
 category: "others"
 ---
 

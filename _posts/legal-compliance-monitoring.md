@@ -1,13 +1,13 @@
 ---
 title: "Legal Teams: Automated Regulatory Change Tracking and Compliance"
 excerpt: "How law firms and compliance teams use NextRows to monitor regulatory updates, track case law, and ensure compliance across jurisdictions."
-coverImage: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+coverImage: "/assets/blog/legal.jpg"
 date: "2025-01-02T12:00:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+  url: "/assets/blog/legal.jpg"
 category: "use-cases"
 ---
 

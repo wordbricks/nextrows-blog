@@ -1,13 +1,13 @@
 ---
 title: "[Beginner's Guide] Text-to-Table with NextRows"
 excerpt: "Convert plain text into structured, editable tables with just a few clicks. Save hours of manual work turning emails, reports, and meeting notes into clean data with NextRows' Text-to-Table feature."
-coverImage: "/assets/blog/beginners-guide.jpg"
+coverImage: "/assets/blog/ttt.jpg"
 date: "2024-12-20T10:00:00.000Z"
 author:
   name: Aerin
   picture: "/assets/blog/authors/aerin.png"
 ogImage:
-  url: "/assets/blog/beginners-guide.jpg"
+  url: "/assets/blog/ttt.jpg"
 category: "tutorials"
 ---
 

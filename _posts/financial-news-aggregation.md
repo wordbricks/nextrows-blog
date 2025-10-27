@@ -1,13 +1,13 @@
 ---
 title: "Investment Firms: Building Real-Time Financial News Aggregation Systems"
 excerpt: "How hedge funds and investment firms use NextRows to aggregate financial news, earnings reports, and market sentiment for better trading decisions."
-coverImage: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+coverImage: "/assets/blog/inve.jpg"
 date: "2025-01-07T09:45:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+  url: "/assets/blog/inve.jpg"
 category: "use-cases"
 ---
 

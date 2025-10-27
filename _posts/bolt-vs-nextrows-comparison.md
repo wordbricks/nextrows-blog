@@ -1,13 +1,13 @@
 ---
 title: "Bolt vs NextRows: No-Code Tools for Different Needs"
 excerpt: "Compare Bolt for AI-powered app creation with NextRows for data automation. Learn how these no-code tools serve different purposes and how they can work together."
-coverImage: "/assets/blog/nextrows-vs-traditional-web-scraping-comparison.jpg"
+coverImage: "/assets/blog/bolt.png"
 date: "2025-01-25T10:00:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-vs-traditional-web-scraping-comparison.jpg"
+  url: "/assets/blog/bolt.png"
 category: "why-nextrows"
 ---
 

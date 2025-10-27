@@ -1,13 +1,13 @@
 ---
 title: "[Beginner's Guide] PDF-to-Table with NextRows"
 excerpt: "Turn tables locked inside PDFs into structured, editable data with just a few clicks. Save hours of manual work and avoid copy-paste errors with NextRows' PDF-to-Table feature."
-coverImage: "/assets/blog/beginners-guide.jpg"
+coverImage: "/assets/blog/ptt.jpg"
 date: "2024-12-15T10:00:00.000Z"
 author:
   name: Aerin
   picture: "/assets/blog/authors/aerin.png"
 ogImage:
-  url: "/assets/blog/beginners-guide.jpg"
+  url: "/assets/blog/ptt.jpg"
 category: "tutorials"
 ---
 

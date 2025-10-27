@@ -30,7 +30,7 @@ export default function ArticleContent({ content }: ArticleContentProps) {
       {/* Article Content */}
       <div className="flex-1 min-w-0">
         <div
-          className="prose prose-xl prose-stone dark:prose-invert max-w-none markdown leading-relaxed"
+          className="prose prose-xl prose-stone dark:prose-invert max-w-none markdown"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>

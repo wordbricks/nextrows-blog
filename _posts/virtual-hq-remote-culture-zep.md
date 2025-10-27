@@ -8,7 +8,7 @@ author:
   picture: "/assets/blog/authors/sophia.png"
 ogImage:
   url: "/assets/blog/virtual-hq-zep.jpg"
-category: "technology"
+category: "others"
 ---
 
 For a remote-first engineering team like ours at NextRows, tools like Slack and Zoom are the air we breathe. They are essential for scheduled meetings, direct messages, and asynchronous updates. But they leave a gap. They don't replicate the spontaneous, collaborative energy of a physical office—the quick chats, the "water cooler" moments, and the simple feeling of presence that builds a strong team culture.

@@ -1,13 +1,13 @@
 ---
 title: "More Than a Database: How Supabase Accelerates Our Development"
 excerpt: "Learn how NextRows leverages Supabase as the foundation of our real-time infrastructure, combining PostgreSQL power with modern backend services for rapid development."
-coverImage: "/assets/blog/modern-technology-innovation-data-processing.jpg"
+coverImage: "/assets/blog/supabase.jpg"
 date: "2025-01-30T10:00:00.000Z"
 author:
   name: Ian
   picture: "/assets/blog/authors/ian.png"
 ogImage:
-  url: "/assets/blog/modern-technology-innovation-data-processing.jpg"
+  url: "/assets/blog/supabase.jpg"
 category: "technology"
 ---
 

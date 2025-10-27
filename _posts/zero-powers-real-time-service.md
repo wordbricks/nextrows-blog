@@ -1,13 +1,13 @@
 ---
 title: "How Zero Powers Our Real-Time Service"
 excerpt: "Discover how NextRows uses Zero for instant data synchronization, creating a seamless real-time experience for our users. Learn about our journey to local-first architecture."
-coverImage: "/assets/blog/modern-technology-innovation-data-processing.jpg"
+coverImage: "/assets/blog/zero.jpg"
 date: "2025-01-28T10:00:00.000Z"
 author:
   name: Chris
   picture: "/assets/blog/authors/chris.png"
 ogImage:
-  url: "/assets/blog/modern-technology-innovation-data-processing.jpg"
+  url: "/assets/blog/zero.jpg"
 category: "technology"
 ---
 

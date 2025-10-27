@@ -1,13 +1,13 @@
 ---
 title: "HR Teams: Streamlining Talent Sourcing with Automated Job Market Data"
 excerpt: "How recruiters use NextRows to aggregate job postings, track salary trends, and identify top talent across multiple platforms."
-coverImage: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+coverImage: "/assets/blog/hr.jpg"
 date: "2025-01-08T14:15:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+  url: "/assets/blog/hr.jpg"
 category: "use-cases"
 ---
 

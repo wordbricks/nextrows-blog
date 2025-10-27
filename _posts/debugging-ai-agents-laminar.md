@@ -1,13 +1,13 @@
 ---
 title: "Debugging complex AI Agent was a nightmare? Then read this."
 excerpt: "Learn how NextRows uses Laminar observability platform to debug complex AI agents, turning black-box systems into transparent, understandable architectures."
-coverImage: "/assets/blog/modern-technology-innovation-data-processing.jpg"
+coverImage: "/assets/blog/laminar.jpg"
 date: "2025-02-03T10:00:00.000Z"
 author:
   name: Ian
   picture: "/assets/blog/authors/ian.png"
 ogImage:
-  url: "/assets/blog/modern-technology-innovation-data-processing.jpg"
+  url: "/assets/blog/laminar.jpg"
 category: "technology"
 ---
 

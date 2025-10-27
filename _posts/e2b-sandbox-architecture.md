@@ -1,13 +1,13 @@
 ---
 title: "Innovation in a Box: A Look at Our E2B Sandbox Architecture"
 excerpt: "Discover how NextRows uses E2B sandboxes to enable powerful AI agents that can safely execute code, ensuring security while delivering cutting-edge features."
-coverImage: "/assets/blog/modern-technology-innovation-data-processing.jpg"
+coverImage: "/assets/blog/e2b.jpg"
 date: "2025-02-01T10:00:00.000Z"
 author:
   name: Ian
   picture: "/assets/blog/authors/ian.png"
 ogImage:
-  url: "/assets/blog/modern-technology-innovation-data-processing.jpg"
+  url: "/assets/blog/e2b.jpg"
 category: "technology"
 ---
 

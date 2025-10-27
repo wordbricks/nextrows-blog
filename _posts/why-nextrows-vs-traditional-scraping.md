@@ -1,13 +1,13 @@
 ---
 title: "Why NextRows: The Future of Web Data Extraction vs Traditional Scraping"
 excerpt: "Discover why businesses are switching from traditional web scraping to NextRows' no-code solution for faster, more reliable data extraction."
-coverImage: "/assets/blog/nextrows-vs-traditional-web-scraping-comparison.jpg"
-date: "2025-01-11T10:00:00.000Z"
+coverImage: "/assets/blog/coding.jpg"
+date: "2025-01-15T10:00:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-vs-traditional-web-scraping-comparison.jpg"
+  url: "/assets/blog/coding.jpg"
 category: "why-nextrows"
 ---
 

@@ -1,13 +1,13 @@
 ---
 title: "Supply Chain Teams: Real-Time Supplier and Logistics Tracking"
 excerpt: "How logistics companies use NextRows to monitor supplier updates, track shipping rates, and manage supply chain disruptions proactively."
-coverImage: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+coverImage: "/assets/blog/supply.jpg"
 date: "2025-01-04T07:30:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+  url: "/assets/blog/supply.jpg"
 category: "use-cases"
 ---
 

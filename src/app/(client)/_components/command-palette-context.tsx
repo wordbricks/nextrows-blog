@@ -14,8 +14,13 @@ const CommandPaletteContext = createContext<CommandPaletteContextValue | null>(n
 
 export function CommandPaletteProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
-  const openPalette = () => setOpen(true);
-  const closePalette = () => setOpen(false);
+  const openPalette = () => {
+    // Ensure we don't have conflicting state updates
+    setOpen(true);
+  };
+  const closePalette = () => {
+    setOpen(false);
+  };
   const isEditableTarget = (t: EventTarget | null) => {
     if (!(t instanceof HTMLElement)) return false;
     const tag = t.tagName;

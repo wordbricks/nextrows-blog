@@ -1,13 +1,13 @@
 ---
 title: "Real Estate Agencies: Automating Market Analysis with Web Data"
 excerpt: "Learn how real estate professionals use NextRows to gather property listings, analyze market trends, and identify investment opportunities."
-coverImage: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+coverImage: "/assets/blog/realestate.jpg"
 date: "2025-01-09T10:30:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-use-cases-business-applications.jpg"
+  url: "/assets/blog/realestate.jpg"
 category: "use-cases"
 ---
 

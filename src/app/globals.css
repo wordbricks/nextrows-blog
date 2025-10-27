@@ -25,6 +25,17 @@
   animation: gradient 15s ease infinite;
 }
 
+/* Animated gradient for text */
+@keyframes gradientText {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientText 8s ease infinite;
+}
+
 /* Fade in animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
@@ -33,6 +44,46 @@
 
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out;
+}
+
+/* Custom transition durations */
+.duration-600 {
+  transition-duration: 600ms;
+}
+
+.duration-800 {
+  transition-duration: 800ms;
+}
+
+/* Slide animations */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 1.2s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 1.2s ease-out;
 }
 
 /* Hover lift effect */
@@ -49,15 +100,21 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
+    --primary-orange: 24 85% 53%;
+    --primary-orange-dark: 24 85% 48%;
+    --primary-orange-light: 24 85% 60%;
   }
 
   .dark {
     --background: 20 14.3% 4.1%;
     --foreground: 0 0% 95%;
+    --primary-orange: 24 85% 58%;
+    --primary-orange-dark: 24 85% 53%;
+    --primary-orange-light: 24 85% 65%;
   }
 
   body {
-    @apply bg-white text-stone-900 dark:bg-stone-900 dark:text-stone-100;
+    @apply bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100;
   }
 }
 
@@ -67,30 +124,30 @@
   }
 
   .prose h1 {
-    @apply text-3xl font-bold mb-4;
+    @apply text-4xl font-bold mb-8 mt-16 text-stone-900 dark:text-stone-50;
   }
 
   .prose h2 {
-    @apply text-2xl font-semibold mb-3;
+    @apply text-3xl font-semibold mb-6 mt-14 text-stone-900 dark:text-stone-50;
   }
 
   .prose h3 {
-    @apply text-xl font-semibold mb-2;
+    @apply text-2xl font-semibold mb-4 mt-10 text-stone-800 dark:text-stone-100;
   }
 
   .prose p {
-    @apply mb-4;
+    @apply mb-6 text-stone-700 dark:text-stone-300 leading-loose text-lg;
   }
 
   .prose a {
-    @apply text-orange-500 hover:text-orange-600;
+    @apply text-orange-600 hover:text-orange-700 dark:text-orange-500 dark:hover:text-orange-400 transition-colors;
   }
 
   .prose code {
-    @apply bg-stone-100 dark:bg-stone-800 px-1 py-0.5 rounded;
+    @apply bg-stone-100 dark:bg-stone-800 px-1.5 py-0.5 rounded text-sm;
   }
 
   .prose pre {
-    @apply bg-stone-100 dark:bg-stone-800 p-4 rounded-lg overflow-x-auto;
+    @apply bg-stone-100 dark:bg-stone-900 p-4 rounded-lg overflow-x-auto border border-stone-200 dark:border-stone-800;
   }
 }
