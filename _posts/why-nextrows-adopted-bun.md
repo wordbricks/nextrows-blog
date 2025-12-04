@@ -1,6 +1,6 @@
 ---
 title: "Why NextRows Adopted Bun for a Stable, Dependency-Free Desktop Runtime"
-excerpt: "NextRows targets users—research assistants, operators, marketers, and analysts—who rely on desktop tooling that must “just work.”"
+excerpt: "NextRows desktop app must operate consistently across machines, remain self-contained, and avoid any assumptions about local system configuration.”"
 coverImage: "/assets/blog/bun.jpg"
 date: "2025-12-01T12:00:00.000Z"
 author:
