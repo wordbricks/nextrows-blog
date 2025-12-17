@@ -1,0 +1,21 @@
+﻿Analyzing: https://nextjs.org
+------------------------------------------------------------
+{
+  "url": "https://nextjs.org",
+  "slap": "S-SSR, L-API, AP-NONE",
+  "difficulty": 3,
+  "crawlability": "FULL",
+  "blockers": [],
+  "signals": {
+    "semantic_tags": true,
+    "api_count": 3,
+    "captcha": false,
+    "login_required": false,
+    "bot_score": false,
+    "shadow": 1,
+    "iframe": 0,
+    "framework_detected": true,
+    "interactive_loading": false,
+    "api_soft_block": false
+  }
+}

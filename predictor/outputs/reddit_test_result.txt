@@ -1,0 +1,25 @@
+﻿Analyzing: https://www.reddit.com/search/?q=openai
+------------------------------------------------------------
+Warning: Navigation issue - Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.reddit.com/search/?q=openai", waiting until "networkidle"
+
+{
+  "url": "https://www.reddit.com/search/?q=openai",
+  "slap": "S-SSR, L-API, AP-NONE",
+  "difficulty": 3,
+  "crawlability": "FULL",
+  "blockers": [],
+  "signals": {
+    "semantic_tags": true,
+    "api_count": 4,
+    "captcha": false,
+    "login_required": false,
+    "bot_score": false,
+    "shadow": 122,
+    "iframe": 3,
+    "framework_detected": true,
+    "interactive_loading": false,
+    "api_soft_block": false
+  }
+}

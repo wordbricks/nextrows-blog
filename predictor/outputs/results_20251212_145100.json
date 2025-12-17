@@ -1,0 +1,957 @@
+[
+  {
+    "url": "https://www.google.com/search?q=openai",
+    "slap": "S-UNKNOWN, L-STATIC, AP-CAPTCHA",
+    "difficulty": 5,
+    "crawlability": "BLOCKED",
+    "blockers": [
+      "CAPTCHA"
+    ],
+    "signals": {
+      "semantic_tags": false,
+      "api_count": 0,
+      "captcha": true,
+      "login_required": false,
+      "bot_score": true,
+      "shadow": 0,
+      "iframe": 4,
+      "framework_detected": false,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.ebay.com/sch/i.html?_nkw=iphone",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 3,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 11,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 15,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.youtube.com/results?search_query=music",
+    "slap": "S-SSR, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 4,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 2,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.linkedin.com/jobs/collections/recommended/?currentJobId=4318636398&discover=recommended&discoveryOrigin=JOBS_HOME_JYMBII",
+    "slap": "S-STATIC, L-STATIC, AP-NONE",
+    "difficulty": 1,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 0,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 1,
+      "framework_detected": false,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.microsoft.com/en-us/microsoft-365/blog/content-type/news/?sort-by=newest-oldest",
+    "slap": "S-SSR, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 5,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://pubmed.ncbi.nlm.nih.gov/?term=cancer",
+    "slap": "S-SSR, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 3,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://flightaware.com/live/airport/JFK",
+    "slap": "S-SSR, L-API, AP-NONE",
+    "difficulty": 3,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 90,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 77,
+      "framework_detected": false,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://g1.globo.com/",
+    "slap": "S-PROGRESSIVE, L-API, AP-CAPTCHA",
+    "difficulty": 5,
+    "crawlability": "BLOCKED",
+    "blockers": [
+      "CAPTCHA"
+    ],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 56,
+      "captcha": true,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 1,
+      "iframe": 15,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.roblox.com/discover",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 16,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 1,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 18,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 3,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://support.stripe.com/topics/linked-financial-accounts",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 3,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 16,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 7,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.binance.com/en/markets",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 30,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 1,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.amazon.com/s?k=coffee",
+    "slap": "S-PROGRESSIVE, L-API, AP-BOT-SCORE",
+    "difficulty": 4,
+    "crawlability": "PARTIAL",
+    "blockers": [
+      "BOT"
+    ],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 12,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 3,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": true
+    }
+  },
+  {
+    "url": "https://x.com/search?q=openai&f=live",
+    "slap": "S-SSR, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 4,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 1,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.indeed.com/jobs?q=developer",
+    "slap": "S-PROGRESSIVE, L-API, AP-LOGIN",
+    "difficulty": 4,
+    "crawlability": "PARTIAL",
+    "blockers": [
+      "LOGIN"
+    ],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 10,
+      "captcha": false,
+      "login_required": true,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 5,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.crunchbase.com/discover/organization.companies",
+    "slap": "S-STATIC, L-STATIC, AP-NONE",
+    "difficulty": 1,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 0,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 2,
+      "framework_detected": false,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.apple.com/iphone/compare/",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 8,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.uptodate.com/contents/search?search=cancer",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 8,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 1,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.iata.org/en/events/",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 3,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 6,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 7,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.bbc.com/news/us-canada",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 3,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 38,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 28,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "xbox.com/en-US/games/browse/DynamicChannel.newgames",
+    "slap": "S-UNKNOWN, L-STATIC, AP-NONE",
+    "difficulty": 1,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": false,
+      "api_count": 0,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": false,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.usda.gov/about-usda/news/press-releases",
+    "slap": "ERROR",
+    "difficulty": 0,
+    "crawlability": "ERROR",
+    "blockers": [
+      "Page.content: Unable to retrieve content because the page is navigating and changing the content."
+    ],
+    "signals": {}
+  },
+  {
+    "url": "https://www.tradingview.com/markets/stocks-usa/",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 12,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.coinbase.com/explore",
+    "slap": "S-PROGRESSIVE, L-API, AP-BOT-SCORE",
+    "difficulty": 4,
+    "crawlability": "PARTIAL",
+    "blockers": [
+      "BOT"
+    ],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 14,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 1,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": true
+    }
+  },
+  {
+    "url": "https://www.tripadvisor.com/Search?q=hotel",
+    "slap": "S-UNKNOWN, L-STATIC, AP-NONE",
+    "difficulty": 1,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": false,
+      "api_count": 0,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 1,
+      "framework_detected": false,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.facebook.com/marketplace",
+    "slap": "S-STATIC, L-STATIC, AP-NONE",
+    "difficulty": 1,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 0,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.bing.com/search?q=openai",
+    "slap": "S-SSR, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 2,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 1,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.dice.com/jobs?q=python",
+    "slap": "S-SSR, L-API, AP-NONE",
+    "difficulty": 4,
+    "crawlability": "PARTIAL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 4,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 4,
+      "iframe": 7,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.producthunt.com/",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 3,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 11,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 1,
+      "iframe": 1,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://clinicaltrials.gov/search?cond=cancer",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 18,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.google.com/travel/flights?q=NY+Seoul",
+    "slap": "S-CSR, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": false,
+      "api_count": 1,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.nytimes.com/section/technology",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 3,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 45,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 25,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://store.epicgames.com/en-US/browse",
+    "slap": "S-STATIC, L-INTERACTIVE, AP-LOGIN",
+    "difficulty": 4,
+    "crawlability": "PARTIAL",
+    "blockers": [
+      "LOGIN"
+    ],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 0,
+      "captcha": false,
+      "login_required": true,
+      "bot_score": false,
+      "shadow": 122,
+      "iframe": 1,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.noaa.gov/news-releases",
+    "slap": "S-STATIC, L-INTERACTIVE, AP-NONE",
+    "difficulty": 1,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 0,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.binance.com/en/markets/ai-select",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 40,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 1,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.okx.com/markets/prices",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 3,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 28,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 7,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.walmart.com/search?q=milk",
+    "slap": "S-SSR, L-API, AP-NONE",
+    "difficulty": 3,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 3,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 5,
+      "framework_detected": false,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.tiktok.com/tag/funny",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 23,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.sciencedirect.com/search?qs=machine%20learning",
+    "slap": "S-STATIC, L-STATIC, AP-NONE",
+    "difficulty": 1,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 0,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 1,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.futuretools.io/",
+    "slap": "S-SSR, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 5,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 3,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.upwork.com/nx/jobs/search/?q=data",
+    "slap": "S-STATIC, L-STATIC, AP-NONE",
+    "difficulty": 1,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 0,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 2,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://edition.cnn.com/world",
+    "slap": "S-PROGRESSIVE, L-API, AP-LOGIN",
+    "difficulty": 4,
+    "crawlability": "PARTIAL",
+    "blockers": [
+      "LOGIN"
+    ],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 124,
+      "captcha": false,
+      "login_required": true,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 51,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://store.steampowered.com/search/?term=indie",
+    "slap": "S-CSR, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": false,
+      "api_count": 1,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.nih.gov/news-events/news-releases",
+    "slap": "S-SSR, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 3,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 1,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://developer.paypal.com/video/collection?filter=fastlane",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 9,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://2miners.com/#pools",
+    "slap": "S-SSR, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 1,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": false,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.flightradar24.com/data/airports/jfk",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 3,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 98,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 120,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.nejm.org/search?q=diabetes",
+    "slap": "S-PROGRESSIVE, L-API, AP-NONE",
+    "difficulty": 2,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 10,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 3,
+      "framework_detected": true,
+      "interactive_loading": true,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.yellowpages.com/search?search_terms=restaurant",
+    "slap": "S-STATIC, L-STATIC, AP-NONE",
+    "difficulty": 1,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 0,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 0,
+      "iframe": 0,
+      "framework_detected": false,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  },
+  {
+    "url": "https://www.reddit.com/search/?q=openai",
+    "slap": "S-SSR, L-API, AP-NONE",
+    "difficulty": 3,
+    "crawlability": "FULL",
+    "blockers": [],
+    "signals": {
+      "semantic_tags": true,
+      "api_count": 4,
+      "captcha": false,
+      "login_required": false,
+      "bot_score": false,
+      "shadow": 122,
+      "iframe": 3,
+      "framework_detected": true,
+      "interactive_loading": false,
+      "api_soft_block": false
+    }
+  }
+]

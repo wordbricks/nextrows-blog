@@ -104,6 +104,16 @@ export default function Navigation() {
           >
             Contact
           </Link>
+          <Link
+            href="/predictor"
+            aria-current={pathNoBase === "/predictor" ? "page" : undefined}
+            className={cn(
+              "text-sm transition-colors",
+              pathNoBase === "/predictor" ? "text-stone-900 dark:text-stone-100" : "text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100"
+            )}
+          >
+            Scraping Feasibility Check
+          </Link>
           <button
             onClick={(e) => toggleTheme(e)}
             className="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
@@ -220,6 +230,17 @@ export default function Navigation() {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Contact
+          </Link>
+          <Link
+            href="/predictor"
+            aria-current={pathNoBase === "/predictor" ? "page" : undefined}
+            className={cn(
+              "block px-3 py-2 text-base rounded-lg transition-colors",
+              pathNoBase === "/predictor" ? "text-stone-900 dark:text-stone-100 bg-stone-100 dark:bg-stone-800" : "text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800"
+            )}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Scraping Feasibility Check
           </Link>
           <div className="pt-4 mt-4 border-t border-stone-200 dark:border-stone-800">
             <a

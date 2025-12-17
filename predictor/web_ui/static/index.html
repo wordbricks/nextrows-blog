@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawl Predictor // Nextrows3</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <span class="icon">🕷️</span> Nextrows3 <span class="highlight">Predictor</span>
+            </div>
+            <p class="subtitle">Deterministic Single-URL Crawlability Analysis</p>
+        </header>
+
+        <main>
+            <div class="search-container">
+                <form id="analyze-form">
+                    <div class="input-wrapper">
+                        <input type="url" id="url-input" placeholder="https://example.com" required autocomplete="off">
+                        <button type="submit" id="scan-btn">
+                            <span class="btn-text">ANALYZE</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="error-container" class="hidden">
+                <div class="error-box">
+                    <h3>Analysis Failed</h3>
+                    <p id="error-message"></p>
+                </div>
+            </div>
+
+            <div id="results-container" class="hidden fade-in">
+                <!-- Summary Card -->
+                <div class="summary-card">
+                    <div class="score-section">
+                        <div class="score-ring" id="difficulty-ring">
+                            <span id="difficulty-score">1</span>
+                            <span class="score-label">DIFFICULTY</span>
+                        </div>
+                    </div>
+                    <div class="slap-section">
+                        <div class="slap-item">
+                            <span class="label">STRUCTURE</span>
+                            <span class="value" id="slap-s">S-STATIC</span>
+                        </div>
+                        <div class="slap-item">
+                            <span class="label">LOADING</span>
+                            <span class="value" id="slap-l">L-STATIC</span>
+                        </div>
+                        <div class="slap-item">
+                            <span class="label">PROTECTION</span>
+                            <span class="value" id="slap-ap">AP-NONE</span>
+                        </div>
+                    </div>
+                    <div class="status-section">
+                        <span class="label">CRAWLABILITY</span>
+                        <div class="status-badge full" id="crawl-status">FULL</div>
+                    </div>
+                </div>
+
+                <!-- Failure Hints -->
+                <div id="hints-section" class="hidden">
+                    <h4>⚠️ FAILURE HINTS DETECTED</h4>
+                    <div class="hints-grid" id="hints-grid">
+                        <!-- Hints injected here -->
+                    </div>
+                </div>
+
+                <!-- Detailed Signals -->
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <h4>Structure Signals</h4>
+                        <ul class="signal-list" id="structure-signals">
+                            <!-- Injected -->
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h4>Loading Signals</h4>
+                        <ul class="signal-list" id="loading-signals">
+                            <!-- Injected -->
+                        </ul>
+                    </div>
+                    <div class="detail-card">
+                        <h4>Access Signals</h4>
+                        <ul class="signal-list" id="access-signals">
+                            <!-- Injected -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Raw JSON Toggle -->
+                <div class="raw-json-section">
+                    <button class="toggle-btn" id="toggle-json">Show Raw JSON Response</button>
+                    <pre id="raw-json" class="hidden"></pre>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            MVP-10 Execution Engine • Local Session
+        </footer>
+    </div>
+    <script src="client.js"></script>
+</body>
+</html>

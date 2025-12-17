@@ -1,0 +1,21 @@
+﻿Analyzing: https://www.example.com/search?q=test
+------------------------------------------------------------
+{
+  "url": "https://www.example.com/search?q=test",
+  "slap": "S-STATIC, L-STATIC, AP-NONE",
+  "difficulty": 1,
+  "crawlability": "FULL",
+  "blockers": [],
+  "signals": {
+    "semantic_tags": true,
+    "api_count": 0,
+    "captcha": false,
+    "login_required": false,
+    "bot_score": false,
+    "shadow": 0,
+    "iframe": 0,
+    "framework_detected": false,
+    "interactive_loading": false,
+    "api_soft_block": false
+  }
+}
