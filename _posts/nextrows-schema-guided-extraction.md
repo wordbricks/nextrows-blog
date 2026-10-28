@@ -17,7 +17,7 @@ NextRows addresses this with schema-guided extraction.
 
 ## How it works
 
-An extract request accepts an optional `schema` field containing a JSON schema. The extraction step runs through a model provider layer built on the Vercel AI SDK, and the schema tells the model what shape the answer must take. If you leave the schema out, the system can generate one from your prompt.
+An extract request accepts an optional `schema` field containing a JSON schema. The extraction step runs through a model provider layer built on the Vercel AI SDK, and the schema tells the model what shape the answer must take. The schema describes the extracted data itself, and the result comes back in the `data` field of the response. If you leave the schema out, the system can generate one from your prompt.
 
 ## A small example
 
