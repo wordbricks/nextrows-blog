@@ -13,11 +13,11 @@ category: "use-cases"
 
 When we talk with teams about repetitive work, the same four categories come up again and again. They shape what we are building. This post describes each one and how NextRows relates to it today.
 
-A note on status: extraction from pages, PDFs, and text is available now. Full task automation is in development, and we say so wherever it matters below.
+A note on status: extraction from web pages and raw text is available now. Full task automation is in development, and we say so wherever it matters below.
 
 ## 1. Document processing
 
-Invoices, forms, spreadsheets. People read them and type the values somewhere else. Today you can pass a PDF or text to an extract request, describe the fields you need, and receive structured JSON or table output. Entering that data into another system is part of the automation we are building.
+Invoices, forms, spreadsheets. People read them and type the values somewhere else. Today the extract API reads web pages and raw text, so a document that is published as a web page, or whose text you paste in, can be turned into structured JSON. Direct PDF upload is not part of the public extract API today. Entering that data into another system is part of the automation we are building.
 
 ## 2. Scheduled operations
 
@@ -33,6 +33,6 @@ Filling sheets, updating systems, moving data between tools. The small jobs that
 
 ## Choosing where to start
 
-If your problem is mostly reading data out of pages and documents, extraction can help now. If it is mostly acting inside other tools on a schedule, we would like to hear about it, because that is what we are shaping with early partners.
+If your problem is mostly reading data out of web pages and text, extraction can help now. If it is mostly acting inside other tools on a schedule, we would like to hear about it, because that is what we are shaping with early partners.
 
 You can book a call from the NextRows site to describe your case. We will be direct about what works today and what does not yet.
