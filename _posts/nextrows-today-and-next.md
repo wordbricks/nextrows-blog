@@ -2,7 +2,7 @@
 title: "Where We Are and Where We're Going: Extraction Today, Task Automation Next"
 excerpt: "Extraction is implemented and documented. Natural-language task automation is in development. Here is a plain account of both."
 coverImage: "/assets/blog/nr-cover-today-and-next.svg"
-date: "2026-10-28T19:30:00.000Z"
+date: "2026-10-28T12:30:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
