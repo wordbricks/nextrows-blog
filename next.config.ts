@@ -29,6 +29,16 @@ const config: NextConfig = {
         permanent: true,
         basePath: false,
       },
+      {
+        source: "/posts/nextrows-pages-pdfs-and-text-in-one-request",
+        destination: "/posts/nextrows-choosing-extract-request-input",
+        permanent: true,
+      },
+      {
+        source: "/posts/nextrows-pages-and-text-in-one-request",
+        destination: "/posts/nextrows-choosing-extract-request-input",
+        permanent: true,
+      },
     ];
   },
 };
