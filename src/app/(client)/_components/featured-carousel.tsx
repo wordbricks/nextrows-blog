@@ -78,14 +78,14 @@ const FeaturedCarousel = memo(({ posts }: FeaturedCarouselProps) => {
           onClick={handlePrevious}
           disabled={isAnimating || isFirstCard}
           className={cn(
-            "absolute left-2 md:left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full backdrop-blur-sm transition-all shadow-lg flex-shrink-0",
+            "absolute left-2 md:left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 p-1.5 md:p-2.5 rounded-full backdrop-blur-sm transition-all shadow-lg flex-shrink-0",
             isFirstCard || isAnimating
               ? "bg-stone-300/50 dark:bg-stone-700/50 cursor-not-allowed opacity-50"
               : "bg-white/90 dark:bg-stone-900/90 hover:bg-white dark:hover:bg-stone-800"
           )}
           aria-label="Previous featured article"
         >
-          <IconChevronLeft size={28} className={cn(
+          <IconChevronLeft size={28} className={cn("size-5 md:size-7", 
             isFirstCard ? "text-stone-500 dark:text-stone-600" : "text-stone-900 dark:text-stone-100"
           )} />
         </button>
@@ -182,14 +182,14 @@ const FeaturedCarousel = memo(({ posts }: FeaturedCarouselProps) => {
           onClick={handleNext}
           disabled={isAnimating || isLastCard}
           className={cn(
-            "absolute right-2 md:right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full backdrop-blur-sm transition-all shadow-lg flex-shrink-0",
+            "absolute right-2 md:right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 p-1.5 md:p-2.5 rounded-full backdrop-blur-sm transition-all shadow-lg flex-shrink-0",
             isLastCard || isAnimating
               ? "bg-stone-300/50 dark:bg-stone-700/50 cursor-not-allowed opacity-50"
               : "bg-white/90 dark:bg-stone-900/90 hover:bg-white dark:hover:bg-stone-800"
           )}
           aria-label="Next featured article"
         >
-          <IconChevronRight size={28} className={cn(
+          <IconChevronRight size={28} className={cn("size-5 md:size-7", 
             isLastCard ? "text-stone-500 dark:text-stone-600" : "text-stone-900 dark:text-stone-100"
           )} />
         </button>
