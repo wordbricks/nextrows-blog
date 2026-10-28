@@ -2,7 +2,7 @@
 title: "From URL to Table: How a NextRows Extract Request Works"
 excerpt: "A walk through the five stages behind every extraction: input, render, normalize, extract, and deliver."
 coverImage: "/assets/blog/nr-cover-extract-pipeline.svg"
-date: "2026-10-28T19:00:00.000Z"
+date: "2026-10-28T12:00:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
