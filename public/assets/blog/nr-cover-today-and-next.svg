@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
-<rect width="1600" height="900" fill="#111827"/>
+<rect width="1600" height="900" fill="#ffffff"/>
 <rect width="1600" height="10" fill="#3b82f6"/>
-<text x="90" y="150" font-family="Inter, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#f3f4f6" text-anchor="start">Extraction today, automation next</text>
-<text x="90" y="220" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="400" fill="#9ca3af" text-anchor="start">What is implemented and what is in development</text>
-<text x="90" y="830" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#9ca3af" text-anchor="start">NextRows</text>
-<rect x="120" y="310" width="640" height="410" rx="18" fill="#1f2937" stroke="#3b82f6" stroke-width="4"/>
+<text x="90" y="150" font-family="Inter, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#111827" text-anchor="start">Extraction today, automation next</text>
+<text x="90" y="220" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="400" fill="#6b7280" text-anchor="start">What is implemented and what is in development</text>
+<text x="90" y="830" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#6b7280" text-anchor="start">NextRows</text>
+<rect x="120" y="310" width="640" height="410" rx="18" fill="#f9fafb" stroke="#3b82f6" stroke-width="4"/>
 <text x="160" y="380" font-family="Inter, Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#3b82f6" text-anchor="start">Implemented</text>
-<text x="160" y="460" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#f3f4f6" text-anchor="start">- Extract API for web pages and text</text>
-<text x="160" y="530" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#f3f4f6" text-anchor="start">- JSON schema-guided output</text>
-<text x="160" y="600" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#f3f4f6" text-anchor="start">- Rate limiting and credits</text>
-<rect x="840" y="310" width="640" height="410" rx="18" fill="#1f2937" stroke="#4b5563" stroke-width="3"/>
-<text x="880" y="380" font-family="Inter, Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#9ca3af" text-anchor="start">In development</text>
-<text x="880" y="460" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#f3f4f6" text-anchor="start">- Describe a task in plain words</text>
-<text x="880" y="530" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#f3f4f6" text-anchor="start">- Multimodal planning</text>
-<text x="880" y="600" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#f3f4f6" text-anchor="start">- Scheduled workflows</text>
-<text x="880" y="670" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#f3f4f6" text-anchor="start">- Template marketplace</text>
+<text x="160" y="460" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#111827" text-anchor="start">- Extract API for web pages and text</text>
+<text x="160" y="530" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#111827" text-anchor="start">- JSON schema-guided output</text>
+<text x="160" y="600" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#111827" text-anchor="start">- Rate limiting and credits</text>
+<rect x="840" y="310" width="640" height="410" rx="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="3"/>
+<text x="880" y="380" font-family="Inter, Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#6b7280" text-anchor="start">In development</text>
+<text x="880" y="460" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#111827" text-anchor="start">- Describe a task in plain words</text>
+<text x="880" y="530" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#111827" text-anchor="start">- Multimodal planning</text>
+<text x="880" y="600" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#111827" text-anchor="start">- Scheduled workflows</text>
+<text x="880" y="670" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#111827" text-anchor="start">- Template marketplace</text>
 </svg>
