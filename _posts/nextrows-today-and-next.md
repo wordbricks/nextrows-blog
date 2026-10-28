@@ -15,11 +15,11 @@ The NextRows landing page says "Repetitive work ends here." It is a goal, and we
 
 ## What exists today
 
-NextRows extracts structured data from web pages, PDFs, and plain text. You describe the data you want, optionally pass a JSON schema, and get table or JSON output. Under the hood:
+The NextRows extract API reads web pages and plain text and returns structured data. You describe the data you want, optionally pass a JSON schema, and get table or JSON output. Under the hood:
 
 - A typed API built with Hono, OpenAPI routes, and Zod request schemas
 - A render service using headless Chromium through `puppeteer-core`
-- Readability-based cleanup and PDF to Markdown conversion
+- Readability-based cleanup and HTML to Markdown conversion
 - A model layer built on the Vercel AI SDK
 - Rate limiting and per-request credit accounting
 
