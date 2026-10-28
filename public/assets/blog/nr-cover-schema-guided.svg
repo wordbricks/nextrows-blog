@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<rect width="1600" height="900" fill="#111827"/>
+<rect width="1600" height="10" fill="#f97316"/>
+<text x="90" y="150" font-family="Inter, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#f3f4f6" text-anchor="start">Schema-guided extraction</text>
+<text x="90" y="220" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="400" fill="#9ca3af" text-anchor="start">Same shape every time</text>
+<text x="90" y="830" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#f97316" text-anchor="start">NextRows</text>
+<rect x="150" y="330" width="490" height="360" rx="18" fill="#1f2937" stroke="#4b5563" stroke-width="3"/>
+<text x="185" y="390" xml:space="preserve" font-family="Menlo, Consolas, monospace" font-size="30" fill="#f3f4f6">{</text>
+<text x="185" y="430" xml:space="preserve" font-family="Menlo, Consolas, monospace" font-size="30" fill="#f3f4f6">  &quot;type&quot;: &quot;object&quot;,</text>
+<text x="185" y="470" xml:space="preserve" font-family="Menlo, Consolas, monospace" font-size="30" fill="#f3f4f6">  &quot;properties&quot;: {</text>
+<text x="185" y="510" xml:space="preserve" font-family="Menlo, Consolas, monospace" font-size="30" fill="#f3f4f6">    &quot;name&quot;: string,</text>
+<text x="185" y="550" xml:space="preserve" font-family="Menlo, Consolas, monospace" font-size="30" fill="#f3f4f6">    &quot;price&quot;: number,</text>
+<text x="185" y="590" xml:space="preserve" font-family="Menlo, Consolas, monospace" font-size="30" fill="#f3f4f6">    &quot;in_stock&quot;: boolean</text>
+<text x="185" y="630" xml:space="preserve" font-family="Menlo, Consolas, monospace" font-size="30" fill="#f3f4f6">  }</text>
+<text x="185" y="670" xml:space="preserve" font-family="Menlo, Consolas, monospace" font-size="30" fill="#f3f4f6">}</text>
+<line x1="670" y1="510" x2="866" y2="510" stroke="#f97316" stroke-width="5"/>
+<polygon points="880,510 862,498 862,522" fill="#f97316"/>
+<rect x="910" y="380" width="185" height="60" fill="#f97316"/>
+<text x="924" y="420" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#111827" text-anchor="start">name</text>
+<rect x="910" y="445" width="185" height="55" fill="#1f2937" stroke="#4b5563"/>
+<rect x="910" y="505" width="185" height="55" fill="#1f2937" stroke="#4b5563"/>
+<rect x="910" y="565" width="185" height="55" fill="#1f2937" stroke="#4b5563"/>
+<rect x="910" y="625" width="185" height="55" fill="#1f2937" stroke="#4b5563"/>
+<rect x="1100" y="380" width="185" height="60" fill="#f97316"/>
+<text x="1114" y="420" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#111827" text-anchor="start">price</text>
+<rect x="1100" y="445" width="185" height="55" fill="#1f2937" stroke="#4b5563"/>
+<rect x="1100" y="505" width="185" height="55" fill="#1f2937" stroke="#4b5563"/>
+<rect x="1100" y="565" width="185" height="55" fill="#1f2937" stroke="#4b5563"/>
+<rect x="1100" y="625" width="185" height="55" fill="#1f2937" stroke="#4b5563"/>
+<rect x="1290" y="380" width="185" height="60" fill="#f97316"/>
+<text x="1304" y="420" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#111827" text-anchor="start">in_stock</text>
+<rect x="1290" y="445" width="185" height="55" fill="#1f2937" stroke="#4b5563"/>
+<rect x="1290" y="505" width="185" height="55" fill="#1f2937" stroke="#4b5563"/>
+<rect x="1290" y="565" width="185" height="55" fill="#1f2937" stroke="#4b5563"/>
+<rect x="1290" y="625" width="185" height="55" fill="#1f2937" stroke="#4b5563"/>
+</svg>
