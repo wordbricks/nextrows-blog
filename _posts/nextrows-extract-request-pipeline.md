@@ -36,11 +36,11 @@ The API itself is a Hono application. Routes are described with OpenAPI and requ
 
 ## Stage 1: Input
 
-Sources can be web page URLs, PDF documents, or raw text. You can mix several sources in a single request, up to 20.
+Sources are either web page URLs or raw text, up to 20 per request. One request uses one type, so all sources are URLs or all are text. When the type is `url`, every item must be a valid URL, and the request is rejected otherwise.
 
 ## Stage 2: Render
 
-Pages are fetched by a separate render service. It loads each page in headless Chromium through `puppeteer-core`, so content that only appears after JavaScript runs is still captured. Before capturing, the service pauses animations and removes hidden elements, which keeps the text you extract from containing things a visitor could not see. PDFs are converted to Markdown in this stage. Raw text skips rendering entirely.
+Pages are fetched by a separate render service. It loads each page in headless Chromium through `puppeteer-core`, so content that only appears after JavaScript runs is still captured. Before capturing, the service pauses animations and removes hidden elements, which keeps the text you extract from containing things a visitor could not see. Raw text skips rendering entirely.
 
 ## Stage 3: Normalize
 
@@ -48,14 +48,14 @@ Rendered HTML goes through Readability-based cleanup and is converted to Markdow
 
 ## Stage 4: Extract
 
-The cleaned text is sent to a model through a provider layer built on the Vercel AI SDK. We currently use Google Gemini models. If you pass a JSON schema, the model is guided to produce output in that shape. If you don't, the system can generate a schema from your prompt.
+The cleaned text is sent to a model through a provider layer built on the Vercel AI SDK. The models come from Google. If you pass a JSON schema, the model is guided to produce output in that shape. If you don't, the system can generate a schema from your prompt.
 
 ## Stage 5: Deliver
 
-The result comes back as table data or JSON, through the run, table, and JSON endpoints.
+The extract endpoint returns JSON: a `success` flag and the extracted values in a `data` field. Saved apps also have their own run, table, and JSON endpoints.
 
 ## Why split it this way
 
 Each stage has one job and one failure mode. If a page renders badly, we look at the render service. If the text is noisy, we look at normalization. If the values are wrong, we look at the prompt and schema. That separation makes the system easier to debug and easier to improve one piece at a time.
 
-Next up in this series: how to use a JSON schema to get predictable output, and how PDFs and plain text fit into the same request.
+Next up in this series: how to use a JSON schema to get predictable output, and how web pages and plain text work as inputs.
