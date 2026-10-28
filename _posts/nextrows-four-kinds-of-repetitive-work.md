@@ -1,19 +1,19 @@
 ---
 title: "Four Kinds of Repetitive Computer Work We Are Starting With"
 excerpt: "Document processing, scheduled operations, data collection and everyday office tasks. A look at where NextRows is focused and why."
-coverImage: "/assets/blog/e2b.jpg"
+coverImage: "/assets/blog/nr-cover-four-kinds.svg"
 date: "2026-10-28T19:40:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/e2b.jpg"
+  url: "/assets/blog/nr-cover-four-kinds.svg"
 category: "use-cases"
 ---
 
 When we talk with teams about repetitive work, the same four categories come up again and again. They shape what we are building. This post describes each one and how NextRows relates to it today.
 
-A note on status: extraction from web pages and raw text is available now. Full task automation is in development, and we say so wherever it matters below.
+A note on status: extraction from web pages and raw text is implemented and documented. Full task automation is in development, and we say so wherever it matters below.
 
 ## 1. Document processing
 
@@ -33,6 +33,6 @@ Filling sheets, updating systems, moving data between tools. The small jobs that
 
 ## Choosing where to start
 
-If your problem is mostly reading data out of web pages and text, extraction can help now. If it is mostly acting inside other tools on a schedule, we would like to hear about it, because that is what we are shaping with early partners.
+If your problem is mostly reading data out of web pages and text, extraction is the place to start. If it is mostly acting inside other tools on a schedule, we would like to hear about it, because that is what we are shaping with early partners.
 
 You can book a call from the NextRows site to describe your case. We will be direct about what works today and what does not yet.
