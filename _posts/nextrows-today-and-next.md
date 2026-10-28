@@ -1,19 +1,21 @@
 ---
 title: "Where We Are and Where We're Going: Extraction Today, Task Automation Next"
-excerpt: "NextRows extraction is live. Natural-language task automation is in development. Here is a plain account of both."
-coverImage: "/assets/blog/nextrows-api-alpha-announcement.jpg"
+excerpt: "Extraction is implemented and documented. Natural-language task automation is in development. Here is a plain account of both."
+coverImage: "/assets/blog/nr-cover-today-and-next.svg"
 date: "2026-10-28T19:30:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nextrows-api-alpha-announcement.jpg"
+  url: "/assets/blog/nr-cover-today-and-next.svg"
 category: "why-nextrows"
 ---
 
 The NextRows landing page says "Repetitive work ends here." It is a goal, and we want to be clear about which parts exist today and which are still being built.
 
-## What exists today
+## What is implemented today
+
+This section describes what the code and the public documentation cover. Availability for your account may differ, so book a call if you want to confirm the current state.
 
 The NextRows extract API reads web pages and plain text and returns structured data. You describe the data you want, optionally pass a JSON schema, and get table or JSON output. Under the hood:
 
