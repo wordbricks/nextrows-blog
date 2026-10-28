@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/utils/cn";
 import { BASE_PATH } from "@/env/basePath";
 import { useCommandPalette } from "@/app/(client)/_components/command-palette-context";
@@ -11,11 +11,48 @@ import { usePathname } from "next/navigation";
 export default function Navigation() {
   const { openPalette } = useCommandPalette();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const pathNoBase = pathname && pathname.startsWith(BASE_PATH) ? pathname.slice(BASE_PATH.length) || "/" : pathname || "/";
   const isContact = pathNoBase === "/contact";
   const isSearch = pathNoBase === "/search" || pathNoBase.startsWith("/search/");
   const isBlog = pathNoBase === "/" || pathNoBase.startsWith("/posts") || pathNoBase.startsWith("/category");
+
+  useEffect(() => {
+    setMounted(true);
+    const saved = localStorage.getItem("theme");
+    const mql = window.matchMedia("(prefers-color-scheme: dark)");
+    const initial: "light" | "dark" = saved === "light" ? "light" : saved === "dark" ? "dark" : mql.matches ? "dark" : "light";
+    setTheme(initial);
+    applyTheme(initial);
+
+    if (saved === "light" || saved === "dark") return;
+
+    const handler = (e: MediaQueryListEvent) => {
+      const sysTheme: "light" | "dark" = e.matches ? "dark" : "light";
+      setTheme(sysTheme);
+      applyTheme(sysTheme);
+    };
+
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []); // Empty dependency array to run only once on mount
+
+  const applyTheme = (selected: "light" | "dark") => {
+    document.documentElement.classList.toggle("dark", selected === "dark");
+  };
+
+  const toggleTheme = (e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    const next: "light" | "dark" = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    localStorage.setItem("theme", next);
+    applyTheme(next);
+  };
 
   return (
     <nav className="bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl sticky top-0 z-50 transition-colors border-b border-stone-200/50 dark:border-stone-800/50">
@@ -77,6 +114,46 @@ export default function Navigation() {
           >
             Scraping Feasibility Check
           </Link>
+          <button
+            onClick={(e) => toggleTheme(e)}
+            className="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+            aria-label="Toggle theme"
+          >
+            {!mounted ? (
+              // Show a neutral icon during SSR to prevent hydration mismatch
+              <div className="h-4 w-4 bg-stone-400 rounded"></div>
+            ) : theme === "light" ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 text-stone-700 dark:text-stone-200"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 text-stone-700 dark:text-stone-200"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+            )}
+          </button>
           <a
             href="https://nextrows.com?source=blog"
             target="_blank"
@@ -181,3 +258,4 @@ export default function Navigation() {
     </nav>
   );
 }
+
