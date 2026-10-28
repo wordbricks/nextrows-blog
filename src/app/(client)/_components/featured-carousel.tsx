@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, memo } from "react";
+import { useState, useEffect, memo } from "react";
 import Link from "next/link";
 import { Post } from "@/interfaces/post";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
@@ -16,6 +16,14 @@ interface FeaturedCarouselProps {
 const FeaturedCarousel = memo(({ posts }: FeaturedCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [viewportWidth, setViewportWidth] = useState(0);
+
+  useEffect(() => {
+    const updateWidth = () => setViewportWidth(window.innerWidth);
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
   // Take top 5 posts as featured use cases
   const featuredPosts = posts.slice(0, 5);
@@ -45,9 +53,13 @@ const FeaturedCarousel = memo(({ posts }: FeaturedCarouselProps) => {
   const isFirstCard = currentIndex === 0;
   const isLastCard = currentIndex === featuredPosts.length - 1;
 
-  // Fixed card width and gap for consistent spacing
-  const cardWidth = 780; // width in pixels - increased by 120% for larger cards
-  const cardGap = 48; // gap between cards in pixels - slightly increased for better spacing
+  // Responsive card width and gap so cards fit small screens without clipping
+  const isMobile = viewportWidth > 0 && viewportWidth < 768;
+  const cardWidth =
+    viewportWidth > 0
+      ? Math.min(780, Math.max(viewportWidth - 64, 280))
+      : 780;
+  const cardGap = isMobile ? 24 : 48; // gap-6 on mobile, gap-12 from md up
 
   // Calculate the offset to center the active card
   const calculateOffset = () => {
@@ -83,7 +95,7 @@ const FeaturedCarousel = memo(({ posts }: FeaturedCarouselProps) => {
           <div className="absolute inset-0 flex items-center justify-center">
             {/* Container that slides all cards together */}
             <div
-              className="flex gap-12 transition-transform duration-800 ease-out items-center"
+              className="flex gap-6 md:gap-12 transition-transform duration-800 ease-out items-center"
               style={{
                 transform: `translateX(calc(50% - ${cardWidth/2}px + ${calculateOffset()}px))`,
               }}
@@ -124,7 +136,7 @@ const FeaturedCarousel = memo(({ posts }: FeaturedCarouselProps) => {
                     >
                       <div className="flex flex-col md:flex-row h-full">
                         {/* Image Section */}
-                        <div className="relative bg-stone-100 dark:bg-stone-800 h-48 md:h-full md:w-1/2">
+                        <div className="relative bg-stone-100 dark:bg-stone-800 h-32 md:h-full md:w-1/2">
                           <BlogImage
                             src={post.coverImage}
                             alt={`${post.title} - NextRows blog post about ${getCategoryLabel(post.category)}`}
@@ -136,18 +148,18 @@ const FeaturedCarousel = memo(({ posts }: FeaturedCarouselProps) => {
                         </div>
 
                         {/* Content Section */}
-                        <div className="flex flex-col justify-center p-6 md:p-8 md:w-1/2">
+                        <div className="flex flex-col justify-center p-4 md:p-8 md:w-1/2">
                           <div className="mb-4">
                             <span className="font-medium text-orange-600 dark:text-orange-500 uppercase tracking-wide text-xs">
                               {getCategoryLabel(post.category)}
                             </span>
                           </div>
 
-                          <h3 className="font-semibold leading-tight text-stone-900 dark:text-stone-50 tracking-tight line-clamp-2 mb-4 text-2xl lg:text-3xl">
+                          <h3 className="font-semibold leading-tight text-stone-900 dark:text-stone-50 tracking-tight line-clamp-2 mb-4 text-xl md:text-2xl lg:text-3xl">
                             {post.title}
                           </h3>
 
-                          <p className="text-stone-600 dark:text-stone-400 mb-6 line-clamp-2 text-sm md:text-base">
+                          <p className="text-stone-600 dark:text-stone-400 mb-6 line-clamp-2 text-sm md:text-base hidden md:block">
                             {post.excerpt}
                           </p>
 
