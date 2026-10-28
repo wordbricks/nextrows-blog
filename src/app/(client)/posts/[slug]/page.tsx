@@ -106,7 +106,9 @@ export default async function Post(props: Params) {
                     className="w-full h-auto rounded-lg shadow-lg"
                     priority
                     caption={
-                      post.slug === "beginners-guide-web-crawling-python-vs-nextrows"
+                      post.coverImage.endsWith(".svg")
+                        ? undefined
+                        : post.slug === "beginners-guide-web-crawling-python-vs-nextrows"
                         ? "Python BeautifulSoup vs. NextRows – Because life's too short for endless error messages."
                         : post.slug === "nextrows-api-alpha-announcement"
                         ? "NextRows API Alpha Released - Could crash, could conk out, but for now… magic happens."
