@@ -1,13 +1,13 @@
 ---
 title: "Web Pages or Plain Text: Choosing an Extract Request Input"
 excerpt: "Each NextRows extract request takes either web page URLs or raw text, never both in one call. Here is how to choose."
-coverImage: "/assets/blog/nr-cover-input-types.svg"
+coverImage: "/assets/blog/input-types.jpg"
 date: "2026-10-28T12:10:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nr-cover-input-types.svg"
+  url: "/assets/blog/input-types.jpg"
 category: "tutorials"
 ---
 

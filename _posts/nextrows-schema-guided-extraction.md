@@ -1,13 +1,13 @@
 ---
 title: "Schema-Guided Extraction: Getting the Same Shape Every Time"
 excerpt: "Pass a JSON schema with your extract request and the output follows it. Here is why that matters and how to write one."
-coverImage: "/assets/blog/nr-cover-schema-guided.svg"
+coverImage: "/assets/blog/schema-guided.jpg"
 date: "2026-10-28T12:20:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nr-cover-schema-guided.svg"
+  url: "/assets/blog/schema-guided.jpg"
 category: "technology"
 ---
 

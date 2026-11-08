@@ -1,13 +1,13 @@
 ---
 title: "Four Kinds of Repetitive Computer Work We Are Starting With"
 excerpt: "Document processing, scheduled operations, data collection and everyday office tasks. A look at where NextRows is focused and why."
-coverImage: "/assets/blog/nr-cover-four-kinds.svg"
+coverImage: "/assets/blog/four-kinds.jpg"
 date: "2026-10-28T12:40:00.000Z"
 author:
   name: NextRows Team
   picture: "/assets/blog/authors/team.png"
 ogImage:
-  url: "/assets/blog/nr-cover-four-kinds.svg"
+  url: "/assets/blog/four-kinds.jpg"
 category: "use-cases"
 ---
 
