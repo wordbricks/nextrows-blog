@@ -2,11 +2,12 @@ import { parseISO, format } from "date-fns";
 
 type Props = {
   dateString: string;
+  monthOnly?: boolean;
 };
 
-const DateFormatter = ({ dateString }: Props) => {
+const DateFormatter = ({ dateString, monthOnly }: Props) => {
   const date = parseISO(dateString);
-  return <time dateTime={dateString}>{format(date, "LLLL	d, yyyy")}</time>;
+  return <time dateTime={dateString}>{monthOnly ? format(date, "LLLL yyyy") : format(date, "LLLL\td, yyyy")}</time>;
 };
 
 export default DateFormatter;

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<rect width="1200" height="675" fill="#F4EFE6" rx="24"/>
+<line x1="120" y1="75" x2="120" y2="563" stroke="#16130E" stroke-width="4"/>
+<circle cx="120" cy="115" r="14" fill="#E8622D"/>
+<text x="180" y="109" font-family="Helvetica,Arial,sans-serif" font-size="60" font-weight="700" fill="#16130E">Jan 20</text>
+<text x="180" y="167" font-family="Helvetica,Arial,sans-serif" font-size="46" fill="#6E675C">DeepSeek releases R1 and</text>
+<text x="180" y="223" font-family="Helvetica,Arial,sans-serif" font-size="46" fill="#6E675C">resets the reasoning race</text>
+<circle cx="120" cy="319" r="14" fill="#E8622D"/>
+<text x="180" y="313" font-family="Helvetica,Arial,sans-serif" font-size="60" font-weight="700" fill="#16130E">Jan 21</text>
+<text x="180" y="371" font-family="Helvetica,Arial,sans-serif" font-size="46" fill="#6E675C">OpenAI and partners unveil</text>
+<text x="180" y="427" font-family="Helvetica,Arial,sans-serif" font-size="46" fill="#6E675C">the $500B Stargate Project</text>
+<circle cx="120" cy="523" r="14" fill="#E8622D"/>
+<text x="180" y="517" font-family="Helvetica,Arial,sans-serif" font-size="60" font-weight="700" fill="#16130E">Jan 23</text>
+<text x="180" y="575" font-family="Helvetica,Arial,sans-serif" font-size="46" fill="#6E675C">Operator: ChatGPT takes</text>
+<text x="180" y="631" font-family="Helvetica,Arial,sans-serif" font-size="46" fill="#6E675C">the wheel of a browser</text>
+</svg>

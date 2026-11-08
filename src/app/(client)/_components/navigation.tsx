@@ -56,7 +56,7 @@ export default function Navigation() {
 
   return (
     <nav className="bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl sticky top-0 z-50 transition-colors border-b border-stone-200/50 dark:border-stone-800/50">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center gap-4">
         <Link href="/" className="flex items-center space-x-2">
           <Image
             src={`${BASE_PATH}/nextrows-logo-nav.png`}
@@ -69,7 +69,7 @@ export default function Navigation() {
             NextRows
           </span>
         </Link>
-        <div className="hidden md:flex space-x-8 items-center">
+        <div className="hidden md:flex space-x-5 lg:space-x-8 items-center whitespace-nowrap">
           <Link
             href="/"
             aria-current={isBlog ? "page" : undefined}

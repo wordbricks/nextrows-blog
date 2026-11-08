@@ -29,6 +29,9 @@ const FrontMatterSchema = z
     ogImage: OgImageSchema,
     category: z.string().optional(),
     preview: z.boolean().optional(),
+    audioUrl: z.string().optional(),
+    publishedAt: z.string().optional(),
+    period: z.string().optional(),
   })
   .passthrough();
 
@@ -70,6 +73,9 @@ export function getPostBySlug(slug: string): Post {
     category: parsed.category || "",
     preview: parsed.preview,
     readingTimeMinutes: minutes,
+    audioUrl: parsed.audioUrl,
+    publishedAt: parsed.publishedAt,
+    period: parsed.period,
   };
 }
 

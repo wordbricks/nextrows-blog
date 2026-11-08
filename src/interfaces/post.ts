@@ -14,4 +14,7 @@ export type Post = {
   category: string;
   preview?: boolean;
   readingTimeMinutes: number;
+  audioUrl?: string;
+  publishedAt?: string;
+  period?: string;
 };

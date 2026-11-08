@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Post } from "@/interfaces/post";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import BlogImage from "./blog-image";
+import { BASE_PATH } from "@/env/basePath";
 import DateFormatter from "./date-formatter";
 import { getCategoryColor, getCategoryLabel } from "@/constants/category";
 import { cn } from "@/utils/cn";
@@ -55,6 +56,9 @@ const FeaturedCarousel = memo(({ posts }: FeaturedCarouselProps) => {
 
   // Responsive card width and gap so cards fit small screens without clipping
   const isMobile = viewportWidth > 0 && viewportWidth < 768;
+  // When the card's 80vw max-width clamp binds (viewport < ~1012px), the ancestor scale
+  // transform mis-rasters SVG cover art in Chrome (left-edge crop). Skip the zoom there.
+  const cardClampActive = viewportWidth > 0 && viewportWidth * 0.8 < Math.min(780, Math.max(viewportWidth - 64, 280));
   const cardWidth =
     viewportWidth > 0
       ? Math.min(780, Math.max(viewportWidth - 64, 280))
@@ -108,7 +112,7 @@ const FeaturedCarousel = memo(({ posts }: FeaturedCarouselProps) => {
                     key={post.slug}
                     className={cn(
                       "flex-shrink-0 transition-all duration-800 ease-out",
-                      isActive ? "scale-105" : "opacity-40 scale-95"
+                      isActive && !cardClampActive ? "scale-105" : isActive ? "" : "opacity-40 scale-95"
                     )}
                     style={{
                       width: `${cardWidth}px`,
@@ -147,34 +151,35 @@ const FeaturedCarousel = memo(({ posts }: FeaturedCarouselProps) => {
                               className="object-cover object-center scale-110 blur-2xl brightness-95"
                             />
                           </div>
-                          <BlogImage
-                            src={post.coverImage}
-                            alt={`${post.title} - NextRows blog post about ${getCategoryLabel(post.category)}`}
-                            fallbackText={post.title.substring(0, 20)}
-                            fill
-                            className="object-contain object-center"
-                            priority={isActive}
+                          {/* Full artwork layer: CSS background contain (immune to img/SVG object-fit quirks) */}
+                          <div
+                            role="img"
+                            aria-label={`${post.title} - NextRows blog post about ${getCategoryLabel(post.category)}`}
+                            className="absolute inset-0 bg-center bg-no-repeat bg-contain"
+                            style={{ backgroundImage: `url(${BASE_PATH}${post.coverImage})` }}
                           />
                         </div>
 
                         {/* Content Section */}
                         <div className="flex flex-col justify-center p-4 md:p-8 md:w-1/2">
-                          <div className="mb-4">
+                          <div className="mb-4 shrink-0">
                             <span className="font-medium text-orange-600 dark:text-orange-500 uppercase tracking-wide text-xs">
                               {getCategoryLabel(post.category)}
                             </span>
                           </div>
 
-                          <h3 className="font-semibold leading-tight text-stone-900 dark:text-stone-50 tracking-tight line-clamp-2 mb-4 text-xl md:text-2xl lg:text-3xl">
+                          {/* shrink-0: never let the fixed-height card flex-cut the headline mid-glyph;
+                              max-h caps at exactly 3 line heights so any longer title cuts on a line boundary */}
+                          <h3 className="font-semibold text-stone-900 dark:text-stone-50 tracking-tight mb-4 shrink-0 overflow-hidden text-lg leading-6 max-h-[72px] md:text-xl md:leading-7 md:max-h-[84px] lg:text-2xl lg:leading-8 lg:max-h-[96px]">
                             {post.title}
                           </h3>
 
-                          <p className="text-stone-600 dark:text-stone-400 mb-6 line-clamp-2 text-sm md:text-base hidden md:block">
+                          <p className="text-stone-600 dark:text-stone-400 mb-6 line-clamp-2 text-sm md:text-base leading-5 md:leading-6 max-h-[40px] md:max-h-[48px] overflow-hidden hidden lg:block shrink-0">
                             {post.excerpt}
                           </p>
 
-                          <div className="text-xs text-stone-500 dark:text-stone-500">
-                            <DateFormatter dateString={post.date} />
+                          <div className="text-xs text-stone-500 dark:text-stone-500 shrink-0">
+                            <DateFormatter dateString={post.date} monthOnly={post.period === "month"} />
                           </div>
                         </div>
                       </div>

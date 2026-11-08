@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<rect width="1200" height="675" fill="#F4EFE6"/>
+<rect x="48" y="40" width="150" height="40" rx="20" fill="#E3DCCB" stroke="#CFC7B4" stroke-width="1.5"/>
+<text x="123" y="66" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="600" fill="#6E675C" text-anchor="middle">Technology</text>
+<text x="48" y="208" font-family="Helvetica,Arial,sans-serif" font-size="52" font-weight="700" fill="#16130E">The Open Model</text>
+<text x="48" y="270" font-family="Helvetica,Arial,sans-serif" font-size="52" font-weight="700" fill="#16130E">Spring</text>
+<text x="48" y="342" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="400" fill="#6E675C">April 2025 in AI</text>
+<text x="48" y="630" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="600" fill="#6E675C">nextrows.com</text>
+<rect x="640" y="40" width="512" height="595" rx="28" fill="#17140F"/>
+<rect x="776" y="210" width="240" height="28" rx="14" fill="#F4EFE6"/>
+<rect x="806" y="323" width="180" height="28" rx="14" fill="#E8622D"/>
+<rect x="776" y="436" width="240" height="28" rx="14" fill="#F4EFE6"/>
+</svg>

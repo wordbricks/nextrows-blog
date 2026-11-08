@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     
     return {
       url: `${baseUrl}/posts/${post.slug}`,
-      lastModified: new Date(post.date),
+      lastModified: new Date(post.publishedAt ?? post.date),
       changeFrequency,
       priority,
     }

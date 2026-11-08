@@ -8,6 +8,7 @@ import DateFormatter from "@/app/(client)/_components/date-formatter";
 import BlogImage from "@/app/(client)/_components/blog-image";
 import { ArticleJsonLd } from "@/app/(client)/_components/json-ld";
 import ArticleContent from "@/app/(client)/_components/article-content";
+import AudioPlayer from "@/app/(client)/_components/audio-player";
 import { 
   generateSEOMetadata, 
   generateArticleStructuredData, 
@@ -44,7 +45,8 @@ export default async function Post(props: Params) {
     url: `/posts/${post.slug}`,
     image: post.coverImage,
     author: post.author?.name || 'NextRows Team',
-    publishedTime: post.date,
+    publishedTime: post.publishedAt ?? post.date,
+    modifiedTime: post.publishedAt ?? post.date,
     keywords: post.category ? [post.category.replace('-', ' '), 'NextRows', 'data extraction', 'web scraping'] : [],
   });
 
@@ -66,7 +68,8 @@ export default async function Post(props: Params) {
         title={post.title}
         description={post.excerpt}
         url={`/posts/${post.slug}`}
-        datePublished={post.date}
+        datePublished={post.publishedAt ?? post.date}
+        dateModified={post.publishedAt ?? post.date}
         authorName={post.author?.name}
         image={post.coverImage}
       />
@@ -89,11 +92,15 @@ export default async function Post(props: Params) {
                 </h1>
                 <p className="text-sm text-stone-500 dark:text-stone-400">
                   {post.author?.name && `By ${post.author.name} · `}
-                  <DateFormatter dateString={post.date} /> · {post.readingTimeMinutes} min read
+                  <DateFormatter dateString={post.date} monthOnly={post.period === "month"} /> · {post.readingTimeMinutes} min read
                 </p>
               </div>
             </header>
             
+            {post.audioUrl && (
+              <AudioPlayer src={post.audioUrl} title={post.title} />
+            )}
+
             {post.coverImage && (
               <div className="mb-8 flex justify-center">
                 <div className="w-full max-w-2xl">
@@ -177,7 +184,7 @@ export default async function Post(props: Params) {
                           {r.excerpt}
                         </p>
                         <p className="text-xs text-stone-500 dark:text-stone-500">
-                          <DateFormatter dateString={r.date} />
+                          <DateFormatter dateString={r.date} monthOnly={r.period === "month"} />
                         </p>
                       </div>
                     </Link>
@@ -223,7 +230,8 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
     url: `/posts/${post.slug}`,
     image: `/posts/${post.slug}/opengraph-image`,
     author: post.author?.name,
-    publishedTime: post.date,
+    publishedTime: post.publishedAt ?? post.date,
+    modifiedTime: post.publishedAt ?? post.date,
     keywords: keywords,
     type: 'article',
   });

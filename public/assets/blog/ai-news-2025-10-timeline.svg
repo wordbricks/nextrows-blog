@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<rect width="1200" height="675" fill="#F4EFE6" rx="24"/>
+<line x1="120" y1="75" x2="120" y2="563" stroke="#16130E" stroke-width="4"/>
+<circle cx="120" cy="115" r="14" fill="#E8622D"/>
+<text x="180" y="109" font-family="Helvetica,Arial,sans-serif" font-size="60" font-weight="700" fill="#16130E">Oct 6</text>
+<text x="180" y="167" font-family="Helvetica,Arial,sans-serif" font-size="46" fill="#6E675C">DevDay: apps and AgentKit</text>
+<text x="180" y="223" font-family="Helvetica,Arial,sans-serif" font-size="46" fill="#6E675C">come to ChatGPT</text>
+<circle cx="120" cy="319" r="14" fill="#E8622D"/>
+<text x="180" y="313" font-family="Helvetica,Arial,sans-serif" font-size="60" font-weight="700" fill="#16130E">Oct 21</text>
+<text x="180" y="371" font-family="Helvetica,Arial,sans-serif" font-size="46" fill="#6E675C">ChatGPT Atlas: a browser</text>
+<text x="180" y="427" font-family="Helvetica,Arial,sans-serif" font-size="46" fill="#6E675C">with AI inside</text>
+<circle cx="120" cy="523" r="14" fill="#E8622D"/>
+<text x="180" y="517" font-family="Helvetica,Arial,sans-serif" font-size="60" font-weight="700" fill="#16130E">Oct 28</text>
+<text x="180" y="575" font-family="Helvetica,Arial,sans-serif" font-size="46" fill="#6E675C">OpenAI and Microsoft sign</text>
+<text x="180" y="631" font-family="Helvetica,Arial,sans-serif" font-size="46" fill="#6E675C">their next chapter</text>
+</svg>

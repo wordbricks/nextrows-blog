@@ -139,7 +139,7 @@ export default function BlogClient({ posts, initialCategory }: BlogClientProps) 
                     {post.excerpt}
                   </p>
                   <p className="text-xs text-stone-500 dark:text-stone-500">
-                    <DateFormatter dateString={post.date} />
+                    <DateFormatter dateString={post.date} monthOnly={post.period === "month"} />
                   </p>
                 </div>
               </Link>

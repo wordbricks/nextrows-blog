@@ -10,7 +10,7 @@ export async function GET() {
 
   const sortedPosts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
-  const updated = new Date(sortedPosts[0]?.date || new Date()).toISOString()
+  const updated = new Date(sortedPosts[0] ? (sortedPosts[0].publishedAt ?? sortedPosts[0].date) : new Date()).toISOString()
   const year = new Date().getFullYear()
 
   const atom = `<?xml version="1.0" encoding="utf-8"?>
@@ -36,8 +36,8 @@ export async function GET() {
     <title><![CDATA[${post.title}]]></title>
     <link rel="alternate" href="${postUrl}"/>
     <id>${postUrl}</id>
-    <published>${new Date(post.date).toISOString()}</published>
-    <updated>${new Date(post.date).toISOString()}</updated>
+    <published>${new Date(post.publishedAt ?? post.date).toISOString()}</published>
+    <updated>${new Date(post.publishedAt ?? post.date).toISOString()}</updated>
     <category term="${category}"/>
     <summary type="html"><![CDATA[${post.excerpt}]]></summary>
     <content type="html"><![CDATA[
