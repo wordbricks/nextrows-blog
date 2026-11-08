@@ -136,13 +136,23 @@ const FeaturedCarousel = memo(({ posts }: FeaturedCarouselProps) => {
                     >
                       <div className="flex flex-col md:flex-row h-full">
                         {/* Image Section */}
-                        <div className="relative bg-stone-100 dark:bg-stone-800 h-32 md:h-full md:w-1/2">
+                        <div className="relative overflow-hidden bg-stone-100 dark:bg-stone-800 h-32 md:h-full md:w-1/2">
+                          {/* Blurred backdrop fills the fixed-aspect box so any cover fits without cropping its content */}
+                          <div aria-hidden="true" className="absolute inset-0">
+                            <BlogImage
+                              src={post.coverImage}
+                              alt=""
+                              fallbackText={post.title.substring(0, 20)}
+                              fill
+                              className="object-cover object-center scale-110 blur-2xl brightness-95"
+                            />
+                          </div>
                           <BlogImage
                             src={post.coverImage}
                             alt={`${post.title} - NextRows blog post about ${getCategoryLabel(post.category)}`}
                             fallbackText={post.title.substring(0, 20)}
                             fill
-                            className="object-cover object-center"
+                            className="object-contain object-center"
                             priority={isActive}
                           />
                         </div>
