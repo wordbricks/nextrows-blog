@@ -15,7 +15,7 @@ export async function GET() {
 
   const atom = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>NextRows Blog - Data Processing & Web Scraping Insights</title>
+  <title>NextRows Blog - Data Processing &amp; Web Scraping Insights</title>
   <subtitle>Learn web scraping, data cleaning, and automation techniques with NextRows. Tutorials, guides, and insights to transform your data processing workflow.</subtitle>
   <id>${baseUrl}/</id>
   <updated>${updated}</updated>
